@@ -1,13 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supprimer mon compte — FlowNova</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: #f5f6f8;
+      color: #1a1d23;
+      line-height: 1.7;
+      padding: 0;
+    }
+    .header {
+      background: linear-gradient(135deg, #D14343 0%, #A32F2F 100%);
+      color: #fff;
+      padding: 48px 24px;
+      text-align: center;
+    }
+    .header h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+    .header p { font-size: 14px; opacity: 0.85; }
+    .container { max-width: 720px; margin: 0 auto; padding: 32px 24px 64px; }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      margin-bottom: 24px;
+    }
+    .card-warning {
+      border-left: 4px solid #D14343;
+      background: #FDEDED;
+    }
+    h2 { font-size: 20px; font-weight: 700; margin-bottom: 16px; color: #D14343; }
+    h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; margin-top: 24px; color: #1a1d23; }
+    p { margin-bottom: 16px; color: #5f6672; font-size: 15px; }
+    ul { margin: 12px 0 16px 20px; }
+    li { margin-bottom: 8px; color: #5f6672; font-size: 15px; }
+    strong { color: #1a1d23; }
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 16px;
+      background: #f9fafb;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+    .step-number {
+      background: #3B4CCA;
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .step-content { flex: 1; }
+    .step-content p { margin-bottom: 0; }
+    .btn {
+      display: inline-block;
+      background: #D14343;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .btn:hover { background: #A32F2F; }
+    .footer {
+      text-align: center;
+      padding: 32px 24px;
+      color: #8B919D;
+      font-size: 13px;
+    }
+    .footer a { color: #3B4CCA; text-decoration: none; font-weight: 600; }
+    @media (max-width: 600px) {
+      .header { padding: 32px 16px; }
+      .header h1 { font-size: 22px; }
+      .card { padding: 20px; }
+      .step { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
-    <p>This is a simple paragraph.</p>
-    <p>Are you sure you want to delete your account?</p>
+  <div class="header">
+    <h1>📋 FlowNova</h1>
+    <p>Supprimer mon compte</p>
+  </div>
+
+  <div class="container">
+    <div class="card card-warning">
+      <h2>⚠️ Action irréversible</h2>
+      <p>La suppression de votre compte est <strong>définitive et irréversible</strong>. Toutes vos données seront supprimées de manière permanente :</p>
+      <ul>
+        <li>👤 Votre profil et identifiants de connexion</li>
+        <li>📇 Tous vos contacts CRM</li>
+        <li>📝 Toutes vos notes</li>
+        <li>🔔 Toutes vos relances planifiées</li>
+        <li>🏷️ Tous vos tags</li>
+        <li>💳 Toutes vos cartes de fidélité</li>
+        <li>📋 Tous vos filtres sauvegardés</li>
+        <li>📊 Votre historique d'activité</li>
+      </ul>
+      <p>Cette action ne peut pas être annulée. Si vous souhaitez simplement faire une pause, vous pouvez vous déconnecter sans supprimer votre compte.</p>
+    </div>
+
+    <div class="card">
+      <h2>Méthode 1 : Depuis l'application (recommandé)</h2>
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <p><strong>Ouvrez l'application FlowNova</strong> et connectez-vous à votre compte.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <p>Allez dans l'onglet <strong>Réglages</strong> (icône ⚙️ en bas à droite).</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <p>Scrollez jusqu'à la section <strong>Vie privée</strong>.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <p>Touchez <strong>« Supprimer mon compte »</strong>.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <p><strong>Confirmez</strong> votre choix dans la boîte de dialogue.</p>
+        </div>
+      </div>
+
+      <p style="margin-top: 16px;">Votre compte et toutes vos données seront immédiatement supprimés. Vous serez déconnecté automatiquement.</p>
+    </div>
+
+    <div class="card">
+      <h2>Méthode 2 : Par email</h2>
+      <p>Si vous ne pouvez pas accéder à l'application, vous pouvez demander la suppression de votre compte par email.</p>
+      <p>Envoyez un email à <a href="mailto:contact@votre-domaine.com?subject=Demande%20de%20suppression%20de%20compte&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20supprimer%20d%C3%A9finitivement%20mon%20compte%20FlowNova   .%0D%0A%0D%0AMon%20adresse%20email%20de%20connexion%20:%20[votre%20email]%0D%0A%0D%0ACordialement">contact@votre-domaine.com</a> depuis l'adresse email associée à votre compte, avec :</p>
+      <ul>
+        <li>L'objet : <strong>« Demande de suppression de compte »</strong></li>
+        <li>Votre adresse email de connexion</li>
+      </ul>
+      <p>Nous traiterons votre demande sous <strong>30 jours maximum</strong> (conformément au RGPD).
+    </div>
+
+    <div class="card card-warning">
+      <h2>📦 Exportez vos données avant de supprimer</h2>
+      <p>Avant de supprimer votre compte, nous vous recommandons d'exporter vos données :</p>
+      <ul>
+        <li>📄 <strong>Export CSV</strong> de tous vos contacts : disponible dans l'application (Contacts → Export CSV)</li>
+        <li>📂 <strong>Vos données personnelles</strong> : disponible dans Réglages → Exporter mes données</li>
+      </ul>
+      <p>Une fois le compte supprimé, ces données ne seront plus récupérables.</p>
+    </div>
+
+    <div class="card" style="text-align: center;">
+      <h2>Questions ?</h2>
+      <p>Si vous avez des questions concernant la suppression de votre compte, contactez-nous :</p>
+      <p>
+        <a href="mailto:contact@votre-domaine.com" class="btn">Nous contacter</a>
+      </p>
+      <p style="margin-top: 12px;">
+        Email : <a href="mailto:contact@votre-domaine.com">contact@votre-domaine.com</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p><a href="privacy.html">Politique de confidentialité</a> · <a href="terms.html">Conditions d'utilisation</a></p>
+    <p>© 2026 FlowNova — <a href="https://crmclient.app">crmclient.app</a></p>
+  </div>
 </body>
 </html>
