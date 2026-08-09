@@ -4,157 +4,520 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Conditions d'utilisation — FlowNova</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <style>
+    :root {
+      --bg: #F8FAFC;
+      --surface: #FFFFFF;
+      --border: #E2E8F0;
+      --text: #0F172A;
+      --muted: #64748B;
+      --primary: #4F46E5;
+      --primary-dark: #4338CA;
+      --primary-soft: #EEF2FF;
+      --danger: #DC2626;
+      --danger-soft: #FEF2F2;
+      --success: #059669;
+      --success-soft: #ECFDF5;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 1px 3px rgba(15,23,42,.06), 0 1px 2px rgba(15,23,42,.04);
+      --shadow-lg: 0 20px 40px -12px rgba(15,23,42,.12);
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      background: #f5f6f8;
-      color: #1a1d23;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.7;
-      padding: 0;
+      -webkit-font-smoothing: antialiased;
     }
-    .header {
-      background: linear-gradient(135deg, #3B4CCA 0%, #2D3A9E 100%);
-      color: #fff;
-      padding: 48px 24px;
-      text-align: center;
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ===== Header ===== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.85);
+      backdrop-filter: saturate(180%) blur(16px);
+      -webkit-backdrop-filter: saturate(180%) blur(16px);
+      border-bottom: 1px solid var(--border);
     }
-    .header h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
-    .header p { font-size: 14px; opacity: 0.85; }
-    .container { max-width: 720px; margin: 0 auto; padding: 32px 24px 64px; }
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 32px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: -0.3px;
+      color: var(--text);
+    }
+    .brand:hover { text-decoration: none; }
+    .brand img { width: 30px; height: 30px; border-radius: 8px; }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: background .15s, color .15s;
+    }
+    .nav-links a:hover { background: var(--primary-soft); color: var(--primary); text-decoration: none; }
+    .nav-links a.active { color: var(--primary); background: var(--primary-soft); }
+
+    /* ===== Hero ===== */
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 56px 24px 40px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    .badge svg { width: 13px; height: 13px; }
+    .hero h1 {
+      font-size: clamp(30px, 4.5vw, 44px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .hero p.lead {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 640px;
       margin-bottom: 24px;
     }
-    h2 { font-size: 20px; font-weight: 700; margin-bottom: 16px; color: #3B4CCA; }
-    h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; margin-top: 24px; color: #1a1d23; }
-    p { margin-bottom: 16px; color: #5f6672; font-size: 15px; }
-    ul { margin: 12px 0 16px 20px; }
-    li { margin-bottom: 8px; color: #5f6672; font-size: 15px; }
-    strong { color: #1a1d23; }
-    .footer {
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      box-shadow: var(--shadow);
+    }
+    .meta-item svg { width: 14px; height: 14px; color: var(--primary); }
+    .meta-item strong { color: var(--text); font-weight: 700; }
+
+    /* ===== Layout ===== */
+    .layout {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 40px;
+      align-items: start;
+    }
+    .sidebar {
+      position: sticky;
+      top: 96px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+      max-height: calc(100vh - 120px);
+      overflow: auto;
+    }
+    .sidebar-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      color: var(--muted);
+      margin-bottom: 14px;
+      padding: 0 12px;
+    }
+    .sidebar a {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 13.5px;
+      font-weight: 500;
+      padding: 7px 12px;
+      border-radius: 8px;
+      transition: background .15s, color .15s;
+    }
+    .sidebar a:hover { background: var(--primary-soft); color: var(--primary); text-decoration: none; }
+    .sidebar a .num { font-size: 11px; font-weight: 700; color: var(--primary); opacity: .7; }
+
+    /* ===== Cards & sections ===== */
+    .content { min-width: 0; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px;
+      margin-bottom: 20px;
+      scroll-margin-top: 96px;
+    }
+    .card:last-child { margin-bottom: 0; }
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .section-num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 800;
+    }
+    .section-head h2 { font-size: 20px; font-weight: 800; letter-spacing: -0.3px; color: var(--text); }
+    .card p { color: var(--muted); margin-bottom: 14px; font-size: 15px; }
+    .card p:last-child { margin-bottom: 0; }
+    .card strong { color: var(--text); font-weight: 700; }
+    .card ul { list-style: none; margin: 0 0 14px; }
+    .card li {
+      position: relative;
+      padding: 8px 0 8px 26px;
+      color: var(--muted);
+      font-size: 15px;
+      border-bottom: 1px solid #F1F5F9;
+    }
+    .card li:last-child { border-bottom: none; }
+    .card li::before {
+      content: "";
+      position: absolute;
+      left: 3px;
+      top: 17px;
+      width: 7px;
+      height: 7px;
+      border-radius: 2px;
+      background: var(--primary);
+      opacity: .55;
+    }
+    .card li strong { color: var(--text); }
+    .notice {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: var(--primary-soft);
+      border: 1px solid #E0E7FF;
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      margin-top: 4px;
+    }
+    .notice svg { width: 18px; height: 18px; color: var(--primary); flex-shrink: 0; margin-top: 2px; }
+    .notice p { color: #4338CA; margin: 0; font-size: 14px; }
+    .contact-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      margin-top: 4px;
+    }
+    .contact-box p { margin: 0; }
+    .pricing {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 4px 0 14px;
+    }
+    .pricing-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+    }
+    .pricing-card.free { background: var(--bg); }
+    .pricing-card.pro {
+      background: var(--primary-soft);
+      border-color: #C7D2FE;
+    }
+    .pricing-card h3 {
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .pricing-card.pro h3 { color: var(--primary); }
+    .pricing-card p { font-size: 13px; margin: 0; color: var(--muted); }
+
+    /* ===== Footer ===== */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 44px 24px 32px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 32px;
+    }
+    .footer-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 16px; margin-bottom: 10px; }
+    .footer-brand img { width: 26px; height: 26px; border-radius: 7px; }
+    .footer-inner p { color: var(--muted); font-size: 13.5px; margin-bottom: 8px; }
+    .footer-col h4 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .footer-col a {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      padding: 4px 0;
+    }
+    .footer-col a:hover { color: var(--primary); }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
       text-align: center;
-      padding: 32px 24px;
-      color: #8B919D;
+      padding: 18px 24px;
+      color: var(--muted);
       font-size: 13px;
     }
-    .footer a { color: #3B4CCA; text-decoration: none; font-weight: 600; }
-    @media (max-width: 600px) {
-      .header { padding: 32px 16px; }
-      .header h1 { font-size: 22px; }
-      .card { padding: 20px; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 880px) {
+      .layout { grid-template-columns: 1fr; gap: 24px; }
+      .sidebar {
+        position: static;
+        max-height: none;
+        display: none;
+      }
+      .hero { padding: 40px 24px 28px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .nav-links a { padding: 8px 10px; font-size: 13px; }
+      .card { padding: 24px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+      .pricing { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <h1>📋 FlowNova</h1>
-    <p>Conditions d'utilisation</p>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <img src="splash-icon.png" alt="FlowNova">
+        FlowNova
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Confidentialité</a>
+        <a href="terms.html" class="active">Conditions</a>
+        <a href="delete-account.html">Compte</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <span class="badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Document légal
+    </span>
+    <h1>Conditions d'utilisation</h1>
+    <p class="lead">Les règles qui encadrent l'utilisation de FlowNova, votre application de gestion de relation client.</p>
+    <div class="meta">
+      <span class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Dernière mise à jour : <strong>21 juin 2026</strong>
+      </span>
+      <span class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Applicable à l'application FlowNova
+      </span>
+    </div>
+  </section>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <p class="sidebar-title">Sommaire</p>
+      <a href="#s1"><span class="num">01</span> Description du service</a>
+      <a href="#s2"><span class="num">02</span> Compte utilisateur</a>
+      <a href="#s3"><span class="num">03</span> Plans d'abonnement</a>
+      <a href="#s4"><span class="num">04</span> Utilisation acceptable</a>
+      <a href="#s5"><span class="num">05</span> Propriété intellectuelle</a>
+      <a href="#s6"><span class="num">06</span> Données utilisateur</a>
+      <a href="#s7"><span class="num">07</span> Limitation de responsabilité</a>
+      <a href="#s8"><span class="num">08</span> Résiliation</a>
+      <a href="#s9"><span class="num">09</span> Modifications</a>
+      <a href="#s10"><span class="num">10</span> Contact</a>
+    </aside>
+
+    <main class="content">
+      <div class="card">
+        <p>En utilisant l'application <strong>FlowNova</strong> (« l'Application »), vous acceptez les présentes conditions d'utilisation. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser l'Application.</p>
+      </div>
+
+      <div class="card" id="s1">
+        <div class="section-head"><div class="section-num">1</div><h2>Description du service</h2></div>
+        <p>FlowNova est une application de gestion de relation client (CRM) permettant aux utilisateurs de :</p>
+        <ul>
+          <li>Gérer leurs <strong>contacts et prospects</strong></li>
+          <li>Planifier et suivre des <strong>relances</strong></li>
+          <li>Visualiser un <strong>pipeline commercial</strong> (Kanban)</li>
+          <li>Créer des <strong>programmes de fidélité</strong></li>
+          <li>Organiser des <strong>tirages au sort</strong></li>
+          <li>Consulter des <strong>statistiques et indicateurs</strong></li>
+        </ul>
+      </div>
+
+      <div class="card" id="s2">
+        <div class="section-head"><div class="section-num">2</div><h2>Compte utilisateur</h2></div>
+        <ul>
+          <li>Vous devez fournir une <strong>adresse email valide</strong> pour créer un compte</li>
+          <li>Vous êtes <strong>responsable de la confidentialité</strong> de vos identifiants de connexion</li>
+          <li>Vous devez être âgé d'au moins <strong>16 ans</strong> ou avoir l'autorisation de vos parents</li>
+          <li><strong>Un seul compte</strong> par personne est autorisé</li>
+        </ul>
+      </div>
+
+      <div class="card" id="s3">
+        <div class="section-head"><div class="section-num">3</div><h2>Plans d'abonnement</h2></div>
+        <p>L'Application propose deux plans :</p>
+        <div class="pricing">
+          <div class="pricing-card free">
+            <h3>Plan Free</h3>
+            <p>Gratuit, avec des limites de fonctionnalités (contacts, notes, tags, etc.)</p>
+          </div>
+          <div class="pricing-card pro">
+            <h3>Plan Pro</h3>
+            <p>Payant, avec toutes les fonctionnalités débloquées et des limites repoussées</p>
+          </div>
+        </div>
+        <p>Les limites et fonctionnalités de chaque plan sont affichées dans l'Application et peuvent être modifiées à tout moment.</p>
+      </div>
+
+      <div class="card" id="s4">
+        <div class="section-head"><div class="section-num">4</div><h2>Utilisation acceptable</h2></div>
+        <p>Vous vous engagez à ne pas :</p>
+        <ul>
+          <li>Utiliser l'Application pour stocker des contenus <strong>illégaux, diffamatoires ou frauduleux</strong></li>
+          <li>Tenter d'<strong>accéder aux comptes</strong> d'autres utilisateurs</li>
+          <li><strong>Contourner les mesures de sécurité</strong> ou de limitation de l'Application</li>
+          <li>Utiliser l'Application pour envoyer des messages non sollicités (<strong>spam</strong>)</li>
+          <li>Revendre ou redistribuer l'<strong>accès à l'Application</strong> sans autorisation</li>
+        </ul>
+      </div>
+
+      <div class="card" id="s5">
+        <div class="section-head"><div class="section-num">5</div><h2>Propriété intellectuelle</h2></div>
+        <p>L'Application, son code source, son design, ses logos et son nom sont la propriété exclusive de <strong>Benjamin Gesland</strong>. Vous ne pouvez pas reproduire, modifier, distribuer ou créer des œuvres dérivées sans autorisation écrite préalable.</p>
+      </div>
+
+      <div class="card" id="s6">
+        <div class="section-head"><div class="section-num">6</div><h2>Données utilisateur</h2></div>
+        <p>Les données que vous saisissez dans l'Application <strong>vous appartiennent</strong>. Nous nous engageons à :</p>
+        <ul>
+          <li>Ne <strong>pas les revendre</strong> à des tiers</li>
+          <li>Ne <strong>pas les partager</strong> avec d'autres utilisateurs</li>
+          <li>Les <strong>supprimer définitivement</strong> sur demande (suppression de compte)</li>
+          <li>Les <strong>héberger de manière sécurisée</strong> dans l'Union Européenne</li>
+        </ul>
+        <div class="notice">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <p>Voir notre <a href="index.html"><strong>Politique de confidentialité</strong></a> pour plus de détails.</p>
+        </div>
+      </div>
+
+      <div class="card" id="s7">
+        <div class="section-head"><div class="section-num">7</div><h2>Limitation de responsabilité</h2></div>
+        <p>L'Application est fournie <em>« en l'état »</em>, sans garantie expresse ou implicite. Nous ne pouvons être tenus responsables :</p>
+        <ul>
+          <li>Des <strong>dommages directs ou indirects</strong> résultant de l'utilisation de l'Application</li>
+          <li>De la <strong>perte de données</strong> (il vous appartient d'exporter régulièrement vos contacts)</li>
+          <li>Des <strong>interruptions de service</strong> temporaires pour maintenance</li>
+        </ul>
+      </div>
+
+      <div class="card" id="s8">
+        <div class="section-head"><div class="section-num">8</div><h2>Résiliation</h2></div>
+        <p>Vous pouvez résilier votre compte à tout moment via l'option <strong>« Supprimer mon compte »</strong> dans les Paramètres de l'Application. Nous nous réservons le droit de suspendre ou supprimer un compte en cas de <strong>violation des présentes conditions</strong>.</p>
+        <div class="notice">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <p><a href="delete-account.html"><strong>Comment supprimer mon compte ?</strong></a> Voir la procédure détaillée.</p>
+        </div>
+      </div>
+
+      <div class="card" id="s9">
+        <div class="section-head"><div class="section-num">9</div><h2>Modifications des conditions</h2></div>
+        <p>Nous nous réservons le droit de modifier ces conditions à tout moment. Les utilisateurs seront informés de tout changement majeur par email. L'utilisation continue de l'Application après modification vaut <strong>acceptation des nouvelles conditions</strong>.</p>
+      </div>
+
+      <div class="card" id="s10">
+        <div class="section-head"><div class="section-num">10</div><h2>Contact</h2></div>
+        <p>Pour toute question relative à ces conditions d'utilisation :</p>
+        <div class="contact-box">
+          <p>Email : <a href="mailto:contact@crmclient.app"><strong>contact@crmclient.app</strong></a></p>
+        </div>
+      </div>
+    </main>
   </div>
 
-  <div class="container">
-    <div class="card">
-      <p><strong>Dernière mise à jour :</strong> 21 juin 2026</p>
-      <p>En utilisant l'application FlowNova ("l'Application"), vous acceptez les présentes conditions d'utilisation. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser l'Application.</p>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">
+          <img src="splash-icon.png" alt="FlowNova">
+          FlowNova
+        </div>
+        <p>L'application de gestion de relation client qui simplifie vos relances, votre pipeline commercial et vos programmes de fidélité.</p>
+        <p><a href="https://crmclient.app">crmclient.app</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Légal</h4>
+        <a href="index.html">Politique de confidentialité</a>
+        <a href="terms.html">Conditions d'utilisation</a>
+        <a href="delete-account.html">Supprimer mon compte</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:contact@crmclient.app">contact@crmclient.app</a>
+        <a href="https://crmclient.app">crmclient.app</a>
+        <a href="https://apps.apple.com" rel="noopener">Disponible sur l'App Store</a>
+      </div>
     </div>
-
-    <div class="card">
-      <h2>1. Description du service</h2>
-      <p>FlowNova est une application de gestion de relation client (CRM) permettant aux utilisateurs de :</p>
-      <ul>
-        <li>Gérer leurs contacts et prospects</li>
-        <li>Planifier et suivre des relances</li>
-        <li>Visualiser un pipeline commercial (Kanban)</li>
-        <li>Créer des programmes de fidélité</li>
-        <li>Organiser des tirages au sort</li>
-        <li>Consulter des statistiques et indicateurs</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>2. Compte utilisateur</h2>
-      <ul>
-        <li>Vous devez fournir une adresse email valide pour créer un compte</li>
-        <li>Vous êtes responsable de la confidentialité de vos identifiants de connexion</li>
-        <li>Vous devez être âgé d'au moins 16 ans ou avoir l'autorisation de vos parents</li>
-        <li>Un seul compte par personne est autorisé</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>3. Plans d'abonnement</h2>
-      <p>L'Application propose deux plans :</p>
-      <ul>
-        <li><strong>Plan Free :</strong> Gratuit, avec des limites de fonctionnalités (contacts, notes, tags, etc.)</li>
-        <li><strong>Plan Pro :</strong> Payant, avec toutes les fonctionnalités débloquées et des limites repoussées</li>
-      </ul>
-      <p>Les limites et fonctionnalités de chaque plan sont affichées dans l'Application et peuvent être modifiées à tout moment.</p>
-    </div>
-
-    <div class="card">
-      <h2>4. Utilisation acceptable</h2>
-      <p>Vous vous engagez à ne pas :</p>
-      <ul>
-        <li>Utiliser l'Application pour stocker des contenus illégaux, diffamatoires ou frauduleux</li>
-        <li>Tenter d'accéder aux comptes d'autres utilisateurs</li>
-        <li>Contourner les mesures de sécurité ou de limitation de l'Application</li>
-        <li>Utiliser l'Application pour envoyer des messages non sollicités (spam)</li>
-        <li>Revendre ou redistribuer l'accès à l'Application sans autorisation</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>5. Propriété intellectuelle</h2>
-      <p>L'Application, son code source, son design, ses logos et son nom sont la propriété exclusive de Benjamin Gesland. Vous ne pouvez pas reproduire, modifier, distribuer ou créer des œuvres dérivées sans autorisation écrite préalable.</p>
-    </div>
-
-    <div class="card">
-      <h2>6. Données utilisateur</h2>
-      <p>Les données que vous saisissez dans l'Application vous appartiennent. Nous nous engageons à :</p>
-      <ul>
-        <li>Ne pas les revendre à des tiers</li>
-        <li>Ne pas les partager avec d'autres utilisateurs</li>
-        <li>Les supprimer définitivement sur demande (suppression de compte)</li>
-        <li>Les héberger de manière sécurisée dans l'Union Européenne</li>
-      </ul>
-      <p>Voir notre <a href="privacy.html">Politique de confidentialité</a> pour plus de détails.</p>
-    </div>
-
-    <div class="card">
-      <h2>7. Limitation de responsabilité</h2>
-      <p>L'Application est fournie "en l'état", sans garantie expresse ou implicite. Nous ne pouvons être tenus responsables :</p>
-      <ul>
-        <li>Des dommages directs ou indirects résultant de l'utilisation de l'Application</li>
-        <li>De la perte de données (il vous appartient d'exporter régulièrement vos contacts)</li>
-        <li>Des interruptions de service temporaires pour maintenance</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>8. Résiliation</h2>
-      <p>Vous pouvez résilier votre compte à tout moment via l'option "Supprimer mon compte" dans les Paramètres de l'Application. Nous nous réservons le droit de suspendre ou supprimer un compte en cas de violation des présentes conditions.</p>
-    </div>
-
-    <div class="card">
-      <h2>9. Modifications des conditions</h2>
-      <p>Nous nous réservons le droit de modifier ces conditions à tout moment. Les utilisateurs seront informés de tout changement majeur par email. L'utilisation continue de l'Application après modification vaut acceptation des nouvelles conditions.</p>
-    </div>
-
-    <div class="card">
-      <h2>10. Contact</h2>
-      <p>
-        Pour toute question relative à ces conditions d'utilisation :<br>
-        Email : <a href="mailto:contact@votre-domaine.com">contact@votre-domaine.com</a>
-      </p>
-    </div>
-  </div>
-
-  <div class="footer">
-    <p><a href="privacy.html">Politique de confidentialité</a> · <a href="delete-account.html">Supprimer mon compte</a></p>
-    <p>© 2026 FlowNova — <a href="https://crmclient.app">crmclient.app</a></p>
-  </div>
+    <div class="footer-bottom">© 2026 FlowNova — Tous droits réservés</div>
+  </footer>
 </body>
 </html>

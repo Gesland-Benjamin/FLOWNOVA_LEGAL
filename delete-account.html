@@ -4,191 +4,541 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Supprimer mon compte — FlowNova</title>
+  <link rel="icon" type="image/svg+xml" href="splash-icon.png">
   <style>
+    :root {
+      --bg: #F8FAFC;
+      --surface: #FFFFFF;
+      --border: #E2E8F0;
+      --text: #0F172A;
+      --muted: #64748B;
+      --primary: #4F46E5;
+      --primary-dark: #4338CA;
+      --primary-soft: #EEF2FF;
+      --danger: #DC2626;
+      --danger-dark: #B91C1C;
+      --danger-soft: #FEF2F2;
+      --success: #059669;
+      --success-soft: #ECFDF5;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 1px 3px rgba(15,23,42,.06), 0 1px 2px rgba(15,23,42,.04);
+      --shadow-lg: 0 20px 40px -12px rgba(15,23,42,.12);
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      background: #f5f6f8;
-      color: #1a1d23;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.7;
-      padding: 0;
+      -webkit-font-smoothing: antialiased;
     }
-    .header {
-      background: linear-gradient(135deg, #D14343 0%, #A32F2F 100%);
-      color: #fff;
-      padding: 48px 24px;
-      text-align: center;
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ===== Header ===== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.85);
+      backdrop-filter: saturate(180%) blur(16px);
+      -webkit-backdrop-filter: saturate(180%) blur(16px);
+      border-bottom: 1px solid var(--border);
     }
-    .header h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
-    .header p { font-size: 14px; opacity: 0.85; }
-    .container { max-width: 720px; margin: 0 auto; padding: 32px 24px 64px; }
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 32px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: -0.3px;
+      color: var(--text);
+    }
+    .brand:hover { text-decoration: none; }
+    .brand img { width: 30px; height: 30px; border-radius: 8px; }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: background .15s, color .15s;
+    }
+    .nav-links a:hover { background: var(--primary-soft); color: var(--primary); text-decoration: none; }
+    .nav-links a.active { color: var(--primary); background: var(--primary-soft); }
+
+    /* ===== Hero ===== */
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 56px 24px 40px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--danger-soft);
+      color: var(--danger);
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    .badge svg { width: 13px; height: 13px; }
+    .hero h1 {
+      font-size: clamp(30px, 4.5vw, 44px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .hero p.lead {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 640px;
       margin-bottom: 24px;
     }
-    .card-warning {
-      border-left: 4px solid #D14343;
-      background: #FDEDED;
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
-    h2 { font-size: 20px; font-weight: 700; margin-bottom: 16px; color: #D14343; }
-    h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; margin-top: 24px; color: #1a1d23; }
-    p { margin-bottom: 16px; color: #5f6672; font-size: 15px; }
-    ul { margin: 12px 0 16px 20px; }
-    li { margin-bottom: 8px; color: #5f6672; font-size: 15px; }
-    strong { color: #1a1d23; }
+    .meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      box-shadow: var(--shadow);
+    }
+    .meta-item svg { width: 14px; height: 14px; color: var(--danger); }
+    .meta-item strong { color: var(--text); font-weight: 700; }
+
+    /* ===== Layout ===== */
+    .layout {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 40px;
+      align-items: start;
+    }
+    .sidebar {
+      position: sticky;
+      top: 96px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+      max-height: calc(100vh - 120px);
+      overflow: auto;
+    }
+    .sidebar-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      color: var(--muted);
+      margin-bottom: 14px;
+      padding: 0 12px;
+    }
+    .sidebar a {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 13.5px;
+      font-weight: 500;
+      padding: 7px 12px;
+      border-radius: 8px;
+      transition: background .15s, color .15s;
+    }
+    .sidebar a:hover { background: var(--danger-soft); color: var(--danger); text-decoration: none; }
+    .sidebar a .num { font-size: 11px; font-weight: 700; color: var(--danger); opacity: .7; }
+
+    /* ===== Cards & sections ===== */
+    .content { min-width: 0; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px;
+      margin-bottom: 20px;
+      scroll-margin-top: 96px;
+    }
+    .card:last-child { margin-bottom: 0; }
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .section-num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--danger-soft);
+      color: var(--danger);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 800;
+    }
+    .section-head h2 { font-size: 20px; font-weight: 800; letter-spacing: -0.3px; color: var(--text); }
+    .card p { color: var(--muted); margin-bottom: 14px; font-size: 15px; }
+    .card p:last-child { margin-bottom: 0; }
+    .card strong { color: var(--text); font-weight: 700; }
+    .card ul { list-style: none; margin: 0 0 14px; }
+    .card li {
+      position: relative;
+      padding: 8px 0 8px 26px;
+      color: var(--muted);
+      font-size: 15px;
+      border-bottom: 1px solid #F1F5F9;
+    }
+    .card li:last-child { border-bottom: none; }
+    .card li::before {
+      content: "";
+      position: absolute;
+      left: 3px;
+      top: 17px;
+      width: 7px;
+      height: 7px;
+      border-radius: 2px;
+      background: var(--danger);
+      opacity: .55;
+    }
+    .card li strong { color: var(--text); }
+
+    /* ===== Warning alert ===== */
+    .callout {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: var(--danger-soft);
+      border: 1px solid #FECACA;
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      margin-bottom: 20px;
+    }
+    .callout svg { width: 22px; height: 22px; color: var(--danger); flex-shrink: 0; margin-top: 2px; }
+    .callout h3 { font-size: 17px; font-weight: 800; color: var(--danger-dark); margin-bottom: 8px; }
+    .callout p, .callout li { color: var(--danger-dark); }
+    .callout p { margin-bottom: 10px; font-size: 14.5px; }
+    .callout ul { list-style: none; margin: 0; }
+    .callout li {
+      color: var(--danger-dark);
+      border-bottom: 1px solid #FECACA;
+    }
+    .callout li:last-child { border-bottom: none; }
+
+    /* ===== Steps ===== */
+    .steps { display: grid; gap: 12px; margin-bottom: 16px; }
     .step {
       display: flex;
       gap: 16px;
       align-items: flex-start;
-      padding: 16px;
-      background: #f9fafb;
-      border-radius: 12px;
-      margin-bottom: 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      transition: border-color .15s, box-shadow .15s;
     }
+    .step:hover { border-color: #C7D2FE; box-shadow: var(--shadow); }
     .step-number {
-      background: #3B4CCA;
-      color: #fff;
+      flex-shrink: 0;
       width: 32px;
       height: 32px;
       border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 800;
       font-size: 14px;
-      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(79,70,229,.3);
     }
-    .step-content { flex: 1; }
-    .step-content p { margin-bottom: 0; }
+    .step-content { flex: 1; min-width: 0; }
+    .step-content p { margin: 0; color: var(--muted); font-size: 14.5px; }
+    .step-content strong { color: var(--text); }
+
+    /* ===== Email button ===== */
     .btn {
-      display: inline-block;
-      background: #D14343;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--danger);
       color: #fff;
-      padding: 14px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
+      padding: 12px 22px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 14.5px;
+      transition: background .15s, transform .1s;
+      box-shadow: 0 2px 8px rgba(220,38,38,.28);
     }
-    .btn:hover { background: #A32F2F; }
-    .footer {
+    .btn:hover { background: var(--danger-dark); text-decoration: none; transform: translateY(-1px); }
+    .btn svg { width: 16px; height: 16px; }
+    .contact-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      margin-top: 4px;
+    }
+    .contact-box p { margin: 0; }
+
+    /* ===== Footer ===== */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 44px 24px 32px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 32px;
+    }
+    .footer-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 16px; margin-bottom: 10px; }
+    .footer-brand img { width: 26px; height: 26px; border-radius: 7px; }
+    .footer-inner p { color: var(--muted); font-size: 13.5px; margin-bottom: 8px; }
+    .footer-col h4 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .footer-col a {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      padding: 4px 0;
+    }
+    .footer-col a:hover { color: var(--primary); }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
       text-align: center;
-      padding: 32px 24px;
-      color: #8B919D;
+      padding: 18px 24px;
+      color: var(--muted);
       font-size: 13px;
     }
-    .footer a { color: #3B4CCA; text-decoration: none; font-weight: 600; }
-    @media (max-width: 600px) {
-      .header { padding: 32px 16px; }
-      .header h1 { font-size: 22px; }
-      .card { padding: 20px; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 880px) {
+      .layout { grid-template-columns: 1fr; gap: 24px; }
+      .sidebar {
+        position: static;
+        max-height: none;
+        display: none;
+      }
+      .hero { padding: 40px 24px 28px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .nav-links a { padding: 8px 10px; font-size: 13px; }
+      .card { padding: 24px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
       .step { flex-direction: column; }
+      .callout { flex-direction: column; gap: 10px; }
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <h1>📋 FlowNova</h1>
-    <p>Supprimer mon compte</p>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <img src="splash-icon.png" alt="FlowNova">
+        FlowNova
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Confidentialité</a>
+        <a href="terms.html">Conditions</a>
+        <a href="delete-account.html" class="active">Compte</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <span class="badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+      Action irréversible
+    </span>
+    <h1>Supprimer mon compte</h1>
+    <p class="lead">La procédure complète pour supprimer définitivement votre compte FlowNova et toutes vos données.</p>
+    <div class="meta">
+      <span class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Suppression définitive sous <strong>30 jours</strong>
+      </span>
+      <span class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Conforme RGPD
+      </span>
+    </div>
+  </section>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <p class="sidebar-title">Sommaire</p>
+      <a href="#important"><span class="num">!</span> Avant de supprimer</a>
+      <a href="#app"><span class="num">01</span> Depuis l'application</a>
+      <a href="#email"><span class="num">02</span> Par email</a>
+      <a href="#export"><span class="num">03</span> Exporter vos données</a>
+      <a href="#contact"><span class="num">04</span> Questions ?</a>
+    </aside>
+
+    <main class="content">
+      <div class="callout" id="important">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div>
+          <h3>Action irréversible</h3>
+          <p>La suppression de votre compte est <strong>définitive et irréversible</strong>. Toutes vos données seront supprimées de manière permanente :</p>
+          <ul>
+            <li>👤 Votre profil et identifiants de connexion</li>
+            <li>📇 Tous vos contacts CRM</li>
+            <li>📝 Toutes vos notes</li>
+            <li>🔔 Toutes vos relances planifiées</li>
+            <li>🏷️ Tous vos tags et filtres sauvegardés</li>
+            <li>💳 Toutes vos cartes de fidélité</li>
+            <li>📊 Votre historique d'activité</li>
+          </ul>
+          <p style="margin-top: 12px; margin-bottom: 0;">Si vous souhaitez simplement faire une pause, vous pouvez vous <strong>déconnecter</strong> sans supprimer votre compte.</p>
+        </div>
+      </div>
+
+      <div class="card" id="app">
+        <div class="section-head"><div class="section-num">1</div><h2>Méthode 1 : Depuis l'application</h2></div>
+        <p style="font-weight: 600; color: var(--text); margin-bottom: 16px;">Recommandé — la suppression est immédiate.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <p><strong>Ouvrez l'application FlowNova</strong> et connectez-vous à votre compte.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <p>Allez dans l'onglet <strong>Réglages</strong> (icône ⚙️ en bas à droite).</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <p>Scrollez jusqu'à la section <strong>Vie privée</strong>.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <p>Touchez <strong>« Supprimer mon compte »</strong>.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <p><strong>Confirmez</strong> votre choix dans la boîte de dialogue.</p>
+            </div>
+          </div>
+        </div>
+        <p>Votre compte et toutes vos données seront <strong>immédiatement supprimés</strong>. Vous serez déconnecté automatiquement.</p>
+      </div>
+
+      <div class="card" id="email">
+        <div class="section-head"><div class="section-num">2</div><h2>Méthode 2 : Par email</h2></div>
+        <p>Si vous ne pouvez pas accéder à l'application, vous pouvez demander la suppression de votre compte par email. Envoyez votre demande depuis <strong>l'adresse email associée à votre compte</strong> :</p>
+        <ul>
+          <li>Objet : <strong>« Demande de suppression de compte »</strong></li>
+          <li>Contenu : votre <strong>adresse email de connexion</strong></li>
+        </ul>
+        <p style="margin: 16px 0 0;">
+          <a class="btn" href="mailto:contact@crmclient.app?subject=Demande%20de%20suppression%20de%20compte&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20supprimer%20d%C3%A9finitivement%20mon%20compte%20FlowNova.%0D%0A%0D%0AMon%20adresse%20email%20de%20connexion%20:%20[votre%20email]%0D%0A%0D%0ACordialement">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+            Demander la suppression par email
+          </a>
+        </p>
+        <p style="margin-top: 16px;">Nous traiterons votre demande sous <strong>30 jours maximum</strong>, conformément au RGPD.</p>
+      </div>
+
+      <div class="card" id="export">
+        <div class="section-head"><div class="section-num">3</div><h2>Exporter vos données avant de supprimer</h2></div>
+        <p>Avant de supprimer votre compte, nous vous recommandons fortement d'exporter vos données :</p>
+        <ul>
+          <li><strong>Export CSV de vos contacts</strong> — disponible dans l'application (Contacts → Export CSV)</li>
+          <li><strong>Vos données personnelles</strong> — disponibles dans Réglages → Exporter mes données</li>
+        </ul>
+        <p>Une fois le compte supprimé, <strong>ces données ne seront plus récupérables</strong>.</p>
+      </div>
+
+      <div class="card" id="contact" style="text-align: center;">
+        <div class="section-head" style="justify-content: center; text-align: left;"><div class="section-num">4</div><h2>Questions ?</h2></div>
+        <p>Si vous avez des questions concernant la suppression de votre compte, contactez-nous :</p>
+        <p style="margin: 16px 0 0;">
+          <a class="btn" href="mailto:contact@crmclient.app">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Nous contacter
+          </a>
+        </p>
+        <div class="contact-box" style="margin-top: 20px; text-align: left;">
+          <p>Email : <a href="mailto:contact@crmclient.app"><strong>contact@crmclient.app</strong></a></p>
+        </div>
+      </div>
+    </main>
   </div>
 
-  <div class="container">
-    <div class="card card-warning">
-      <h2>⚠️ Action irréversible</h2>
-      <p>La suppression de votre compte est <strong>définitive et irréversible</strong>. Toutes vos données seront supprimées de manière permanente :</p>
-      <ul>
-        <li>👤 Votre profil et identifiants de connexion</li>
-        <li>📇 Tous vos contacts CRM</li>
-        <li>📝 Toutes vos notes</li>
-        <li>🔔 Toutes vos relances planifiées</li>
-        <li>🏷️ Tous vos tags</li>
-        <li>💳 Toutes vos cartes de fidélité</li>
-        <li>📋 Tous vos filtres sauvegardés</li>
-        <li>📊 Votre historique d'activité</li>
-      </ul>
-      <p>Cette action ne peut pas être annulée. Si vous souhaitez simplement faire une pause, vous pouvez vous déconnecter sans supprimer votre compte.</p>
-    </div>
-
-    <div class="card">
-      <h2>Méthode 1 : Depuis l'application (recommandé)</h2>
-
-      <div class="step">
-        <div class="step-number">1</div>
-        <div class="step-content">
-          <p><strong>Ouvrez l'application FlowNova</strong> et connectez-vous à votre compte.</p>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">
+          <img src="splash-icon.png" alt="FlowNova">
+          FlowNova
         </div>
+        <p>L'application de gestion de relation client qui simplifie vos relances, votre pipeline commercial et vos programmes de fidélité.</p>
+        <p><a href="https://crmclient.app">crmclient.app</a></p>
       </div>
-
-      <div class="step">
-        <div class="step-number">2</div>
-        <div class="step-content">
-          <p>Allez dans l'onglet <strong>Réglages</strong> (icône ⚙️ en bas à droite).</p>
-        </div>
+      <div class="footer-col">
+        <h4>Légal</h4>
+        <a href="index.html">Politique de confidentialité</a>
+        <a href="terms.html">Conditions d'utilisation</a>
+        <a href="delete-account.html">Supprimer mon compte</a>
       </div>
-
-      <div class="step">
-        <div class="step-number">3</div>
-        <div class="step-content">
-          <p>Scrollez jusqu'à la section <strong>Vie privée</strong>.</p>
-        </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:contact@crmclient.app">contact@crmclient.app</a>
+        <a href="https://crmclient.app">crmclient.app</a>
+        <a href="https://apps.apple.com" rel="noopener">Disponible sur l'App Store</a>
       </div>
-
-      <div class="step">
-        <div class="step-number">4</div>
-        <div class="step-content">
-          <p>Touchez <strong>« Supprimer mon compte »</strong>.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-number">5</div>
-        <div class="step-content">
-          <p><strong>Confirmez</strong> votre choix dans la boîte de dialogue.</p>
-        </div>
-      </div>
-
-      <p style="margin-top: 16px;">Votre compte et toutes vos données seront immédiatement supprimés. Vous serez déconnecté automatiquement.</p>
     </div>
-
-    <div class="card">
-      <h2>Méthode 2 : Par email</h2>
-      <p>Si vous ne pouvez pas accéder à l'application, vous pouvez demander la suppression de votre compte par email.</p>
-      <p>Envoyez un email à <a href="mailto:contact@votre-domaine.com?subject=Demande%20de%20suppression%20de%20compte&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20supprimer%20d%C3%A9finitivement%20mon%20compte%20FlowNova   .%0D%0A%0D%0AMon%20adresse%20email%20de%20connexion%20:%20[votre%20email]%0D%0A%0D%0ACordialement">contact@votre-domaine.com</a> depuis l'adresse email associée à votre compte, avec :</p>
-      <ul>
-        <li>L'objet : <strong>« Demande de suppression de compte »</strong></li>
-        <li>Votre adresse email de connexion</li>
-      </ul>
-      <p>Nous traiterons votre demande sous <strong>30 jours maximum</strong> (conformément au RGPD).
-    </div>
-
-    <div class="card card-warning">
-      <h2>📦 Exportez vos données avant de supprimer</h2>
-      <p>Avant de supprimer votre compte, nous vous recommandons d'exporter vos données :</p>
-      <ul>
-        <li>📄 <strong>Export CSV</strong> de tous vos contacts : disponible dans l'application (Contacts → Export CSV)</li>
-        <li>📂 <strong>Vos données personnelles</strong> : disponible dans Réglages → Exporter mes données</li>
-      </ul>
-      <p>Une fois le compte supprimé, ces données ne seront plus récupérables.</p>
-    </div>
-
-    <div class="card" style="text-align: center;">
-      <h2>Questions ?</h2>
-      <p>Si vous avez des questions concernant la suppression de votre compte, contactez-nous :</p>
-      <p>
-        <a href="mailto:contact@votre-domaine.com" class="btn">Nous contacter</a>
-      </p>
-      <p style="margin-top: 12px;">
-        Email : <a href="mailto:contact@votre-domaine.com">contact@votre-domaine.com</a>
-      </p>
-    </div>
-  </div>
-
-  <div class="footer">
-    <p><a href="privacy.html">Politique de confidentialité</a> · <a href="terms.html">Conditions d'utilisation</a></p>
-    <p>© 2026 FlowNova — <a href="https://crmclient.app">crmclient.app</a></p>
-  </div>
+    <div class="footer-bottom">© 2026 FlowNova — Tous droits réservés</div>
+  </footer>
 </body>
 </html>
