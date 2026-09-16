@@ -2,1153 +2,733 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FlowNova — Ne laissez plus jamais une relance filer</title>
-  <meta name="description" content="FlowNova, le CRM mobile pour indépendants et commerçants : relances programmées à l'heure choisie, pipeline Kanban, cartes de fidélité, widget iOS. Application iOS, lancement prochainement sur l’App Store. FR/EN/ES.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FlowNova — Vos relations. Votre succès.</title>
+  <meta name="description" content="Contacts, relances, calendrier et fidélité : découvrez FlowNova, le CRM mobile des indépendants et commerçants. Lancement prochainement sur iOS.">
+  <meta name="theme-color" content="#6950ff">
   <link rel="icon" type="image/png" href="splash-icon.png">
   <style>
-    :root {
-      --bg: #F8FAFC;
-      --surface: #FFFFFF;
-      --border: #E2E8F0;
-      --text: #0F172A;
-      --muted: #64748B;
-      --primary: #4F46E5;
-      --primary-dark: #4338CA;
-      --primary-soft: #EEF2FF;
-      --primary-border: #C7D2FE;
-      --danger: #DC2626;
-      --danger-soft: #FEF2F2;
-      --success: #059669;
-      --success-soft: #ECFDF5;
-      --amber: #D97706;
-      --amber-soft: #FFFBEB;
-      --radius: 16px;
-      --radius-sm: 10px;
-      --shadow: 0 1px 3px rgba(15,23,42,.06), 0 1px 2px rgba(15,23,42,.04);
-      --shadow-lg: 0 20px 40px -12px rgba(15,23,42,.14);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+:root{--ink:#10112f;--muted:#5f617b;--violet:#7443ff;--blue:#4d65ff;--line:#e9e8f4;--gradient:linear-gradient(110deg,#853fff,#505bff 65%,#638bff);--max:1200px}
 
-    /* ===== Header ===== */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255,255,255,.88);
-      backdrop-filter: saturate(180%) blur(16px);
-      -webkit-backdrop-filter: saturate(180%) blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      font-size: 17px;
-      letter-spacing: -0.3px;
-      color: var(--text);
-    }
-    .brand:hover { text-decoration: none; }
-    .brand img { width: 30px; height: 30px; border-radius: 8px; }
-    .nav-links { display: flex; align-items: center; gap: 4px; }
-    .nav-links a {
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 600;
-      padding: 8px 14px;
-      border-radius: 8px;
-      transition: background .15s, color .15s;
-    }
-    .nav-links a:hover { background: var(--primary-soft); color: var(--primary); text-decoration: none; }
-    .nav-links a.active { color: var(--primary); background: var(--primary-soft); }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{margin:0;color:var(--ink);background:#fff;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,summary{font:inherit}
+button,a,summary{-webkit-tap-highlight-color:transparent}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #824aff;outline-offset:5px}
+img{display:block;max-width:100%;height:auto}
+button{cursor:pointer}
+.icon{width:24px;height:24px;flex-shrink:0}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{line-height:1.12;letter-spacing:-.045em}
+h2{font-size:clamp(32px,3.4vw,46px)}
+h3{font-size:20px;letter-spacing:-.025em}
+p{color:var(--muted)}
+.wrap{width:min(var(--max),calc(100% - 72px));margin-inline:auto}
+.gradient{color:#684bff;background:var(--gradient);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.eyebrow{display:block;color:#5d4aae;font-size:12px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;margin-bottom:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:54px;padding:14px 24px;border-radius:16px;background:var(--gradient);color:white;font-weight:600;font-size:14px;box-shadow:0 9px 25px #6853ff23;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 13px 30px #6853ff36}
+.btn .icon:last-child{width:19px;margin-left:8px}
+.btn .icon:first-child{width:25px}
+.btn-outline{background:white;color:#5241be;border:1px solid #dfdaf7;box-shadow:none}
+.text-link{display:inline-flex;align-items:center;gap:9px;color:#6547ed;font-weight:600;font-size:14px}
+.text-link:hover{text-decoration:underline}
+.skip{position:absolute;left:20px;top:-100px;z-index:100;background:white;padding:12px}
+.skip:focus{top:12px}
 
-    /* ===== Hero ===== */
-    .hero {
-      position: relative;
-      background: var(--primary-soft);
-      border-bottom: 1px solid var(--primary-border);
-      overflow: hidden;
-    }
-    .hero-deco {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .hero-deco.d1 { width: 420px; height: 420px; background: rgba(79,70,229,.07); top: -160px; right: -120px; }
-    .hero-deco.d2 { width: 260px; height: 260px; background: rgba(79,70,229,.06); bottom: -110px; left: -70px; }
-    .hero-deco.d3 { width: 90px; height: 90px; background: rgba(5,150,105,.10); top: 60px; left: 8%; }
-    .hero-deco.d4 { width: 46px; height: 46px; background: rgba(217,119,6,.14); bottom: 40px; right: 30%; }
-    .hero-inner {
-      position: relative;
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 72px 24px 96px;
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 56px;
-      align-items: center;
-    }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: var(--surface);
-      color: var(--primary);
-      font-size: 12.5px;
-      font-weight: 700;
-      letter-spacing: .4px;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--primary-border);
-      box-shadow: var(--shadow);
-      margin-bottom: 22px;
-    }
-    .badge svg { width: 13px; height: 13px; }
-    .hero h1 {
-      font-size: clamp(32px, 5vw, 50px);
-      font-weight: 800;
-      letter-spacing: -1.5px;
-      line-height: 1.12;
-      margin-bottom: 18px;
-    }
-    .hero h1 em {
-      font-style: normal;
-      color: var(--primary);
-      position: relative;
-      white-space: nowrap;
-    }
-    .hero h1 em::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 2px;
-      height: 10px;
-      background: rgba(79,70,229,.14);
-      border-radius: 3px;
-      z-index: -1;
-    }
-    .hero p.lead {
-      color: var(--muted);
-      font-size: 17.5px;
-      max-width: 560px;
-      margin-bottom: 30px;
-    }
-    .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 26px; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 13px 24px;
-      border-radius: var(--radius-sm);
-      font-weight: 700;
-      font-size: 15px;
-      transition: background .15s, box-shadow .15s, transform .1s;
-      border: none;
-      cursor: pointer;
-    }
-    .btn svg { width: 17px; height: 17px; }
-    .btn-primary {
-      background: var(--primary);
-      color: #fff;
-      box-shadow: 0 4px 14px rgba(79,70,229,.32);
-    }
-    .btn-primary:hover { background: var(--primary-dark); text-decoration: none; transform: translateY(-1px); }
-    .btn-ghost {
-      background: var(--surface);
-      color: var(--text);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-    .btn-ghost:hover { border-color: var(--primary-border); color: var(--primary); text-decoration: none; transform: translateY(-1px); }
-    .hero-proof { display: flex; flex-wrap: wrap; gap: 10px; }
-    .proof-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 7px 14px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--muted);
-      box-shadow: var(--shadow);
-    }
-    .proof-chip svg { width: 14px; height: 14px; color: var(--primary); }
+.site-header{height:90px;position:relative;z-index:20}
+.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.brand{display:inline-flex;align-items:center;gap:10px;font-size:27px;font-weight:800;letter-spacing:-1.1px;white-space:nowrap}
+.brand img{width:42px;height:42px;border-radius:10px;mix-blend-mode:multiply}
+.nav-links{display:flex;gap:29px;font-size:13px;font-weight:500}
+.nav-links a:hover{color:var(--violet)}
+.nav .btn{min-height:45px;padding:10px 18px;border-radius:13px;font-size:12px}
+.menu-toggle{display:none;background:white;border:1px solid var(--line);border-radius:10px;width:42px;height:42px;font-size:22px}
 
-    /* ===== Hero visual (app mockup) ===== */
-    .hero-app {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .hero-app img {
-      width: 100%;
-      max-width: 560px;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: var(--shadow-lg), 0 40px 80px -30px rgba(79,70,229,.35);
-      object-fit: contain;
-    }
+.hero-shell{position:relative;background:radial-gradient(ellipse at 94% 30%,#e1f1ff 0,transparent 49%),radial-gradient(ellipse at 6% 80%,#f0e7ff 0,transparent 45%),#fff;isolation:isolate}
+.hero-shell:after{content:"";position:absolute;inset:20% 0 0;z-index:-1;background:linear-gradient(150deg,transparent 55%,#ffffffb8 55.2%,#ffffffb8 61%,transparent 61.2%)}
+.hero{display:grid;grid-template-columns:1fr 1.06fr;gap:15px;align-items:center;padding-top:26px;padding-bottom:36px;min-height:730px}
+.hero-copy{position:relative;z-index:3;padding-bottom:35px}
+.hero h1{font-size:clamp(48px,5.15vw,70px);font-weight:800;letter-spacing:-.055em;line-height:1.02;margin-bottom:24px}
+.hero h1 .gradient{display:block}
+.hero .intro{max-width:445px;font-size:16px;color:#454564;line-height:1.65}
+.hero-checks{list-style:none;padding:0;margin:26px 0 29px;display:grid;gap:12px;color:#41415f;font-size:14px}
+.hero-checks li{display:flex;align-items:center;gap:13px}
+.tick{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--gradient);color:white;box-shadow:0 3px 9px #6951ff20;flex-shrink:0}
+.tick .icon{width:16px;height:16px}
+.hero-cta .btn{border-radius:40px;padding-inline:25px}
+.hero-cta small{display:block;margin:11px 0 0 9px;color:var(--muted);font-size:11px}
+.hero-art{height:655px;position:relative;min-width:0}
+.hero-art:before{content:"";position:absolute;width:90%;aspect-ratio:1;border-radius:50%;background:linear-gradient(130deg,#dbeeff88,#e4d8ff77);top:65px;left:25px;filter:blur(18px)}
+.device{background:#111218;padding:7px;border-radius:35px;border:2px solid #8e909b;box-shadow:0 0 0 2px #d9dae0,0 24px 34px -18px #16153677;overflow:hidden;position:relative;isolation:isolate}
+.device img{width:100%;height:auto;border-radius:26px}
+.hero-phone{position:absolute;width:246px;left:10px;top:97px;z-index:2;transform:rotate(-4deg)}
+.hero-tablet{position:absolute;width:376px;right:-10px;top:17px;border-radius:29px;padding:13px;transform:rotate(5deg)}
+.hero-tablet img{border-radius:17px;aspect-ratio:2048/2732;width:100%;height:auto}
+.scribble{font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive;font-size:20px;line-height:1.25;font-style:italic;color:#6450ed;position:absolute;z-index:4;transform:rotate(-8deg)}
+.scribble.top{top:10px;left:-10px}
+.scribble.bottom{bottom:23px;right:5px;transform:rotate(-10deg)}
+.drawn-arrow{display:block;width:48px;height:63px;fill:none;stroke:currentColor;stroke-width:1.7;overflow:visible}
+.scribble.top .drawn-arrow{margin:8px 0 0 32px;transform:rotate(-6deg)}
+.scribble.bottom .drawn-arrow{position:absolute;right:-12px;bottom:70px;transform:rotate(180deg)}
+.art-dot{position:absolute;width:46px;height:46px;border-radius:50%;background:#ffebd7;right:131px;bottom:60px}
+.visual-note{text-align:center;font-size:10px;color:#76758e;position:absolute;bottom:0;left:20px;right:20px}
 
-    /* ===== Facts band ===== */
-    .facts-band { background: var(--text); color: #fff; }
-    .facts-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 44px 24px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-    }
-    .fact { text-align: center; }
-    .fact .fic {
-      width: 44px; height: 44px;
-      margin: 0 auto 12px;
-      border-radius: 12px;
-      background: rgba(255,255,255,.08);
-      color: #A5B4FC;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .fact .fic svg { width: 20px; height: 20px; }
-    .fact .num { font-size: 19px; font-weight: 800; letter-spacing: -.4px; color: #fff; margin-bottom: 2px; }
-    .fact .lbl { font-size: 13px; color: #CBD5E1; font-weight: 500; }
+.benefits{display:grid;grid-template-columns:repeat(5,1fr);gap:26px;text-align:center;padding:33px 0 52px}
+.round-icon{width:58px;height:58px;display:grid;place-items:center;border-radius:50%;margin:0 auto 15px;background:#eee7ff;color:#7346f9}
+.round-icon .icon{width:28px;height:28px;stroke-width:2.2}
+.orange{background:#fff0e2;color:#f89131}
+.green{background:#e0faf0;color:#1eaf83}
+.blue{background:#e6f0ff;color:#3776ff}
+.pink{background:#ffe7ef;color:#ed598c}
+.benefits h3{font-size:15px;letter-spacing:-.03em;margin-bottom:9px}
+.benefits p{font-size:12px;line-height:1.55;max-width:150px;margin:auto}
 
-    /* ===== Sections ===== */
-    .section {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 88px 24px 0;
-    }
-    .section-head { text-align: center; max-width: 680px; margin: 0 auto 52px; }
-    .section-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      color: var(--primary);
-      font-size: 12.5px;
-      font-weight: 700;
-      letter-spacing: .6px;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-    .section-eyebrow svg { width: 15px; height: 15px; }
-    .section-head h2 { font-size: clamp(26px, 3.5vw, 38px); font-weight: 800; letter-spacing: -1px; line-height: 1.2; margin-bottom: 14px; }
-    .section-head p { color: var(--muted); font-size: 16.5px; }
+.overview{background:radial-gradient(ellipse at 60% 20%,#eaf5ff,transparent 70%),#f7f8ff;border:1px solid #f1f2fb;border-radius:30px;display:grid;grid-template-columns:1fr 1.1fr .64fr;gap:30px;align-items:center;padding:44px 36px 25px;min-height:475px;overflow:hidden}
+.overview h2{font-size:36px;margin-bottom:24px}
+.overview-copy p{font-size:14px;margin-bottom:28px}
+.overview .btn{font-size:12px;padding:12px 18px;min-height:47px;border-radius:28px}
+.mini-devices{display:flex;gap:20px;align-items:flex-start;padding:0 5px}
+.mini-devices figure{margin:0;width:50%;min-width:0}
+.mini-devices .device{border-radius:25px;padding:4px}
+.mini-devices .device img{border-radius:18px}
+.mini-devices figure:first-child{transform:rotate(-4deg)}
+.mini-devices figure:last-child{transform:rotate(3deg);padding-top:10px}
+.mini-devices figcaption{text-align:center;font-size:10px;color:var(--muted);line-height:1.6;padding-top:15px}
+.mini-devices figcaption strong{font-size:12px;display:block;color:var(--ink)}
+.quote{padding-left:5px}
+.quote p{font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive;font-size:21px;font-style:italic;line-height:1.6;color:#6650cd;transform:rotate(-7deg);margin-bottom:35px}
+.quote .brand{font-size:23px}
+.quote .brand img{width:34px;height:34px}
 
-    /* ===== Story ===== */
-    .story {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: var(--shadow-lg);
-      overflow: hidden;
-      margin-bottom: 16px;
-    }
-    .story-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      padding: 32px 40px 0;
-    }
-    .story-person { display: flex; align-items: center; gap: 16px; }
-    .story-avatar {
-      width: 62px;
-      height: 62px;
-      border-radius: 16px;
-      background: var(--primary);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      font-weight: 800;
-      box-shadow: 0 6px 16px rgba(79,70,229,.32);
-      flex-shrink: 0;
-    }
-    .story-person .name { font-size: 17px; font-weight: 800; }
-    .story-person .role { font-size: 13.5px; color: var(--muted); }
-    .story-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: var(--success-soft);
-      color: var(--success);
-      font-size: 13px;
-      font-weight: 700;
-      padding: 7px 14px;
-      border-radius: 999px;
-    }
-    .story-pill svg { width: 14px; height: 14px; }
-    .story-quote {
-      padding: 24px 40px 8px;
-      font-size: 17px;
-      color: var(--muted);
-      font-weight: 500;
-    }
-    .story-quote strong { color: var(--text); }
-    .story-steps { display: grid; grid-template-columns: repeat(4, 1fr); padding: 16px 40px 40px; gap: 14px; }
-    .story-step {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-      position: relative;
-    }
-    .story-step .step-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: var(--primary-soft);
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 12px;
-    }
-    .story-step .step-icon svg { width: 17px; height: 17px; }
-    .story-step .step-num {
-      position: absolute;
-      top: 14px;
-      right: 16px;
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--primary);
-      opacity: .4;
-    }
-    .story-step .step-title { font-size: 14.5px; font-weight: 800; margin-bottom: 4px; }
-    .story-step .step-desc { font-size: 13px; color: var(--muted); }
-    .story-step .step-desc strong { color: var(--text); }
+.section{padding-top:90px;padding-bottom:10px}
+.section-heading{text-align:center;max-width:660px;margin:0 auto 38px}
+.section-heading p{margin-top:16px;font-size:15px}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feature{padding:28px;border:1px solid var(--line);border-radius:22px;background:#fff;transition:transform .2s,border-color .2s}
+.feature:hover{transform:translateY(-4px);border-color:#cabaf9}
+.feature .round-icon{margin:0 0 18px;width:43px;height:43px;border-radius:14px}
+.feature .round-icon .icon{width:23px;height:23px}
+.feature h3{font-size:17px;margin-bottom:10px}
+.feature p{font-size:13px}
+.feature-tag{display:block;color:#6c52c8;font-size:11px;margin-top:20px;font-weight:600}
+.why{margin-top:70px;padding:32px 26px 25px;border-radius:30px;background:linear-gradient(110deg,#f0edff,#f7f1ff)}
+.why-head{display:flex;align-items:center;justify-content:space-between;gap:30px;margin:0 8px 25px}
+.why h2{font-size:30px}
+.why-head p{font-size:12px;max-width:320px}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.why-card{background:#ffffffc9;padding:24px 20px;border-radius:22px}
+.why-card .round-icon{width:35px;height:35px;margin:0 0 15px}
+.why-card .round-icon .icon{width:21px;height:21px}
+.why-card h3{font-size:14px;letter-spacing:-.02em;margin-bottom:10px}
+.why-card p{font-size:12px}
 
-    /* ===== Features ===== */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-bottom: 88px;
-    }
-    .feature-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: var(--shadow);
-      transition: transform .15s, box-shadow .15s, border-color .15s;
-      position: relative;
-      overflow: hidden;
-    }
-    .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary-border); }
-    .feature-card .icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 13px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
-    }
-    .feature-card .icon svg { width: 22px; height: 22px; }
-    .icon-primary { background: var(--primary-soft); color: var(--primary); }
-    .icon-success { background: var(--success-soft); color: var(--success); }
-    .icon-amber { background: var(--amber-soft); color: var(--amber); }
-    .icon-danger { background: var(--danger-soft); color: var(--danger); }
-    .feature-card h3 { font-size: 17px; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 8px; }
-    .feature-card .desc { font-size: 14px; color: var(--muted); margin-bottom: 14px; }
-    .feature-card .benefit {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12.5px;
-      font-weight: 700;
-      color: var(--success);
-      background: var(--success-soft);
-      padding: 4px 10px;
-      border-radius: 999px;
-    }
-    .feature-card .benefit svg { width: 12px; height: 12px; }
+.plans{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:890px;margin:auto}
+.plan{padding:34px;border:1px solid var(--line);border-radius:26px;background:#fff;position:relative;display:flex;flex-direction:column}
+.plan.pro{border:1px solid #d2c6ff;background:linear-gradient(140deg,#f9f6ff,#f7faff)}
+.plan-title{font-size:16px;font-weight:700;color:#544876;margin-bottom:10px}
+.plan h3{font-size:38px;margin-bottom:12px}
+.plan h3 span{font-size:13px;font-weight:400;letter-spacing:0;color:var(--muted)}
+.plan>p{font-size:13px;min-height:44px}
+.plan-label{position:absolute;right:25px;top:29px;font-size:10px;letter-spacing:.04em;color:#7052ce;background:#eae1ff;border-radius:20px;padding:5px 12px}
+.plan ul{list-style:none;padding:23px 0 5px;margin:0 0 20px;font-size:13px;flex:1}
+.plan li{position:relative;padding:7px 0 7px 23px;color:#4e4b66}
+.plan li:before{content:"✓";position:absolute;left:0;color:#7852e7;font-weight:700}
+.plan .btn{width:100%;box-shadow:none}
+.plan-note{max-width:810px;margin:23px auto 0;text-align:center;font-size:11px;line-height:1.7}
+.plan-note a{text-decoration:underline}
+.faq-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:90px;padding:85px 0}
+.faq-copy p{margin:20px 0;font-size:14px}
+.faq-list details{border-bottom:1px solid var(--line);padding:19px 0}
+.faq-list details:first-child{border-top:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:25px;font-size:14px;font-weight:600}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font-size:23px;color:#7654f3;font-weight:400}
+details[open] summary:after{content:"−"}
+.faq-list details p{font-size:13px;margin-top:13px;max-width:490px}
+.faq-list details a{color:#6945de;text-decoration:underline}
 
-    /* ===== Widget iOS band ===== */
-    .widget-band {
-      background: var(--primary-soft);
-      border-top: 1px solid var(--primary-border);
-      border-bottom: 1px solid var(--primary-border);
-    }
-    .widget-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 80px 24px;
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 56px;
-      align-items: center;
-    }
-    .widget-copy .section-eyebrow { margin-bottom: 14px; }
-    .widget-copy h2 { font-size: clamp(26px, 3.5vw, 38px); font-weight: 800; letter-spacing: -1px; line-height: 1.2; margin-bottom: 14px; }
-    .widget-copy > p { color: var(--muted); font-size: 16.5px; margin-bottom: 22px; max-width: 480px; }
-    .widget-points { list-style: none; margin-bottom: 28px; }
-    .widget-points li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 7px 0;
-      font-size: 15px;
-      color: var(--text);
-      font-weight: 500;
-    }
-    .widget-points li svg { width: 17px; height: 17px; color: var(--success); flex-shrink: 0; margin-top: 4px; }
-    .widget-stage { display: flex; gap: 20px; justify-content: center; align-items: stretch; flex-wrap: wrap; }
-    .wg {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: var(--shadow-lg);
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-    }
-    .wg-small { width: 180px; min-height: 180px; }
-    .wg-medium { width: 340px; min-height: 180px; }
-    .wg-label {
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .8px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-    .wg-count { font-size: 40px; font-weight: 800; letter-spacing: -1.5px; color: var(--primary); line-height: 1.1; }
-    .wg-count-sub { font-size: 12px; color: var(--muted); font-weight: 600; }
-    .wg-spacer { flex: 1; }
-    .wg-mini-row { display: flex; align-items: center; gap: 8px; padding-top: 10px; border-top: 1px solid #F1F5F9; margin-top: 10px; }
-    .wg-avatar {
-      width: 26px; height: 26px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 9.5px; font-weight: 800;
-      flex-shrink: 0;
-    }
-    .wg-mini-row .nm { font-size: 12px; font-weight: 700; flex: 1; }
-    .wg-mini-row .tm { font-size: 10.5px; font-weight: 800; color: var(--primary); }
-    .wg-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 10px; }
-    .wg-head .cnt { font-size: 22px; font-weight: 800; color: var(--primary); }
-    .wg-row { display: flex; align-items: center; gap: 9px; padding: 7px 0; }
-    .wg-row + .wg-row { border-top: 1px solid #F1F5F9; }
-    .wg-row .nm { font-size: 12.5px; font-weight: 700; flex: 1; }
-    .wg-row .why { font-size: 10.5px; color: var(--muted); font-weight: 600; }
-    .wg-row .tm { font-size: 10.5px; font-weight: 800; color: var(--primary); background: var(--primary-soft); padding: 2px 8px; border-radius: 999px; }
+.launch{position:relative;overflow:hidden;text-align:center;border:1px solid #e7dfff;border-radius:30px;padding:52px 25px;background:radial-gradient(ellipse at 20% 100%,#dcd5ff,transparent 60%),linear-gradient(120deg,#f6f0ff,#edf4ff)}
+.launch:before,.launch:after{content:"";position:absolute;width:180px;height:180px;border:1px solid #d8cff5;border-radius:50%;left:-110px;top:0}
+.launch:after{left:auto;right:-110px;top:auto;bottom:-35px;width:240px;height:240px}
+.launch h2{font-size:38px}
+.launch p{max-width:560px;margin:17px auto 24px;font-size:14px}
+.launch .btn{border-radius:30px}
+.launch small{display:block;margin-top:15px;color:#6c6684;font-size:11px}
+.trust-row{display:flex;align-items:center;justify-content:center;gap:45px;padding:26px 0 45px;font-size:12px;color:#65617e}
+.trust-row span{display:flex;align-items:center;gap:10px}
+.trust-row .icon{color:#704eff;width:21px}
+.site-footer{border-top:1px solid var(--line);padding:35px 0 20px}
+.footer-main{display:flex;align-items:center;justify-content:space-between;gap:25px}
+.footer-links{display:flex;flex-wrap:wrap;gap:22px;font-size:12px;color:var(--muted)}
+.footer-links a:hover{color:#6f4bf0}
+.footer-bottom{display:flex;justify-content:space-between;gap:20px;border-top:1px solid #f0eff7;margin-top:25px;padding-top:18px;font-size:10px;color:#77748d}
+.footer-bottom a:hover{text-decoration:underline}
 
-    /* ===== Plans ===== */
-    .plans-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      max-width: 900px;
-      margin: 0 auto 20px;
-    }
-    .plan-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 36px;
-      box-shadow: var(--shadow);
-      position: relative;
-      display: flex;
-      flex-direction: column;
-    }
-    .plan-card.pro { border: 2px solid var(--primary-border); box-shadow: var(--shadow-lg); }
-    .plan-flag {
-      position: absolute;
-      top: -13px;
-      left: 32px;
-      background: var(--primary);
-      color: #fff;
-      font-size: 11.5px;
-      font-weight: 800;
-      letter-spacing: .5px;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 999px;
-      box-shadow: 0 4px 12px rgba(79,70,229,.35);
-    }
-    .plan-name { font-size: 13px; font-weight: 800; letter-spacing: .8px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
-    .plan-price { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; }
-    .plan-price .amount { font-size: 40px; font-weight: 800; letter-spacing: -1.5px; }
-    .plan-price .per { font-size: 14px; color: var(--muted); font-weight: 600; }
-    .plan-desc { font-size: 14px; color: var(--muted); margin-bottom: 22px; }
-    .plan-list { list-style: none; margin-bottom: 26px; flex: 1; }
-    .plan-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 7px 0;
-      font-size: 14.5px;
-      color: var(--text);
-      font-weight: 500;
-    }
-    .plan-list li svg { width: 16px; height: 16px; color: var(--success); flex-shrink: 0; margin-top: 4px; }
-    .plan-note { text-align: center; color: var(--muted); font-size: 13.5px; max-width: 560px; margin: 0 auto 88px; }
+@media(min-width:1500px){.hero{padding-top:45px;padding-bottom:50px}
+.hero-art{transform:scale(1.03)}
+}
 
-    /* ===== Audiences ===== */
-    .audience-band { background: var(--primary-soft); border-top: 1px solid var(--primary-border); border-bottom: 1px solid var(--primary-border); }
-    .audience-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 72px 24px;
-    }
-    .audience-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-    .audience-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 22px;
-      text-align: center;
-      transition: transform .15s, box-shadow .15s;
-    }
-    .audience-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-    .audience-card .aic {
-      width: 52px; height: 52px;
-      margin: 0 auto 12px;
-      border-radius: 14px;
-      background: var(--primary-soft);
-      color: var(--primary);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .audience-card .aic svg { width: 24px; height: 24px; }
-    .audience-card .title { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
-    .audience-card .sub { font-size: 12.5px; color: var(--muted); }
+@media(max-width:1100px){.wrap{width:calc(100% - 48px)}
+.nav-links{gap:19px}
+.hero h1{font-size:55px}
+.hero{min-height:660px}
+.hero-art{height:590px}
+.hero-tablet{width:310px;right:0;top:35px}
+.hero-phone{width:220px;top:118px;left:0}
+.scribble.top{left:2px;top:5px;font-size:17px}
+.scribble.bottom{font-size:18px;right:3px;bottom:5px}
+.visual-note{bottom:-22px}
+.overview{grid-template-columns:.9fr 1.1fr;padding:35px 28px;gap:35px}
+.quote{display:none}
+.mini-devices{max-width:410px;margin:auto}
+.why h2{font-size:27px}
+.why-card{padding:20px 16px}
+}
 
-    /* ===== CTA final ===== */
-    .final-cta { padding: 88px 24px 100px; }
-    .final-cta-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      background: var(--text);
-      border-radius: 28px;
-      padding: 60px 48px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .final-cta-deco { position: absolute; border-radius: 50%; pointer-events: none; }
-    .final-cta-deco.f1 { width: 300px; height: 300px; background: rgba(79,70,229,.35); top: -140px; right: -100px; }
-    .final-cta-deco.f2 { width: 200px; height: 200px; background: rgba(5,150,105,.25); bottom: -90px; left: -60px; }
-    .final-cta-inner h2 {
-      position: relative;
-      color: #fff;
-      font-size: clamp(26px, 3.5vw, 38px);
-      font-weight: 800;
-      letter-spacing: -1px;
-      margin-bottom: 16px;
-    }
-    .final-cta-inner p {
-      position: relative;
-      color: #CBD5E1;
-      font-size: 16px;
-      max-width: 520px;
-      margin: 0 auto 30px;
-    }
-    .final-cta-btns {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .final-cta-btns .btn-primary { background: #fff; color: var(--text); box-shadow: 0 4px 18px rgba(0,0,0,.25); }
-    .final-cta-btns .btn-primary:hover { background: #F1F5F9; }
-    .final-cta-note { position: relative; color: #94A3B8; font-size: 13px; margin-top: 18px; }
+@media(max-width:800px){.nav-links{gap:15px;font-size:11px}
+.nav>.btn{display:none}
+.brand{font-size:25px}
+.hero{grid-template-columns:1fr 1fr;gap:5px;min-height:565px;padding-top:20px}
+.hero h1{font-size:43px}
+.hero .intro{font-size:14px}
+.hero-checks{font-size:12px;gap:10px}
+.hero-art{height:510px}
+.hero-tablet{width:255px;top:25px}
+.hero-phone{width:181px;left:-10px;top:100px}
+.scribble.top{display:none}
+.scribble.bottom{font-size:17px;bottom:0}
+.hero-cta .btn{font-size:12px;padding:12px 17px;min-height:49px}
+.hero-cta .btn .icon:last-child{display:none}
+.hero-cta small{font-size:10px;margin-left:0}
+.benefits{gap:14px;padding-top:35px}
+.benefits h3{font-size:13px}
+.benefits p{font-size:11px}
+.round-icon{width:48px;height:48px}
+.overview h2{font-size:30px}
+.overview-copy p{font-size:13px}
+.overview{gap:22px}
+.mini-devices{gap:12px}
+.mini-devices .device{border-radius:20px}
+.mini-devices .device img{border-radius:13px}
+.why-head{display:block}
+.why-head p{margin-top:14px;max-width:none}
+.why-grid{grid-template-columns:repeat(2,1fr)}
+.features-grid{grid-template-columns:repeat(2,1fr)}
+.faq-layout{gap:35px}
+.trust-row{gap:22px;font-size:10px}
+.footer-main{align-items:flex-start}
+.footer-links{justify-content:flex-end;max-width:360px;gap:12px 20px}
+}
 
-    /* ===== Footer ===== */
-    .site-footer { border-top: 1px solid var(--border); background: var(--surface); }
-    .footer-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 44px 24px 32px;
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      gap: 32px;
-    }
-    .footer-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 16px; margin-bottom: 10px; }
-    .footer-brand img { width: 26px; height: 26px; border-radius: 7px; }
-    .footer-inner p { color: var(--muted); font-size: 13.5px; margin-bottom: 8px; }
-    .footer-col h4 {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .8px;
-      color: var(--text);
-      margin-bottom: 14px;
-    }
-    .footer-col a { display: block; color: var(--muted); font-size: 14px; padding: 4px 0; }
-    .footer-col a:hover { color: var(--primary); }
-    .footer-bottom { border-top: 1px solid var(--border); text-align: center; padding: 18px 24px; color: var(--muted); font-size: 13px; }
+@media(max-width:600px){html{scroll-padding-top:85px}
+.wrap{width:calc(100% - 36px)}
+.site-header{height:77px}
+.nav{flex-wrap:wrap}
+.brand{font-size:25px}
+.brand img{width:36px;height:36px}
+.menu-toggle{display:block}
+.nav-links{display:none;position:absolute;top:67px;left:18px;right:18px;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:17px;padding:20px;font-size:14px;box-shadow:0 15px 30px #25204810}
+.nav-links.open{display:flex}
+.hero{display:flex;flex-direction:column;padding-top:27px;padding-bottom:15px;gap:0}
+.hero-copy{padding-bottom:0;width:100%}
+.eyebrow{font-size:10px;margin-bottom:14px}
+.hero h1{font-size:clamp(43px,10.8vw,61px);max-width:480px;margin-bottom:20px}
+.hero .intro{font-size:14px;max-width:440px}
+.hero-checks{margin:23px 0;font-size:13px}
+.hero-cta .btn{font-size:13px;min-height:53px;padding-inline:23px}
+.hero-cta small{font-size:10px;margin:11px 0 0 5px}
+.hero-art{margin-top:28px;width:min(100%,400px);height:510px;align-self:center}
+.hero-tablet{width:260px;right:9px;top:12px}
+.hero-phone{width:184px;left:8px;top:93px}
+.scribble.bottom{right:7px;bottom:12px;font-size:17px}
+.art-dot{right:111px;bottom:46px;width:32px;height:32px}
+.visual-note{bottom:-14px;font-size:9px}
+.benefits{grid-template-columns:repeat(6,1fr);gap:27px 12px;padding:45px 0 35px}
+.benefits article{grid-column:span 2}
+.benefits article:nth-child(4){grid-column:2 / 4}
+.benefits article:nth-child(5){grid-column:4 / 6}
+.benefits p{max-width:120px}
+.overview{grid-template-columns:1fr;padding:30px 23px 24px;border-radius:24px;gap:30px}
+.overview h2{font-size:34px;max-width:310px}
+.overview-copy p{font-size:14px}
+.mini-devices{width:100%;max-width:310px;gap:22px;padding:0 8px}
+.mini-devices figcaption{font-size:10px}
+.section{padding-top:65px}
+.section-heading{margin-bottom:25px}
+.section-heading h2{font-size:32px}
+.section-heading p{font-size:13px}
+.features-grid{gap:11px}
+.feature{padding:20px 16px;border-radius:18px}
+.feature h3{font-size:15px;line-height:1.25}
+.feature p{font-size:12px}
+.feature-tag{font-size:10px;margin-top:14px}
+.why{margin-top:50px;padding:26px 17px 17px;border-radius:24px}
+.why h2{font-size:28px}
+.why-head{margin:0 5px 22px}
+.why-card{padding:20px 16px}
+.why-card h3{font-size:14px;line-height:1.25}
+.plans{grid-template-columns:1fr;gap:17px}
+.plan{padding:29px}
+.plan h3{font-size:35px}
+.plan-note{font-size:10px}
+.faq-layout{grid-template-columns:1fr;gap:20px;padding:60px 0}
+.faq-copy h2{font-size:32px}
+.faq-copy p{margin:15px 0}
+.faq-list details{padding:18px 0}
+.launch{padding:36px 22px;border-radius:24px}
+.launch h2{font-size:31px}
+.launch p{font-size:13px}
+.trust-row{flex-wrap:wrap;gap:14px 20px;padding:24px 0 35px}
+.trust-row span:last-child{flex-basis:100%;justify-content:center}
+.footer-main{flex-direction:column;align-items:center}
+.footer-links{justify-content:center;max-width:none;font-size:11px}
+.footer-bottom{flex-direction:column;gap:8px;text-align:center;font-size:10px}
+}
 
-    /* ===== Responsive ===== */
-    @media (max-width: 960px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 56px 24px 72px; }
-      .hero-app { order: -1; }
-      .facts-inner { grid-template-columns: repeat(2, 1fr); gap: 28px; }
-      .features-grid { grid-template-columns: repeat(2, 1fr); }
-      .story-steps { grid-template-columns: repeat(2, 1fr); padding: 16px 28px 28px; }
-      .story-head, .story-quote { padding-left: 28px; padding-right: 28px; }
-      .widget-inner { grid-template-columns: 1fr; gap: 44px; }
-      .plans-grid { grid-template-columns: 1fr; max-width: 520px; }
-      .audience-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 560px) {
-      .nav-links a { padding: 8px 10px; font-size: 13px; }
-      .features-grid { grid-template-columns: 1fr; }
-      .story-steps { grid-template-columns: 1fr; }
-      .audience-grid { grid-template-columns: 1fr; }
-      .facts-inner { grid-template-columns: 1fr 1fr; padding: 32px 20px; }
-      .final-cta-inner { padding: 44px 24px; }
-      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
-      .plan-card { padding: 28px 24px; }
-      .wg-medium { width: 100%; max-width: 340px; }
-    }
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+*,*:before,*:after{transition:none!important;animation:none!important}
+}
+
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav">
-      <a class="brand" href="home.html">
-        <img src="splash-icon.png" alt="FlowNova">
-        FlowNova
-      </a>
-      <div class="nav-links">
-        <a href="home.html" class="active">Accueil</a>
-        <a href="index.html">Confidentialité</a>
-        <a href="terms.html">Conditions</a>
-        <a href="delete-account.html">Compte</a>
-      </div>
-    </nav>
-  </header>
-
-  <!-- ===== HERO ===== -->
-  <section class="hero">
-    <span class="hero-deco d1"></span>
-    <span class="hero-deco d2"></span>
-    <span class="hero-deco d3"></span>
-    <span class="hero-deco d4"></span>
-    <div class="hero-inner">
-      <div>
-        <span class="badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-          Application iOS · lancement prochainement
-        </span>
-        <h1>Ne laissez plus jamais une <em>relance</em> filer.</h1>
-        <p class="lead">Contacts, relances programmées, pipeline commercial, cartes de fidélité : FlowNova réunit tout votre suivi client dans une seule application. Vous vendez — FlowNova pense aux relances, à l'heure que vous choisissez.</p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#lancement">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83zM13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            Découvrir le lancement iOS
-          </a>
-          <a class="btn btn-ghost" href="#fonctionnalites">
-            Découvrir les fonctionnalités
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
-          </a>
-        </div>
-        <div class="hero-proof">
-          <span class="proof-chip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-            iPhone · iPad
-          </span>
-          <span class="proof-chip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            Français · Anglais · Espagnol
-          </span>
-          <span class="proof-chip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            Export personnel JSON et gestion du compte
-          </span>
-        </div>
-      </div>
-
-      <div class="hero-app">
-        <img src="app-hero.png" alt="FlowNova — Application CRM sur iPhone et iPad : tableau de bord, relances du jour, pipeline Kanban" />
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FACTS ===== -->
-  <section class="facts-band">
-    <div class="facts-inner">
-      <div class="fact">
-        <div class="fic">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-        </div>
-        <div class="num">Widget iOS</div>
-        <div class="lbl">Vos relances du jour, sur votre écran d'accueil</div>
-      </div>
-      <div class="fact">
-        <div class="fic">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        </div>
-        <div class="num">3 langues</div>
-        <div class="lbl">Français, English, Español</div>
-      </div>
-      <div class="fact">
-        <div class="fic">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.61 16.95A5 5 0 0 0 18 10h-1.26a8 8 0 0 0-7.05-6M5 5a8 8 0 0 0 4 15h9a5 5 0 0 0 1.7-.3"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-        </div>
-        <div class="num">Hors ligne</div>
-        <div class="lbl">Contacts en cache consultables sans réseau</div>
-      </div>
-      <div class="fact">
-        <div class="fic">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div class="num">Vos données</div>
-        <div class="lbl">Export personnel JSON et suppression du compte</div>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- ===== FONCTIONNALITÉS ===== -->
-  <section class="section" id="fonctionnalites">
-    <div class="section-head">
-      <span class="section-eyebrow">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        Tout ce qu'il faut. Rien de superflu.
-      </span>
-      <h2>Un CRM complet, pensé pour votre poche.</h2>
-      <p>Chaque fonctionnalité de FlowNova répond à une vraie question : combien de temps vous fait-elle gagner, et combien de ventes vous fait-elle signer ?</p>
-    </div>
-
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="icon icon-primary">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h3>Contacts enrichis</h3>
-        <div class="desc">Téléphone, email, adresse, entreprise, réseaux sociaux, anniversaire. Avatar et galerie photos, montant du deal, recherche instantanée et détection automatique des doublons.</div>
-        <span class="benefit">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Import CSV selon formule · export CSV
-        </span>
-      </div>
-
-      <div class="feature-card">
-        <div class="icon icon-success">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-        </div>
-        <h3>Relances programmées</h3>
-        <div class="desc">Prochaine relance par contact, avec l'heure exacte que vous choisissez. Notifications push : relance du jour, retards, résumé du soir — et un badge sur l'icône de l'app.</div>
-        <span class="benefit">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          À l'heure que vous choisissez
-        </span>
-      </div>
-
-      <div class="feature-card">
-        <div class="icon icon-amber">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        </div>
-        <h3>Calendrier synchronisé</h3>
-        <div class="desc">Vue mensuelle avec pastilles de relances par jour. Un clic sur un jour affiche les relances, un clic sur une relance ouvre la fiche contact.</div>
-        <span class="benefit">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Relances dans le calendrier de l'appareil
-        </span>
-      </div>
-
-      <div class="feature-card">
-        <div class="icon icon-danger">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="5" height="18" rx="1"/><rect x="10" y="3" width="5" height="12" rx="1"/><rect x="17" y="3" width="5" height="15" rx="1"/></svg>
-        </div>
-        <h3>Pipeline commercial Kanban</h3>
-        <div class="desc">Colonnes personnalisables : nom, couleur, icône. Glissez-déposez vos contacts d'une colonne à l'autre — le statut se met à jour tout seul. Total du pipeline toujours visible.</div>
-        <span class="benefit">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Votre pipeline dans votre poche
-        </span>
-      </div>
-
-      <div class="feature-card">
-        <div class="icon icon-primary">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-        </div>
-        <h3>Statistiques & analyses</h3>
-        <div class="desc">Total contacts, relances du jour, taux de conversion, graphique mensuel créés vs terminés, heatmap des relances. Statistiques avancées avec le plan Pro.</div>
-        <span class="benefit">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Des décisions sur données
-        </span>
-      </div>
-
-      <div class="feature-card">
-        <div class="icon icon-success">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
-        </div>
-        <h3>Cartes de fidélité digitales</h3>
-        <div class="desc">X achats = une récompense. Progression visible, complétion célébrée, historique des achats et total dépensé par client.</div>
-        <span class="benefit">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Des outils pour fidéliser vos clients
-        </span>
-      </div>
-
-      <div class="feature-card">
-        <div class="icon icon-amber">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-        </div>
-        <h3>Notes texte & vocales</h3>
-        <div class="desc">Notes avec modèles pré-remplis, ou enregistrement micro directement dans la fiche — lecture intégrée. Tout l'historique du client, au même endroit.</div>
-        <span class="benefit">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Vos notes regroupées par contact
-        </span>
-      </div>
-
-      <div class="feature-card">
-        <div class="icon icon-danger">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        </div>
-        <h3>Tags & organisation</h3>
-        <div class="desc">Créez des tags colorés pour segmenter votre clientèle et filtrez votre liste de contacts en un geste. Vos prospects, clients et fournisseurs restent parfaitement organisés.</div>
-        <span class="benefit">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Votre base clients, clarifiée
-        </span>
-      </div>
-
-      <div class="feature-card">
-        <div class="icon icon-primary">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3z"/><path d="M20 14h1v1h-1z"/><path d="M14 20h1v1h-1z"/><path d="M18 18h3v3h-3z"/></svg>
-        </div>
-        <h3>QR codes</h3>
-        <div class="desc">Créez un QR code vers n'importe quelle URL, avec lien court personnalisable. Comptage des visites après scan, partage de l'image et copie du lien en un geste.</div>
-        <span class="benefit">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Scannez, partagez, vendez
-        </span>
-      </div>
-
-      <div class="feature-card">
-        <div class="icon icon-success">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
-        </div>
-        <h3>Tirages au sort</h3>
-        <div class="desc">Ajoutez les participants (doublons détectés), lancez l'animation, désignez plusieurs gagnants. Le résultat se partage en image — parfait pour animer votre communauté.</div>
-        <span class="benefit">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          De l'animation, sans effort
-        </span>
-      </div>
-
-      <div class="feature-card">
-        <div class="icon icon-amber">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-        </div>
-        <h3>Gamification</h3>
-        <div class="desc">Série de jours consécutifs avec record personnel, badges à débloquer (contacts créés, relances terminées…) traduits en français, anglais et espagnol.</div>
-        <span class="benefit">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Restez motivé, jour après jour
-        </span>
-      </div>
-
-      <div class="feature-card">
-        <div class="icon icon-danger">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-        </div>
-        <h3>Widget iOS « Relances du jour »</h3>
-        <div class="desc">Compteur et prochains contacts à relancer, directement sur votre écran d'accueil. Affichage selon les mises à jour du widget — un tap ouvre l'onglet Aujourd'hui.</div>
-        <span class="benefit">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Vos relances, en un coup d'œil
-        </span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== WIDGET IOS ===== -->
-  <section class="widget-band" id="widget">
-    <div class="widget-inner">
-      <div class="widget-copy">
-        <span class="section-eyebrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-          Widget iOS · exemple fictif
-        </span>
-        <h2>Vos relances du jour, sur votre écran d'accueil.</h2>
-        <p>Pas besoin d'ouvrir l'application pour savoir qui appeler aujourd'hui. Le widget FlowNova affiche votre compteur de relances et vos prochains contacts, selon les mises à jour du widget.</p>
-        <ul class="widget-points">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Actualisation à partir des relances, selon le fonctionnement du widget iOS
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Deux formats disponibles : petit et moyen
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Un tap ouvre directement l'onglet Aujourd'hui
-          </li>
-        </ul>
-        <a class="btn btn-primary" href="#lancement">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83zM13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          En savoir plus sur le lancement
-        </a>
-      </div>
-
-      <div class="widget-stage" aria-label="Exemple fictif d’affichage du widget">
-        <div class="wg wg-small">
-          <div class="wg-label">Aujourd'hui</div>
-          <div class="wg-count">6</div>
-          <div class="wg-count-sub">relances prévues</div>
-          <div class="wg-spacer"></div>
-          <div class="wg-mini-row">
-            <span class="wg-avatar av-a">MD</span>
-            <span class="nm">Marc D.</span>
-            <span class="tm">14:00</span>
-          </div>
-        </div>
-        <div class="wg wg-medium">
-          <div class="wg-head">
-            <div>
-              <div class="wg-label">Relances du jour</div>
-              <div class="cnt">6 relances · 2 en retard</div>
-            </div>
-          </div>
-          <div class="wg-row">
-            <span class="wg-avatar av-a">MD</span>
-            <span class="nm">Marc Dubois <span class="why">— devis à envoyer</span></span>
-            <span class="tm">14:00</span>
-          </div>
-          <div class="wg-row">
-            <span class="wg-avatar av-b">JL</span>
-            <span class="nm">Julie Lambert <span class="why">— suivi commande</span></span>
-            <span class="tm">16:30</span>
-          </div>
-          <div class="wg-row">
-            <span class="wg-avatar av-c">TR</span>
-            <span class="nm">Thomas Renard <span class="why">— premier contact</span></span>
-            <span class="tm">18:00</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PLANS ===== -->
-  <section class="section" id="plans">
-    <div class="section-head">
-      <span class="section-eyebrow">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        Des tarifs simples
-      </span>
-      <h2>Gratuit pour commencer. Illimité quand vous êtes prêt.</h2>
-      <p>Deux formules pour organiser votre suivi client. L'export personnel JSON et la suppression du compte sont décrits dans notre <a href="index.html">Politique de confidentialité</a>, avec leurs limites.</p>
-    </div>
-
-    <div class="plans-grid">
-      <div class="plan-card">
-        <div class="plan-name">Free</div>
-        <div class="plan-price">
-          <span class="amount">0 €</span>
-          <span class="per">pour toujours</span>
-        </div>
-        <p class="plan-desc">Pour découvrir FlowNova et suivre vos premiers clients au quotidien.</p>
-        <ul class="plan-list">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Jusqu'à 20 contacts
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            10 relances par mois
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            5 notes par contact (texte + vocales)
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            5 tags · 3 cartes de fidélité · 1 QR code
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Historique d'activité : affichage sur 30 jours
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Export CSV inclus
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Widget iOS, calendrier, gamification, mode hors ligne, 3 langues
-          </li>
-        </ul>
-        <a class="btn btn-ghost" href="terms.html#s3" style="justify-content:center;">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83zM13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          Découvrir la formule Free
-        </a>
-      </div>
-
-
-      <div class="plan-card pro">
-        <span class="plan-flag">Le plus complet</span>
-        <div class="plan-name">Pro</div>
-        <div class="plan-price">
-          <span class="amount">Illimité</span>
-        </div>
-        <p class="plan-desc">Pour les commerces et indépendants qui veulent passer à la vitesse supérieure.</p>
-        <ul class="plan-list">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Contacts, notes, tags et cartes de fidélité illimités
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Relances illimitées
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            QR codes et tirages au sort illimités
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Filtres sauvegardés illimités
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Historique d'activité illimité
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Import CSV · rapports PDF selon les fonctions proposées
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Statistiques avancées
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Rapport hebdomadaire par email lorsqu’activé
-          </li>
-        </ul>
-        <a class="btn btn-primary" href="terms.html#s3" style="justify-content:center;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          Consulter les conditions Pro
-        </a>
-      </div>
-    </div>
-    <p class="plan-note">Sur iOS, l'abonnement Pro est géré par Apple et se renouvelle automatiquement jusqu'à annulation. Le prix applicable est celui affiché par l'App Store lors de l'achat ; il peut varier selon le territoire et la devise. Consultez les <a href="terms.html#s3">conditions d'abonnement</a>. La formule Free limite l'affichage de l'historique à 30 jours, sans garantir sa suppression au-delà.</p>
-  </section>
-
-  <!-- ===== AUDIENCES ===== -->
-  <section class="audience-band">
-    <div class="audience-inner">
-      <div class="section-head" style="margin-bottom: 40px;">
-        <span class="section-eyebrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          Fait pour vous
-        </span>
-        <h2>Pensé pour les indépendants et les petits commerces.</h2>
-      </div>
-      <div class="audience-grid">
-        <div class="audience-card">
-          <div class="aic">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
-          </div>
-          <div class="title">Salons & beauté</div>
-          <div class="sub">Fidélité, relances, suivi des habitués</div>
-        </div>
-        <div class="audience-card">
-          <div class="aic">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          </div>
-          <div class="title">Commerces de proximité</div>
-          <div class="sub">Boutiques, boulangeries, cavistes…</div>
-        </div>
-        <div class="audience-card">
-          <div class="aic">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-          </div>
-          <div class="title">Artisans</div>
-          <div class="sub">Devis, chantiers, rappels de travaux</div>
-        </div>
-        <div class="audience-card">
-          <div class="aic">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-          </div>
-          <div class="title">Indépendants & consultants</div>
-          <div class="sub">Prospects, pipeline, suivi d'affaires</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CTA FINAL ===== -->
-  <section class="final-cta" id="lancement">
-    <div class="final-cta-inner">
-      <span class="final-cta-deco f1"></span>
-      <span class="final-cta-deco f2"></span>
-      <h2>Application iOS — lancement prochainement sur l'App Store</h2>
-      <p>FLOWNOVA n'est pas encore publiquement disponible sur l'App Store. Découvrez les fonctionnalités et les conditions du service en attendant le lancement iOS. Aucun lien de téléchargement public n'est encore proposé.</p>
-      <div class="final-cta-btns">
-        <a class="btn btn-primary" href="terms.html">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83zM13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          Consulter les conditions
-        </a>
-        <a class="btn btn-ghost" href="index.html" style="background:#fff;border-color:var(--border);color:var(--text);">Politique de confidentialité</a>
-      </div>
-      <p class="final-cta-note">Formule Free prévue · Français, anglais et espagnol · Réservé aux 18 ans et plus</p>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>
-        <div class="footer-brand">
-          <img src="splash-icon.png" alt="FlowNova">
-          FlowNova
-        </div>
-        <p>Le CRM mobile des indépendants et petits commerces : contacts, relances, pipeline commercial et cartes de fidélité — dans votre poche.</p>
-        <p><a href="https://gesland-benjamin.github.io/FLOWNOVA_LEGAL/">Site FLOWNOVA</a></p>
-      </div>
-      <div class="footer-col">
-        <h4>Légal</h4>
-        <a href="index.html">Politique de confidentialité</a>
-        <a href="terms.html">Conditions d'utilisation</a>
-        <a href="delete-account.html">Supprimer mon compte</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <a href="mailto:flownova.support@gmail.com">flownova.support@gmail.com</a>
-        <a href="https://gesland-benjamin.github.io/FLOWNOVA_LEGAL/">Site FLOWNOVA</a>
-        <a href="#lancement">Lancement iOS prochainement</a>
-      </div>
-    </div>
-    <div class="footer-bottom">© 2026 FLOWNOVA — Benjamin Gesland — SIRET 84527741700026<br>Service réservé aux 18 ans et plus</div>
-  </footer>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="site-header">
+<nav class="nav wrap" aria-label="Navigation principale">
+<a class="brand" href="home.html" aria-label="FlowNova, accueil">
+<img src="splash-icon.png" width="42" height="42" alt="">
+<span>FlowNova</span>
+</a>
+<button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navigation">☰</button>
+<div class="nav-links" id="navigation">
+<a href="#fonctionnalites">Fonctionnalités</a>
+<a href="#plans">Tarifs</a>
+<a href="#pourquoi">Pourquoi FlowNova ?</a>
+<a href="#faq">FAQ</a>
+</div>
+<a class="btn" href="#lancement">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path fill="currentColor" stroke="none" d="M17.1 12.6c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.2-2.7.8-3.4.8-.7 0-1.8-.8-2.9-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.7-.4 6.7 1.1 8.9.8 1.1 1.7 2.3 2.8 2.2 1.1 0 1.6-.7 2.9-.7 1.3 0 1.7.7 2.9.7s2-1.1 2.7-2.2c.9-1.3 1.2-2.5 1.2-2.5-.1 0-2.3-.9-2.3-3.5ZM14.8 6c.6-.8 1.1-1.9 1-3-.9 0-2 .6-2.7 1.4-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.5 2.7-1.3Z"/>
+</svg>Prochainement sur iOS</a>
+</nav>
+</header>
+<main id="contenu">
+<div class="hero-shell">
+<section class="hero wrap" aria-labelledby="hero-title">
+<div class="hero-copy">
+<span class="eyebrow">Vos relations. Votre succès.</span>
+<h1 id="hero-title">Ne laissez plus<br>jamais une<br>
+<span class="gradient">relance filer.</span>
+</h1>
+<p class="intro">Le CRM mobile pensé pour les indépendants et les commerçants qui veulent entretenir des relations plus humaines et développer leur activité.</p>
+<ul class="hero-checks">
+<li>
+<span class="tick">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="m5 12 4 4L19 6"/>
+</svg>
+</span>Centralisez vos contacts</li>
+<li>
+<span class="tick">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="m5 12 4 4L19 6"/>
+</svg>
+</span>Planifiez vos relances en quelques secondes</li>
+<li>
+<span class="tick">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="m5 12 4 4L19 6"/>
+</svg>
+</span>Suivez votre activité et fidélisez vos clients</li>
+</ul>
+<div class="hero-cta">
+<a class="btn" href="#lancement">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path fill="currentColor" stroke="none" d="M17.1 12.6c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.2-2.7.8-3.4.8-.7 0-1.8-.8-2.9-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.7-.4 6.7 1.1 8.9.8 1.1 1.7 2.3 2.8 2.2 1.1 0 1.6-.7 2.9-.7 1.3 0 1.7.7 2.9.7s2-1.1 2.7-2.2c.9-1.3 1.2-2.5 1.2-2.5-.1 0-2.3-.9-2.3-3.5ZM14.8 6c.6-.8 1.1-1.9 1-3-.9 0-2 .6-2.7 1.4-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.5 2.7-1.3Z"/>
+</svg>Prochainement sur l’App Store<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M5 12h14m-6-6 6 6-6 6"/>
+</svg>
+</a>
+<small>iPhone et iPad &nbsp;·&nbsp; En français, anglais et espagnol</small>
+</div>
+</div>
+<div class="hero-art">
+<div class="scribble top" aria-hidden="true">Tout votre suivi client,<br>dans votre poche.<svg class="drawn-arrow" viewBox="0 0 50 65">
+<path d="M35 2C2 15 7 45 31 57m-13-2 14 3-2-14"/>
+</svg>
+</div>
+<div class="device hero-tablet">
+<img src="capture/03_Pipeline_iPad_2048x2732.png" width="2048" height="2732" alt="Pipeline FlowNova sur iPad, avec les contacts organisés par statut" fetchpriority="high" decoding="async">
+</div>
+<div class="device hero-phone">
+<img src="capture/01_Dashboard_iPhone_1290x2796.png" alt="Tableau de bord FlowNova sur iPhone : contacts et relances du jour" width="1290" height="2796" fetchpriority="high" decoding="async">
+</div>
+<span class="art-dot" aria-hidden="true">
+</span>
+<div class="scribble bottom" aria-hidden="true">
+<svg class="drawn-arrow" viewBox="0 0 50 65">
+<path d="M35 2C2 15 7 45 31 57m-13-2 14 3-2-14"/>
+</svg>Une vue claire<br>pour avancer<br>en toute sérénité.</div>
+<p class="visual-note">Aperçus de l’application · données de démonstration</p>
+</div>
+</section>
+</div>
+<div class="wrap">
+<section class="benefits" aria-label="Les essentiels FlowNova">
+<article>
+<div class="round-icon ">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2m18 0v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+<circle cx="9" cy="7" r="4"/>
+</svg>
+</div>
+<h3>Contacts</h3>
+<p>Toutes vos relations<br>au même endroit</p>
+</article>
+<article>
+<div class="round-icon orange">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-11 12h4"/>
+</svg>
+</div>
+<h3>Relances</h3>
+<p>Gardez le fil de<br>vos opportunités</p>
+</article>
+<article>
+<div class="round-icon green">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M5 20V11m7 9V4m7 16V8"/>
+</svg>
+</div>
+<h3>Statistiques</h3>
+<p>Suivez votre<br>progression</p>
+</article>
+<article>
+<div class="round-icon blue">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<rect x="3" y="5" width="18" height="14" rx="3"/>
+<path d="M3 10h18m-13 5h4"/>
+</svg>
+</div>
+<h3>Fidélité</h3>
+<p>Récompensez<br>vos clients</p>
+</article>
+<article>
+<div class="round-icon pink">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>
+</svg>
+</div>
+<h3>Plus humain</h3>
+<p>Parce que vos clients<br>comptent vraiment</p>
+</article>
+</section>
+<section class="overview" aria-labelledby="overview-title">
+<div class="overview-copy">
+<h2 id="overview-title">Un CRM <span class="gradient">complet,<br>simple et efficace.</span>
+</h2>
+<p>Contacts, relances, pipeline, calendrier, notes, cartes de fidélité…<br>FlowNova réunit vos outils essentiels pour gérer et développer votre activité, sans vous compliquer la vie.</p>
+<a class="btn" href="#fonctionnalites">Découvrir les fonctionnalités<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M5 12h14m-6-6 6 6-6 6"/>
+</svg>
+</a>
+</div>
+<div class="mini-devices">
+<figure>
+<div class="device ">
+<img src="capture/02_Contacts_iPhone_1290x2796.png" alt="Liste des contacts FlowNova avec recherche et import/export CSV" width="1290" height="2796" loading="lazy" decoding="async">
+</div>
+<figcaption>
+<strong>Vos contacts</strong>Toujours à portée de main</figcaption>
+</figure>
+<figure>
+<div class="device ">
+<img src="capture/06_Calendrier_iPhone_1290x2796.png" alt="Calendrier des relances FlowNova sur iPhone" width="1290" height="2796" loading="lazy" decoding="async">
+</div>
+<figcaption>
+<strong>Un calendrier clair</strong>Pour organiser vos relances</figcaption>
+</figure>
+</div>
+<div class="quote">
+<p>« Entretenir ses relations aujourd’hui,<br>c’est construire ses opportunités de demain. »</p>
+<a class="brand" href="home.html" aria-label="FlowNova, accueil">
+<img src="splash-icon.png" width="42" height="42" alt="">
+<span>FlowNova</span>
+</a>
+</div>
+</section>
+<section class="why" id="pourquoi" aria-labelledby="why-title">
+<div class="why-head">
+<h2 id="why-title">Pourquoi choisir <span class="gradient">FlowNova ?</span>
+</h2>
+<p>Un outil pensé pour votre quotidien,<br>à la mesure de votre activité.</p>
+</div>
+<div class="why-grid">
+<article class="why-card">
+<div class="round-icon orange">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="m13 2-9 12h7l-1 8 10-12h-7l1-8Z"/>
+</svg>
+</div>
+<h3>Allez à l’essentiel</h3>
+<p>Une vue claire sur vos contacts et vos prochaines actions.</p>
+</article>
+<article class="why-card">
+<div class="round-icon blue">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<rect x="6" y="2" width="12" height="20" rx="3"/>
+<path d="M10 5h4m-3 14h2"/>
+</svg>
+</div>
+<h3>Gardez le fil, partout</h3>
+<p>Votre suivi client vous accompagne, directement sur votre téléphone.</p>
+</article>
+<article class="why-card">
+<div class="round-icon pink">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>
+</svg>
+</div>
+<h3>Des relations plus fortes</h3>
+<p>Des notes et des rappels pour un suivi plus personnel.</p>
+</article>
+<article class="why-card">
+<div class="round-icon ">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<rect x="5" y="10" width="14" height="11" rx="3"/>
+<path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/>
+</svg>
+</div>
+<h3>Gardez la main</h3>
+<p>Export personnel et gestion du compte. Des règles de confidentialité accessibles.</p>
+</article>
+</div>
+</section>
+<section class="section" id="fonctionnalites" aria-labelledby="features-title">
+<div class="section-heading">
+<span class="eyebrow">Moins de dispersion. Plus de relation.</span>
+<h2 id="features-title">Tout pour votre suivi client.<br>
+<span class="gradient">Au même endroit.</span>
+</h2>
+<p>Du premier contact au prochain rendez-vous, retrouvez ce dont vous avez besoin pour faire avancer la relation.</p>
+</div>
+<div class="features-grid">
+<article class="feature">
+<div class="round-icon ">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2m18 0v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+<circle cx="9" cy="7" r="4"/>
+</svg>
+</div>
+<h3>Des contacts qui ont une histoire</h3>
+<p>Coordonnées, photos, notes et tags : retrouvez le contexte de chaque échange dans une fiche dédiée.</p>
+<span class="feature-tag">Votre relation client, centralisée</span>
+</article>
+<article class="feature">
+<div class="round-icon orange">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-11 12h4"/>
+</svg>
+</div>
+<h3>Le bon rappel, au bon moment</h3>
+<p>Programmez vos relances et consultez celles du jour ou en retard, selon vos réglages de notifications.</p>
+<span class="feature-tag">Un prochain pas pour chaque contact</span>
+</article>
+<article class="feature">
+<div class="round-icon blue">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<rect x="3" y="5" width="18" height="16" rx="3"/>
+<path d="M7 3v4m10-4v4M3 11h18m-14 4h2m4 0h2"/>
+</svg>
+</div>
+<h3>Un agenda plus lisible</h3>
+<p>Visualisez vos relances et ajoutez-les au calendrier de votre appareil, selon vos autorisations.</p>
+<span class="feature-tag">Votre semaine, en un coup d’œil</span>
+</article>
+<article class="feature">
+<div class="round-icon green">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M5 20V11m7 9V4m7 16V8"/>
+</svg>
+</div>
+<h3>Une activité qui se suit</h3>
+<p>Pipeline commercial, montants d’opportunités et statistiques pour mieux comprendre votre activité.</p>
+<span class="feature-tag">Statistiques avancées avec Pro</span>
+</article>
+<article class="feature">
+<div class="round-icon pink">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<rect x="3" y="5" width="18" height="14" rx="3"/>
+<path d="M3 10h18m-13 5h4"/>
+</svg>
+</div>
+<h3>La fidélité se cultive</h3>
+<p>Cartes de fidélité et historique des achats : accompagnez vos clients au-delà du premier échange.</p>
+<span class="feature-tag">Faites vivre la relation</span>
+</article>
+<article class="feature">
+<div class="round-icon ">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Zm0 0v6h6M8 12h8m-8 4h5"/>
+</svg>
+</div>
+<h3>Des outils à portée de main</h3>
+<p>Notes textuelles et vocales, QR codes, tirages au sort, widget iOS et badges pour votre quotidien.</p>
+<span class="feature-tag">Des fonctions réunies dans votre poche</span>
+</article>
+</div>
+</section>
+<section class="section" id="plans" aria-labelledby="plans-title">
+<div class="section-heading">
+<span class="eyebrow">À chaque activité, sa formule</span>
+<h2 id="plans-title">Commencez simplement.<br>
+<span class="gradient">Évoluez à votre rythme.</span>
+</h2>
+<p>Une formule Free pour démarrer, une formule Pro pour aller plus loin.</p>
+</div>
+<div class="plans">
+<article class="plan">
+<div class="plan-title">FlowNova Free</div>
+<h3>Gratuit <span>pour démarrer</span>
+</h3>
+<p>L’essentiel pour organiser vos premiers contacts et prendre de bonnes habitudes.</p>
+<ul>
+<li>Jusqu’à 20 contacts</li>
+<li>10 relances par mois</li>
+<li>5 notes par contact, texte et vocales</li>
+<li>5 tags · 3 cartes de fidélité · 1 QR code</li>
+<li>Export CSV inclus</li>
+<li>Widget, calendrier et gamification</li>
+</ul>
+<a class="btn btn-outline" href="terms.html#s3">Découvrir la formule Free<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M5 12h14m-6-6 6 6-6 6"/>
+</svg>
+</a>
+</article>
+<article class="plan pro">
+<span class="plan-label">POUR ALLER PLUS LOIN</span>
+<div class="plan-title">FlowNova Pro</div>
+<h3>9,99 € <span>/ mois</span></h3>
+<p>ou <strong>69,99 € / an</strong>, facturés annuellement.</p>
+<p>Pour développer votre suivi client avec les fonctionnalités et limites Pro.</p>
+<ul>
+<li>Contacts, notes, tags et fidélité illimités</li>
+<li>Relances illimitées</li>
+<li>QR codes, participants aux tirages et filtres illimités</li>
+<li>Historique d’activité illimité</li>
+<li>Import CSV et statistiques avancées</li>
+<li>Rapports PDF par email lorsqu’activés</li>
+</ul>
+<a class="btn" href="terms.html#s3">Découvrir la formule Pro<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M5 12h14m-6-6 6 6-6 6"/>
+</svg>
+</a>
+</article>
+</div>
+<p class="plan-note">Offres accessibles au lancement de l’application. Sur iOS, le prix applicable est celui affiché par Apple lors de l’achat et peut varier selon le territoire et la devise. L’abonnement Pro se renouvelle automatiquement jusqu’à annulation auprès d’Apple. <a href="terms.html#s3">Conditions d’abonnement</a>.<br>En Free, l’affichage de l’historique est limité à 30 jours, sans garantir sa suppression au-delà.</p>
+</section>
+<section class="faq-layout" id="faq" aria-labelledby="faq-title">
+<div class="faq-copy">
+<span class="eyebrow">On vous répond</span>
+<h2 id="faq-title">Quelques questions<br>
+<span class="gradient">avant de commencer ?</span>
+</h2>
+<p>Les réponses utiles pour découvrir FlowNova.</p>
+<a class="text-link" href="mailto:flownova.support@gmail.com">Une autre question ? Écrivez-nous<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M5 12h14m-6-6 6 6-6 6"/>
+</svg>
+</a>
+</div>
+<div class="faq-list">
+<details>
+<summary>À qui s’adresse FlowNova ?</summary>
+<p>Aux indépendants, artisans et commerçants qui souhaitent organiser leurs contacts, relances et relations clients depuis leur téléphone. Le service est réservé aux personnes de 18 ans ou plus.</p>
+</details>
+<details>
+<summary>Quand pourrai-je télécharger l’application ?</summary>
+<p>Le lancement de la version iOS est en préparation. FlowNova n’est pas encore publiquement disponible sur l’App Store ; aucun lien de téléchargement public n’est proposé pour le moment.</p>
+</details>
+<details>
+<summary>Puis-je utiliser FlowNova sans connexion ?</summary>
+<p>Les contacts déjà mis en cache peuvent être consultés hors connexion et certaines modifications sont mises en attente de synchronisation. Les fonctions serveur, notifications et échanges de données nécessitent une connexion.</p>
+</details>
+<details>
+<summary>Puis-je exporter mes données ou supprimer mon compte ?</summary>
+<p>Oui. Un export personnel JSON est accessible depuis les réglages, ainsi que la suppression du compte. Leur contenu et leurs limites sont décrits dans la <a href="index.html#s8">Politique de confidentialité</a> et la <a href="delete-account.html">procédure de suppression</a>.</p>
+</details>
+<details>
+<summary>Comment gérer mon abonnement Pro ?</summary>
+<p>Les achats et abonnements iOS sont gérés par Apple. Vous pouvez gérer ou annuler le renouvellement dans les réglages d’abonnements de votre compte Apple. Supprimer votre compte FlowNova n’annule pas automatiquement cet abonnement.</p>
+</details>
+</div>
+</section>
+<section class="launch" id="lancement" aria-labelledby="launch-title">
+<span class="eyebrow">Vos prochaines relations commencent ici</span>
+<h2 id="launch-title">Moins d’oublis.<br>
+<span class="gradient">Plus de liens.</span>
+</h2>
+<p>FlowNova arrive prochainement sur l’App Store.<br>Votre suivi client, pensé pour tenir dans votre poche.</p>
+<a class="btn" href="mailto:flownova.support@gmail.com?subject=Question%20sur%20le%20lancement%20de%20FlowNova">
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path fill="currentColor" stroke="none" d="M17.1 12.6c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.2-2.7.8-3.4.8-.7 0-1.8-.8-2.9-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.7-.4 6.7 1.1 8.9.8 1.1 1.7 2.3 2.8 2.2 1.1 0 1.6-.7 2.9-.7 1.3 0 1.7.7 2.9.7s2-1.1 2.7-2.2c.9-1.3 1.2-2.5 1.2-2.5-.1 0-2.3-.9-2.3-3.5ZM14.8 6c.6-.8 1.1-1.9 1-3-.9 0-2 .6-2.7 1.4-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.5 2.7-1.3Z"/>
+</svg>Une question sur le lancement ?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M5 12h14m-6-6 6 6-6 6"/>
+</svg>
+</a>
+<small>Application iOS en préparation · Aucun téléchargement public pour le moment</small>
+</section>
+<div class="trust-row">
+<span>
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<rect x="6" y="2" width="12" height="20" rx="3"/>
+<path d="M10 5h4m-3 14h2"/>
+</svg>iPhone et iPad</span>
+<span>
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<circle cx="12" cy="12" r="9"/>
+<ellipse cx="12" cy="12" rx="4" ry="9"/>
+<path d="M3 12h18"/>
+</svg>Français, anglais et espagnol</span>
+<span>
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2m18 0v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+<circle cx="9" cy="7" r="4"/>
+</svg>Pour les indépendants et commerçants</span>
+</div>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap">
+<div class="footer-main">
+<a class="brand" href="home.html" aria-label="FlowNova, accueil">
+<img src="splash-icon.png" width="42" height="42" alt="">
+<span>FlowNova</span>
+</a>
+<nav class="footer-links" aria-label="Informations légales">
+<a href="index.html">Confidentialité</a>
+<a href="terms.html">Conditions d’utilisation</a>
+<a href="delete-account.html">Supprimer mon compte</a>
+<a href="mailto:flownova.support@gmail.com">Contact</a>
+</nav>
+</div>
+<div class="footer-bottom">
+<span>© 2026 FLOWNOVA · Benjamin Gesland · SIRET 84527741700026</span>
+<span>Service réservé aux 18 ans et plus · <a href="mailto:flownova.support@gmail.com">flownova.support@gmail.com</a>
+</span>
+</div>
+</div>
+</footer>
+<script>
+const toggle = document.querySelector('.menu-toggle');
+const navigation = document.querySelector('#navigation');
+function closeMenu() { navigation.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Ouvrir le menu'); }
+toggle.addEventListener('click', () => { const open = toggle.getAttribute('aria-expanded') !== 'true'; navigation.classList.toggle('open', open); toggle.setAttribute('aria-expanded', String(open)); toggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu'); });
+navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+document.addEventListener('keydown', event => { if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { closeMenu(); toggle.focus(); } });
+document.addEventListener('click', event => { if (!event.target.closest('.nav')) closeMenu(); });
+</script>
 </body>
 </html>
