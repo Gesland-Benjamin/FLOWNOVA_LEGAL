@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Politique de confidentialité — FlowNova</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" href="splash-icon.png">
   <style>
     :root {
       --bg: #F8FAFC;
@@ -338,7 +338,7 @@
     <div class="meta">
       <span class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-        Dernière mise à jour : <strong>21 juin 2026</strong>
+        Dernière mise à jour : <strong>16 septembre 2026</strong>
       </span>
       <span class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -355,120 +355,187 @@
       <a href="#s3"><span class="num">03</span> Finalités</a>
       <a href="#s4"><span class="num">04</span> Base légale</a>
       <a href="#s5"><span class="num">05</span> Destinataires</a>
-      <a href="#s6"><span class="num">06</span> Conservation</a>
-      <a href="#s7"><span class="num">07</span> Vos droits RGPD</a>
-      <a href="#s8"><span class="num">08</span> Sécurité</a>
-      <a href="#s9"><span class="num">09</span> Cookies & traceurs</a>
-      <a href="#s10"><span class="num">10</span> Hébergement</a>
-      <a href="#s11"><span class="num">11</span> Contact DPO</a>
-      <a href="#s12"><span class="num">12</span> Modifications</a>
+      <a href="#s6"><span class="num">06</span> Prestataires et destinataires</a>
+      <a href="#s7"><span class="num">07</span> Conservation</a>
+      <a href="#s8"><span class="num">08</span> Vos droits RGPD</a>
+      <a href="#s9"><span class="num">09</span> Sécurité</a>
+      <a href="#s10"><span class="num">10</span> Cookies et journaux</a>
+      <a href="#s11"><span class="num">11</span> Hébergement</a>
+      <a href="#s12"><span class="num">12</span> Contact – Protection des données</a>
+      <a href="#s13"><span class="num">13</span> Modifications</a>
     </aside>
 
     <main class="content">
       <div class="card">
-        <p>Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos données personnelles lorsque vous utilisez l'application <strong>FlowNova</strong> (CRM Client). Elle s'applique à toutes les versions de l'application disponibles sur l'App Store (iOS) et Google Play (Android).</p>
+        <p>Cette politique explique comment <strong>FLOWNOVA</strong> traite les données personnelles liées à l'utilisation de son application de gestion de la relation client. Elle distingue vos données de compte, les données de vos clients et prospects, et les données techniques. La section « Cookies, statistiques et journaux » précise également le fonctionnement de cette page web.</p>
       </div>
 
       <div class="card" id="s1">
-        <div class="section-head"><div class="section-num">1</div><h2>Responsable de traitement</h2></div>
-        <p>Le responsable du traitement des données est :</p>
+        <div class="section-head"><div class="section-num">1</div><h2>Responsable de traitement et rôles</h2></div>
+        <p><strong>Benjamin Gesland / FLOWNOVA</strong> est responsable du traitement pour la création et l’administration des comptes, l’authentification, la fourniture du service, les préférences, le plan et l’abonnement, la sécurité, l’administration technique et le support.</p>
         <div class="contact-box">
-          <p><strong>Benjamin Gesland</strong><br>Email : <a href="mailto:contact@crmclient.app">contact@crmclient.app</a></p>
+          <p><strong>Benjamin Gesland</strong><br>SIRET : 84527741700026<br>Email : <a href="mailto:flownova.support@gmail.com">flownova.support@gmail.com</a></p>
         </div>
+        <p>Pour les données de clients et prospects enregistrées dans le CRM, <strong>l'utilisateur professionnel est responsable du traitement</strong> : il décide pourquoi et comment les utiliser, détermine leur base légale et informe les personnes concernées. FLOWNOVA agit comme <strong>sous-traitant</strong> lorsqu'il traite ces données pour son compte.</p>
+        <p><a href="terms.html#dpa">L’accord de traitement des données (DPA) annexé aux Conditions</a> encadre cette relation avec les utilisateurs professionnels.</p>
       </div>
 
       <div class="card" id="s2">
-        <div class="section-head"><div class="section-num">2</div><h2>Données collectées</h2></div>
-        <p>Nous collectons uniquement les données nécessaires au fonctionnement du service :</p>
+        <div class="section-head"><div class="section-num">2</div><h2>Données collectées et stockage</h2></div>
+        <p><strong>a) Votre compte et vos réglages</strong></p>
         <ul>
-          <li><strong>Email</strong> — création de compte et authentification</li>
-          <li><strong>Contacts CRM</strong> — noms, téléphones, emails, statuts, dates de relance, réseaux sociaux, notes, tags et cartes de fidélité (données que vous saisissez)</li>
-          <li><strong>Token de notification push</strong> — envoi de rappels de relance</li>
-          <li><strong>Données de connexion</strong> — refresh token pour maintien sécurisé de la session</li>
+          <li><strong>Identification et connexion</strong> — identifiant de compte (UUID), email, mot de passe enregistré sous forme de hash bcrypt, jetons de renouvellement et de réinitialisation avec leurs échéances.</li>
+          <li><strong>Gestion du compte</strong> — rôle, formule Free ou Pro, dates de création, de modification et de dernière connexion.</li>
+          <li><strong>Notifications et préférences</strong> — langue, préférences de notifications et de rapports, identifiant de notification push et dates techniques d'envoi.</li>
+          <li><strong>Personnalisation et activité</strong> — modèles de notes et de messages dont le contenu est personnalisable et peut contenir des données personnelles, configuration du pipeline, compteurs, séries et badges.</li>
         </ul>
+        <p><strong>b) Les données de vos contacts CRM</strong></p>
+        <ul>
+          <li><strong>Coordonnées</strong> — noms et prénoms, téléphones, emails, adresses, entreprises, liens Facebook, Instagram et X, anniversaires.</li>
+          <li><strong>Images et notes</strong> — avatars et photos enregistrés comme données d'image dans la base ; notes textuelles ; notes vocales conservées dans des fichiers audio sur le serveur, avec un lien enregistré dans la note en base.</li>
+          <li><strong>Suivi commercial</strong> — statuts, relances, dates et heures, montants d'opportunités, achats CRM avec montants et quantités. Ces achats décrivent votre activité commerciale et sont distincts de votre abonnement à FLOWNOVA.</li>
+          <li><strong>Organisation</strong> — tags, fidélité, filtres sauvegardés, QR codes, historique d'activité et autres informations volontairement saisies dans les fiches CRM.</li>
+        </ul>
+        <p>Les enregistrements du serveur utilisent une base <strong>PostgreSQL</strong>. Les fichiers audio sont conservés séparément : tous les médias ne sont donc pas stockés dans cette base.</p>
+        <p><strong>c) Sur votre appareil</strong></p>
+        <ul>
+          <li>L'application conserve localement vos jetons de connexion et de renouvellement ainsi que votre profil dans son stockage persistant (AsyncStorage).</li>
+          <li>Elle conserve aussi un cache de contacts, une file de modifications hors connexion, la langue, le thème, l'état du parcours de découverte et des informations de synchronisation du calendrier.</li>
+          <li>Le widget iOS reçoit localement le nombre de relances, la date de mise à jour et les identifiants et noms de cinq contacts au maximum.</li>
+          <li>L'export JSON est enregistré dans les documents de l'application avant l'ouverture du partage système.</li>
+        </ul>
+        <p><strong>d) Permissions, calendrier et partages</strong></p>
+        <p>Selon les fonctions utilisées, l’appareil photo, la photothèque, le microphone et le calendrier demandent des permissions système. Les notifications push nécessitent également une autorisation de notification.</p>
+        <p>La synchronisation du calendrier crée des événements avec le nom du contact, son téléphone lorsqu'il est renseigné et les horaires de relance, ainsi qu'une alarme une heure avant l'événement. Sur iOS, un calendrier local est privilégié, avec repli sur le calendrier par défaut. Selon vos réglages, ce calendrier peut être synchronisé avec un service externe ; iCloud ou Google Calendar ne sont pas des destinataires systématiques.</p>
+        <p>Les liens sociaux, exports et fonctions de partage peuvent ouvrir des applications ou services que vous choisissez ; les données partagées volontairement leur sont transmises via la feuille de partage du système. Ces actions sont distinctes de l'intégration de traceurs publicitaires.</p>
+        <p><strong>Âge d'utilisation :</strong> FLOWNOVA est réservé aux personnes âgées de <strong>18 ans ou plus</strong>. Il s'agit d'une condition contractuelle d'accès au service.</p>
       </div>
 
       <div class="card" id="s3">
         <div class="section-head"><div class="section-num">3</div><h2>Finalités du traitement</h2></div>
         <ul>
-          <li>Authentification et sécurisation de votre compte</li>
-          <li>Gestion de votre relation client (CRM)</li>
-          <li>Envoi de rappels de relance par notification push et/ou email</li>
-          <li>Statistiques d'usage agrégées et anonymisées (administration)</li>
+          <li>Créer votre compte, vous authentifier, renouveler votre session et permettre la réinitialisation de votre mot de passe.</li>
+          <li>Fournir et synchroniser les fonctions CRM : contacts, relances, pipeline, notes, fidélité, calendrier, widget, fonctionnement hors connexion et exports.</li>
+          <li>Envoyer les notifications et emails liés aux relances, anniversaires et rapports, selon les fonctionnalités et réglages concernés. Les rappels d'anniversaire sont adressés à l'utilisateur, pas automatiquement à ses contacts.</li>
+          <li>Gérer les achats, restaurations et droits liés à l'abonnement FLOWNOVA.</li>
+          <li>Afficher les statistiques et éléments de gamification, administrer les comptes, fournir le support, prévenir les abus et diagnostiquer les erreurs et le fonctionnement du service. Ces traitements ne sont pas tous anonymes.</li>
         </ul>
       </div>
 
       <div class="card" id="s4">
-        <div class="section-head"><div class="section-num">4</div><h2>Base légale</h2></div>
+        <div class="section-head"><div class="section-num">4</div><h2>Bases légales</h2></div>
         <ul>
-          <li><strong>Exécution du contrat</strong> — les données sont nécessaires au fonctionnement du service</li>
-          <li><strong>Consentement</strong> — pour les notifications push et email (vous pouvez les désactiver dans les Paramètres de l'application)</li>
+          <li><strong>Exécution du contrat</strong> — traitements objectivement nécessaires à la création et à la gestion du compte, à l'authentification, aux fonctionnalités demandées et à la gestion du service et du plan. L'email de réinitialisation du mot de passe est un message nécessaire à l'accès au compte.</li>
+          <li><strong>Intérêt légitime</strong> — la sécurité, la prévention des abus, l'administration technique et certains diagnostics ou journaux nécessaires peuvent relever de l'intérêt légitime de FLOWNOVA à assurer le fonctionnement et la sécurité du service, sous réserve de leur nécessité, de leur proportionnalité et des droits des personnes. Cette base ne s'applique pas automatiquement à tous les journaux.</li>
+          <li><strong>Notifications fonctionnelles et messages d'engagement</strong> — les rappels facultatifs et messages liés à l'activité se distinguent des messages nécessaires au compte. Plusieurs préférences sont activées par défaut ; ces réglages et l'autorisation iOS ne constituent pas, à eux seuls, une preuve de consentement RGPD. Aucun registre spécifique de consentement horodaté n'a été démontré.</li>
+          <li><strong>Données et communications CRM</strong> — le professionnel détermine la base légale du traitement de ses contacts et vérifie la licéité de ses communications, notamment au regard des règles de prospection.</li>
         </ul>
+        <p>Vous pouvez gérer les notifications dans FLOWNOVA et, lorsque applicable, dans les réglages iOS. Les droits associés aux traitements, dont le retrait du consentement lorsqu'il constitue effectivement leur base légale, sont décrits à la section 8.</p>
       </div>
 
       <div class="card" id="s5">
-        <div class="section-head"><div class="section-num">5</div><h2>Destinataires des données</h2></div>
-        <p>Vos données sont strictement confidentielles. Elles ne sont :</p>
+        <div class="section-head"><div class="section-num">5</div><h2>Accès et destinataires des données</h2></div>
         <ul>
-          <li><strong>Jamais revendues</strong> à des tiers</li>
-          <li><strong>Jamais partagées</strong> avec d'autres utilisateurs</li>
-          <li>Accessibles uniquement par <strong>vous-même</strong></li>
-          <li>Accessibles aux administrateurs sous forme <strong>agrégée</strong> (statistiques globales anonymisées)</li>
+          <li><strong>Vous</strong> accédez aux données de votre espace utilisateur.</li>
+          <li><strong>FLOWNOVA</strong> traite les données pour fournir et administrer le service. Les fonctions d'administration permettent de consulter l'identifiant, l'email, la formule, le rôle, les dates du compte et le nombre de contacts par utilisateur ; cet accès ne se limite pas à des statistiques anonymes.</li>
+          <li><strong>Les prestataires et autres destinataires</strong> interviennent pour l'hébergement, les emails, les notifications et les abonnements, comme indiqué ci-dessous.</li>
+          <li><strong>Les destinataires de vos partages</strong> peuvent recevoir les données que vous exportez, partagez ou synchronisez selon vos actions et les réglages de votre appareil.</li>
         </ul>
       </div>
 
       <div class="card" id="s6">
-        <div class="section-head"><div class="section-num">6</div><h2>Durée de conservation</h2></div>
-        <p>Vos données sont conservées tant que votre compte est actif. En cas de suppression de compte, toutes vos données (contacts, notes, rappels, cartes de fidélité) sont supprimées définitivement sous <strong>30 jours</strong>.</p>
+        <div class="section-head"><div class="section-num">6</div><h2>Prestataires et autres destinataires</h2></div>
+        <ul>
+          <li><strong>Railway</strong> — hébergement du backend/API et de la base PostgreSQL. La configuration de production vérifiée au 16 septembre 2026 est <strong>US West (California, USA)</strong> ; les données sont principalement traitées aux États-Unis. PostgreSQL est la technologie de base de données.</li>
+          <li><strong>Brevo</strong> — emails transactionnels et fonctionnels : réinitialisation du mot de passe, résumés de relances, anniversaires et rapports hebdomadaires lorsqu'activés. Les données transmises comprennent l'adresse du destinataire et le contenu : lien de réinitialisation, noms, statuts, téléphones de contacts selon le message, statistiques et PDF des rapports. Certaines fonctions permettent un email de fidélité à un contact CRM ; le professionnel est responsable de sa base légale et de son contenu.</li>
+          <li><strong>Expo Push Service et Apple APNs</strong> — acheminement des notifications iOS. Les données peuvent comprendre le token push, le titre et le corps du message, des identifiants, compteurs, parfois un nom de contact ou une récompense, et les informations pour ouvrir l'écran concerné. Selon la <a href="https://docs.expo.dev/push-notifications/faq/">documentation Expo</a>, le contenu n'est pas destiné à être conservé durablement après acheminement ; les reçus techniques ont leur propre durée de conservation. Cela ne garantit pas une suppression instantanée de toute donnée.</li>
+          <li><strong>RevenueCat</strong> — offres, achats, restauration, droits Pro et synchronisation de l'état d'abonnement. L'identifiant explicitement transmis est l'UUID interne FLOWNOVA. RevenueCat peut aussi traiter les informations d'achat, les métadonnées techniques nécessaires au SDK et un identifiant anonyme avant identification. Aucun envoi explicite du carnet CRM, du nom ou de l'email comme attribut RevenueCat n'a été identifié dans le code audité.</li>
+          <li><strong>Apple</strong> — services App Store, achats et abonnements, et distribution des notifications via APNs. Apple peut agir selon ses propres rôles et obligations pour ses services ; il n'est pas sous-traitant de FLOWNOVA pour tous ses traitements. FLOWNOVA ne collecte pas les numéros de carte bancaire dans ce flux d'achat.</li>
+          <li><strong>GitHub Pages</strong> — hébergement du site public et juridique. GitHub peut traiter des informations techniques nécessaires à l'hébergement, à la sécurité et à la fourniture du service selon sa <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">politique de confidentialité</a>.</li>
+        </ul>
+        <p><strong>Vos notifications :</strong> selon les fonctions et préférences, FLOWNOVA peut envoyer des relances, retards, résumés du lendemain, anniversaires, rappels d'activité ou de série, d'inactivité, badges et notifications de fidélité. Elles ne sont pas toutes indispensables. Plusieurs préférences FLOWNOVA sont activées par défaut. L'autorisation système iOS est distincte ; la refuser ne bloque pas l'utilisation principale du CRM. Les alarmes du calendrier constituent un mécanisme séparé.</p>
+        <p>Les garanties concernant les transferts internationaux sont décrites à la section 11.</p>
       </div>
 
       <div class="card" id="s7">
-        <div class="section-head"><div class="section-num">7</div><h2>Vos droits (RGPD)</h2></div>
-        <p>Conformément au Règlement Général sur la Protection des Données (UE 2016/679), vous disposez des droits suivants :</p>
+        <div class="section-head"><div class="section-num">7</div><h2>Conservation et suppression</h2></div>
+        <p><strong>Données actives :</strong> le compte et les données CRM sont conservés pour fournir le service tant que le compte existe, sous réserve des obligations ou nécessités applicables. Aucune suppression automatique des comptes inactifs après une durée déterminée n'est actuellement implémentée.</p>
+        <p><strong>Historique CRM :</strong> aucune purge temporelle automatique de l'historique d'activité n'a été identifiée. La formule Free peut limiter son affichage à 30 jours ; cette limite d'affichage ne signifie pas un effacement au-delà de 30 jours.</p>
+        <p><strong>Suppression du compte :</strong> lorsque la demande depuis les réglages réussit, une transaction supprime les principaux enregistrements associés au compte dans la base active : achats CRM, notifications, historique d'activité, relances, fidélité, notes, tags, filtres, QR codes, contacts et compte utilisateur. L'opération entraîne la perte d'accès au compte actif.</p>
         <ul>
-          <li><strong>Droit d'accès</strong> — obtenir une copie de vos données</li>
-          <li><strong>Droit de rectification</strong> — modifier vos informations</li>
-          <li><strong>Droit à l'effacement</strong> — supprimer votre compte et toutes vos données</li>
-          <li><strong>Droit à la portabilité</strong> — exporter vos contacts au format CSV</li>
-          <li><strong>Droit d'opposition</strong> — désactiver les notifications à tout moment</li>
+          <li><strong>Fichiers techniques :</strong> l'opération actuelle ne supprime pas explicitement les fichiers audio physiques ; certains fichiers d'images historiques ou issus d'autres modes d'envoi peuvent également subsister.</li>
+          <li><strong>Copies locales et partagées :</strong> tous les caches, opérations hors connexion, données du widget, exports, fichiers partagés et événements de calendrier ne sont pas automatiquement purgés.</li>
+          <li><strong>Prestataires :</strong> l'opération ne déclenche pas explicitement la suppression du client RevenueCat et ne retire pas les emails déjà transmis ni toutes les données conservées par Apple, Expo, Brevo ou Railway selon leurs règles et obligations.</li>
+          <li><strong>Journaux FLOWNOVA :</strong> un mécanisme conditionnel vise à nettoyer certains fichiers journaux locaux dont la dernière modification dépasse 30 jours. Il peut échouer et ne couvre pas tous les circuits, notamment les sorties standard et d'erreur du serveur. Les journaux ne sont pas tous supprimés avec le compte.</li>
+          <li><strong>Journaux Railway :</strong> ils suivent les règles du forfait applicable ; au 16 septembre 2026, le forfait Hobby utilisé prévoit une conservation de 7 jours pour les logs applicatifs et de déploiement concernés, selon la <a href="https://docs.railway.com/observability/logs">documentation Railway</a>. Les autres journaux de sécurité ou d'infrastructure peuvent suivre d'autres règles.</li>
+          <li><strong>Sauvegardes :</strong> au 16 septembre 2026, aucun backup PostgreSQL planifié ni aucune restauration à un instant donné (PITR) planifiée active n'est visible dans la configuration FLOWNOVA vérifiée. Cela n'exclut pas des copies internes conservées par l'hébergeur.</li>
         </ul>
-        <div class="notice">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
-          <p>Pour exercer ces droits, contactez-nous à <a href="mailto:contact@crmclient.app"><strong>contact@crmclient.app</strong></a>. Réponse sous 30 jours maximum.</p>
-        </div>
+        <p>Il n'existe pas de délai uniforme établi de purge de tous les fichiers et copies résiduelles. Vous pouvez demander des précisions ou exercer vos droits auprès du contact indiqué à la section 8. Consultez la <a href="delete-account.html">procédure de suppression</a> et exportez les données souhaitées avant cette opération.</p>
+        <div class="notice"><p><strong>La suppression du compte FLOWNOVA n'annule pas automatiquement l'abonnement App Store.</strong> Gérez ou résiliez votre abonnement dans les réglages d'abonnements de votre compte Apple.</p></div>
       </div>
 
       <div class="card" id="s8">
-        <div class="section-head"><div class="section-num">8</div><h2>Sécurité</h2></div>
+        <div class="section-head"><div class="section-num">8</div><h2>Vos droits et l'export de vos données</h2></div>
+        <p>Dans les conditions prévues par le RGPD et lorsque ces droits sont applicables, vous pouvez demander :</p>
         <ul>
-          <li>Authentification par <strong>JWT</strong> avec rotation des refresh tokens</li>
-          <li>Mots de passe <strong>hashés</strong> (bcrypt)</li>
-          <li>Communication <strong>chiffrée</strong> via HTTPS</li>
-          <li>Tokens stockés de manière <strong>sécurisée</strong> sur l'appareil</li>
+          <li><strong>L'accès</strong> à vos données et aux informations sur leur traitement.</li>
+          <li><strong>La rectification</strong> de données inexactes ou incomplètes.</li>
+          <li><strong>L'effacement</strong> de vos données, sous réserve des conditions et exceptions applicables.</li>
+          <li><strong>La limitation</strong> de leur traitement.</li>
+          <li><strong>L'opposition</strong> à certains traitements, selon leur base légale et votre situation.</li>
+          <li><strong>La portabilité</strong> des données concernées dans un format structuré et réutilisable.</li>
+          <li><strong>Le retrait de votre consentement</strong> lorsqu'un traitement repose sur celui-ci, sans remettre en cause la licéité du traitement effectué avant ce retrait.</li>
         </ul>
+        <p><strong>« Exporter mes données » dans les réglages</strong> produit un fichier <strong>JSON</strong>. Il comprend une sélection de données du compte et de préférences, les contacts et leurs associations avec les tags, les tags, notifications, relances, historiques, éléments de fidélité, filtres, notes, QR codes et achats CRM.</p>
+        <p>Les mots de passe et jetons en sont exclus. L'export comprend les images enregistrées dans les contacts et les liens des notes vocales, mais pas les fichiers audio eux-mêmes. Il ne comprend pas nécessairement tous les champs techniques du compte, les caches non synchronisés, sauvegardes, journaux ou l'intégralité des données détenues par Apple ou RevenueCat. Cet export personnel est distinct des exports métier CSV ou PDF.</p>
+        <p>Si vos coordonnées figurent dans le CRM d'un professionnel utilisant FLOWNOVA, adressez en priorité votre demande à ce professionnel, responsable du traitement de vos données. FLOWNOVA assiste ce professionnel lorsque nécessaire en tant que sous-traitant ; vous pouvez également contacter notre support au sujet de ce rôle.</p>
+        <div class="notice"><p>Pour exercer vos droits auprès de FLOWNOVA, écrivez à <a href="mailto:flownova.support@gmail.com"><strong>flownova.support@gmail.com</strong></a>. Une réponse est apportée en principe dans un délai d'un mois à compter de la réception de la demande. Ce délai peut être prolongé de deux mois lorsque la complexité ou le nombre de demandes le justifie ; vous devez alors être informé de la prolongation et de ses motifs dans le premier mois.</p></div>
+        <p>Vous pouvez <a href="https://www.cnil.fr/fr/adresser-une-plainte">adresser une réclamation à la CNIL</a> si vous estimez que vos droits ne sont pas respectés. Les règles de réponse aux demandes sont précisées à l'<a href="https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3">article 12 du RGPD</a>.</p>
       </div>
 
       <div class="card" id="s9">
-        <div class="section-head"><div class="section-num">9</div><h2>Cookies & traceurs</h2></div>
-        <p>Cette application mobile <strong>n'utilise pas de cookies</strong> ni de traceurs publicitaires. Aucune donnée n'est transmise à des services tiers de tracking.</p>
+        <div class="section-head"><div class="section-num">9</div><h2>Sécurité</h2></div>
+        <p>Les mécanismes présents dans l'application et sa configuration comprennent :</p>
+        <ul>
+          <li>Une authentification par jetons JWT et un renouvellement de session avec rotation des jetons de renouvellement.</li>
+          <li>Des mots de passe enregistrés sous forme de hash bcrypt (coût 10).</li>
+          <li>Une adresse d'API utilisant HTTPS dans la configuration de production.</li>
+          <li>Des limiteurs de requêtes, notamment sur certaines routes sensibles d'authentification.</li>
+          <li>Des contrôles d’authentification et d’accès, des validations de champs et des contrôles sur certains fichiers importés, sans couverture établie de toutes les entrées.</li>
+        </ul>
+        <p>Ces mesures ne constituent pas une garantie de sécurité absolue ni la preuve d'un audit de sécurité. Le stockage local des jetons décrit plus haut ne permet pas d'affirmer l'utilisation d'un coffre-fort dédié. Aucun chiffrement de bout en bout ou au repos n'est affirmé ici.</p>
       </div>
 
       <div class="card" id="s10">
-        <div class="section-head"><div class="section-num">10</div><h2>Hébergement</h2></div>
-        <p>Les données sont hébergées sur des serveurs situés dans l'<strong>Union Européenne</strong>.</p>
+        <div class="section-head"><div class="section-num">10</div><h2>Cookies, statistiques et journaux</h2></div>
+        <p><strong>Application mobile :</strong> aucun SDK publicitaire, demande d'autorisation de suivi publicitaire Apple (ATT) ou collecte explicite d'identifiant publicitaire Apple (IDFA) n'a été identifié dans le code audité. Ce constat ne signifie pas qu'aucune donnée technique n'est collectée ou transmise aux prestataires du service.</p>
+        <p>FLOWNOVA génère des journaux pour le fonctionnement, le diagnostic, les erreurs, la sécurité et les tâches automatiques. Ils peuvent contenir des identifiants de compte, emails, URL et paramètres de recherche, statuts et durées de requêtes, titres de notifications, identifiants techniques ou informations présentes dans des erreurs. Les dates de connexion, métriques d'usage et de gamification et données d'administration ne sont pas toutes anonymes. Leur conservation est décrite à la section 7.</p>
+        <p><strong>Site public :</strong> FLOWNOVA n'installe actuellement aucun outil d'analyse d'audience ou cookie publicitaire propre sur ce site. Les pages ne contiennent pas de script d'analyse. Cela n'exclut pas les données techniques traitées par GitHub Pages pour fournir et sécuriser l'hébergement, selon sa <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">politique de confidentialité</a>.</p>
       </div>
 
       <div class="card" id="s11">
-        <div class="section-head"><div class="section-num">11</div><h2>Contact DPO</h2></div>
-        <p>Pour toute question relative à la protection de vos données :</p>
-        <div class="contact-box">
-          <p>Email : <a href="mailto:contact@crmclient.app"><strong>contact@crmclient.app</strong></a></p>
-        </div>
+        <div class="section-head"><div class="section-num">11</div><h2>Hébergement et transferts internationaux</h2></div>
+        <p>Le backend/API et PostgreSQL sont hébergés sur Railway dans la région <strong>US West (California, USA)</strong>. Le site public et juridique est hébergé via <strong>GitHub Pages</strong>. Certaines données sont donc traitées hors de l'Espace économique européen, notamment aux États-Unis ; elles ne restent pas toutes dans l'Union européenne.</p>
+        <p>Les transferts sont encadrés, selon le cas, par les mécanismes applicables du RGPD et les accords des prestataires : décisions d'adéquation, dont le EU-U.S. Data Privacy Framework lorsqu'applicable, ou clauses contractuelles types de la Commission européenne lorsqu'applicables.</p>
+        <ul>
+          <li><strong>Railway :</strong> son <a href="https://railway.com/legal/dpa">DPA</a> prévoit notamment le Data Privacy Framework lorsque ses conditions sont réunies et/ou les clauses contractuelles types selon la situation.</li>
+          <li><strong>Brevo :</strong> les traitements et transferts applicables sont encadrés par les engagements contractuels et mécanismes de protection prévus dans ses <a href="https://www.brevo.com/legal/termsofuse/">conditions et accord de traitement des données</a>.</li>
+          <li><strong>RevenueCat :</strong> son <a href="https://www.revenuecat.com/dpa">DPA</a> prévoit les mécanismes de transfert, notamment les clauses contractuelles types lorsqu'elles s'appliquent.</li>
+        </ul>
+        <p>Le mécanisme applicable dépend du fournisseur et du traitement concerné. Vous pouvez contacter FLOWNOVA pour obtenir des informations sur les garanties applicables.</p>
       </div>
 
       <div class="card" id="s12">
-        <div class="section-head"><div class="section-num">12</div><h2>Modifications</h2></div>
-        <p>Cette politique est susceptible d'être modifiée. Les utilisateurs seront informés de tout changement majeur par email.</p>
+        <div class="section-head"><div class="section-num">12</div><h2>Contact – Protection des données</h2></div>
+        <p>Pour toute question relative à cette politique ou au traitement de vos données :</p>
+        <div class="contact-box">
+          <p>Email : <a href="mailto:flownova.support@gmail.com"><strong>flownova.support@gmail.com</strong></a></p>
+        </div>
+      </div>
+
+      <div class="card" id="s13">
+        <div class="section-head"><div class="section-num">13</div><h2>Modifications de la politique</h2></div>
+        <p>Cette politique peut évoluer. Sa date de mise à jour figure en haut de cette page. Lorsque la nature du changement l'exige, les utilisateurs sont informés dans l'application ou par un moyen approprié, dans le respect des obligations légales applicables.</p>
       </div>
     </main>
   </div>
@@ -481,7 +548,7 @@
           FlowNova
         </div>
         <p>L'application de gestion de relation client qui simplifie vos relances, votre pipeline commercial et vos programmes de fidélité.</p>
-        <p><a href="https://crmclient.app">crmclient.app</a></p>
+        <p><a href="https://gesland-benjamin.github.io/FLOWNOVA_LEGAL/">gesland-benjamin.github.io/FLOWNOVA_LEGAL</a></p>
       </div>
       <div class="footer-col">
         <h4>Légal</h4>
@@ -491,12 +558,12 @@
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
-        <a href="mailto:contact@crmclient.app">contact@crmclient.app</a>
-        <a href="https://crmclient.app">crmclient.app</a>
-        <a href="https://apps.apple.com" rel="noopener">Disponible sur l'App Store</a>
+        <a href="mailto:flownova.support@gmail.com">flownova.support@gmail.com</a>
+        <a href="https://gesland-benjamin.github.io/FLOWNOVA_LEGAL/">gesland-benjamin.github.io/FLOWNOVA_LEGAL</a>
+        <a href="home.html">Présentation de FlowNova</a>
       </div>
     </div>
-    <div class="footer-bottom">© 2026 FlowNova — Tous droits réservés</div>
+    <div class="footer-bottom">© 2026 FLOWNOVA — Benjamin Gesland — SIRET 84527741700026<br>Service réservé aux 18 ans et plus</div>
   </footer>
 </body>
 </html>

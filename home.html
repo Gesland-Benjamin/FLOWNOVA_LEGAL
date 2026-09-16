@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FlowNova — Le CRM qui vous fait gagner des ventes, pas du temps</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>FlowNova — Ne laissez plus jamais une relance filer</title>
+  <meta name="description" content="FlowNova, le CRM mobile pour indépendants et commerçants : relances programmées à l'heure choisie, pipeline Kanban, cartes de fidélité, widget iOS. Application iOS, lancement prochainement sur l’App Store. FR/EN/ES.">
+  <link rel="icon" type="image/png" href="splash-icon.png">
   <style>
     :root {
       --bg: #F8FAFC;
@@ -182,134 +183,59 @@
       box-shadow: var(--shadow);
     }
     .btn-ghost:hover { border-color: var(--primary-border); color: var(--primary); text-decoration: none; transform: translateY(-1px); }
-    .hero-proof {
-      display: flex;
+    .hero-proof { display: flex; flex-wrap: wrap; gap: 10px; }
+    .proof-chip {
+      display: inline-flex;
       align-items: center;
-      gap: 14px;
+      gap: 7px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 7px 14px;
       font-size: 13px;
+      font-weight: 600;
       color: var(--muted);
-    }
-    .stars { display: flex; gap: 2px; color: #F59E0B; }
-    .stars svg { width: 15px; height: 15px; fill: currentColor; }
-    .hero-proof strong { color: var(--text); }
-
-    /* ===== Phone mockup ===== */
-    .phone-wrap { display: flex; justify-content: center; }
-    .phone {
-      width: 290px;
-      background: var(--surface);
-      border-radius: 38px;
-      border: 8px solid #1E293B;
-      box-shadow: var(--shadow-lg), 0 40px 80px -30px rgba(79,70,229,.35);
-      overflow: hidden;
-      position: relative;
-    }
-    .phone-notch {
-      position: absolute;
-      top: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 20px;
-      background: #1E293B;
-      border-radius: 0 0 12px 12px;
-      z-index: 2;
-    }
-    .phone-screen { background: var(--primary-soft); padding: 40px 16px 18px; }
-    .phone-status {
-      display: flex;
-      justify-content: space-between;
-      font-size: 10px;
-      font-weight: 700;
-      color: var(--muted);
-      padding: 0 2px 10px;
-    }
-    .phone-greeting { font-size: 12px; color: var(--muted); font-weight: 600; }
-    .phone-title { font-size: 16px; font-weight: 800; margin-bottom: 12px; }
-    .phone-kpi { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
-    .phone-kpi-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 10px 12px;
-    }
-    .phone-kpi-box .lbl { font-size: 9.5px; color: var(--muted); font-weight: 600; }
-    .phone-kpi-box .val { font-size: 17px; font-weight: 800; }
-    .phone-kpi-box .val.up { color: var(--success); }
-    .phone-kpi-box .val.primary { color: var(--primary); }
-    .phone-kanban {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 10px;
-    }
-    .phone-kanban .head { font-size: 11px; font-weight: 800; margin-bottom: 8px; }
-    .phone-lanes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
-    .phone-lane { background: var(--bg); border-radius: 8px; padding: 6px; }
-    .phone-lane .lane-lbl { font-size: 8px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .3px; margin-bottom: 5px; text-align: center; }
-    .phone-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 5px 6px;
-      margin-bottom: 5px;
-      font-size: 8px;
-      font-weight: 700;
       box-shadow: var(--shadow);
     }
-    .phone-card:last-child { margin-bottom: 0; }
-    .phone-card .tag {
-      display: inline-block;
-      font-size: 6px;
-      font-weight: 800;
-      padding: 1px 4px;
-      border-radius: 3px;
-      margin-bottom: 2px;
-    }
-    .tag.a { background: var(--danger-soft); color: var(--danger); }
-    .tag.b { background: var(--amber-soft); color: var(--amber); }
-    .tag.c { background: var(--success-soft); color: var(--success); }
-    .phone-reminder {
-      margin-top: 10px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 10px 12px;
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-    .phone-reminder .icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
-      background: var(--primary-soft);
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .phone-reminder .icon svg { width: 14px; height: 14px; }
-    .phone-reminder .txt { font-size: 9px; color: var(--muted); font-weight: 600; line-height: 1.35; }
-    .phone-reminder .txt strong { color: var(--text); display: block; font-size: 10.5px; }
+    .proof-chip svg { width: 14px; height: 14px; color: var(--primary); }
 
-    /* ===== Stats band ===== */
-    .stats-band {
-      background: var(--text);
-      color: #fff;
+    /* ===== Hero visual (app mockup) ===== */
+    .hero-app {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    .stats-inner {
+    .hero-app img {
+      width: 100%;
+      max-width: 560px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg), 0 40px 80px -30px rgba(79,70,229,.35);
+      object-fit: contain;
+    }
+
+    /* ===== Facts band ===== */
+    .facts-band { background: var(--text); color: #fff; }
+    .facts-inner {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 40px 24px;
+      padding: 44px 24px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 32px;
     }
-    .stat { text-align: center; }
-    .stat .num { font-size: 30px; font-weight: 800; letter-spacing: -1px; color: #A5B4FC; margin-bottom: 4px; }
-    .stat .lbl { font-size: 13.5px; color: #CBD5E1; font-weight: 500; }
+    .fact { text-align: center; }
+    .fact .fic {
+      width: 44px; height: 44px;
+      margin: 0 auto 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.08);
+      color: #A5B4FC;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .fact .fic svg { width: 20px; height: 20px; }
+    .fact .num { font-size: 19px; font-weight: 800; letter-spacing: -.4px; color: #fff; margin-bottom: 2px; }
+    .fact .lbl { font-size: 13px; color: #CBD5E1; font-weight: 500; }
 
     /* ===== Sections ===== */
     .section {
@@ -466,6 +392,127 @@
     }
     .feature-card .benefit svg { width: 12px; height: 12px; }
 
+    /* ===== Widget iOS band ===== */
+    .widget-band {
+      background: var(--primary-soft);
+      border-top: 1px solid var(--primary-border);
+      border-bottom: 1px solid var(--primary-border);
+    }
+    .widget-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .widget-copy .section-eyebrow { margin-bottom: 14px; }
+    .widget-copy h2 { font-size: clamp(26px, 3.5vw, 38px); font-weight: 800; letter-spacing: -1px; line-height: 1.2; margin-bottom: 14px; }
+    .widget-copy > p { color: var(--muted); font-size: 16.5px; margin-bottom: 22px; max-width: 480px; }
+    .widget-points { list-style: none; margin-bottom: 28px; }
+    .widget-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 7px 0;
+      font-size: 15px;
+      color: var(--text);
+      font-weight: 500;
+    }
+    .widget-points li svg { width: 17px; height: 17px; color: var(--success); flex-shrink: 0; margin-top: 4px; }
+    .widget-stage { display: flex; gap: 20px; justify-content: center; align-items: stretch; flex-wrap: wrap; }
+    .wg {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+    }
+    .wg-small { width: 180px; min-height: 180px; }
+    .wg-medium { width: 340px; min-height: 180px; }
+    .wg-label {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .wg-count { font-size: 40px; font-weight: 800; letter-spacing: -1.5px; color: var(--primary); line-height: 1.1; }
+    .wg-count-sub { font-size: 12px; color: var(--muted); font-weight: 600; }
+    .wg-spacer { flex: 1; }
+    .wg-mini-row { display: flex; align-items: center; gap: 8px; padding-top: 10px; border-top: 1px solid #F1F5F9; margin-top: 10px; }
+    .wg-avatar {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9.5px; font-weight: 800;
+      flex-shrink: 0;
+    }
+    .wg-mini-row .nm { font-size: 12px; font-weight: 700; flex: 1; }
+    .wg-mini-row .tm { font-size: 10.5px; font-weight: 800; color: var(--primary); }
+    .wg-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 10px; }
+    .wg-head .cnt { font-size: 22px; font-weight: 800; color: var(--primary); }
+    .wg-row { display: flex; align-items: center; gap: 9px; padding: 7px 0; }
+    .wg-row + .wg-row { border-top: 1px solid #F1F5F9; }
+    .wg-row .nm { font-size: 12.5px; font-weight: 700; flex: 1; }
+    .wg-row .why { font-size: 10.5px; color: var(--muted); font-weight: 600; }
+    .wg-row .tm { font-size: 10.5px; font-weight: 800; color: var(--primary); background: var(--primary-soft); padding: 2px 8px; border-radius: 999px; }
+
+    /* ===== Plans ===== */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto 20px;
+    }
+    .plan-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: var(--shadow);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .plan-card.pro { border: 2px solid var(--primary-border); box-shadow: var(--shadow-lg); }
+    .plan-flag {
+      position: absolute;
+      top: -13px;
+      left: 32px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(79,70,229,.35);
+    }
+    .plan-name { font-size: 13px; font-weight: 800; letter-spacing: .8px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .plan-price { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+    .plan-price .amount { font-size: 40px; font-weight: 800; letter-spacing: -1.5px; }
+    .plan-price .per { font-size: 14px; color: var(--muted); font-weight: 600; }
+    .plan-desc { font-size: 14px; color: var(--muted); margin-bottom: 22px; }
+    .plan-list { list-style: none; margin-bottom: 26px; flex: 1; }
+    .plan-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 7px 0;
+      font-size: 14.5px;
+      color: var(--text);
+      font-weight: 500;
+    }
+    .plan-list li svg { width: 16px; height: 16px; color: var(--success); flex-shrink: 0; margin-top: 4px; }
+    .plan-note { text-align: center; color: var(--muted); font-size: 13.5px; max-width: 560px; margin: 0 auto 88px; }
+
     /* ===== Audiences ===== */
     .audience-band { background: var(--primary-soft); border-top: 1px solid var(--primary-border); border-bottom: 1px solid var(--primary-border); }
     .audience-inner {
@@ -483,7 +530,15 @@
       transition: transform .15s, box-shadow .15s;
     }
     .audience-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-    .audience-card .emoji { font-size: 30px; margin-bottom: 10px; }
+    .audience-card .aic {
+      width: 52px; height: 52px;
+      margin: 0 auto 12px;
+      border-radius: 14px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .audience-card .aic svg { width: 24px; height: 24px; }
     .audience-card .title { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
     .audience-card .sub { font-size: 12.5px; color: var(--muted); }
 
@@ -556,11 +611,13 @@
     /* ===== Responsive ===== */
     @media (max-width: 960px) {
       .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 56px 24px 72px; }
-      .phone-wrap { order: -1; }
-      .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .hero-app { order: -1; }
+      .facts-inner { grid-template-columns: repeat(2, 1fr); gap: 28px; }
       .features-grid { grid-template-columns: repeat(2, 1fr); }
       .story-steps { grid-template-columns: repeat(2, 1fr); padding: 16px 28px 28px; }
       .story-head, .story-quote { padding-left: 28px; padding-right: 28px; }
+      .widget-inner { grid-template-columns: 1fr; gap: 44px; }
+      .plans-grid { grid-template-columns: 1fr; max-width: 520px; }
       .audience-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 560px) {
@@ -568,10 +625,11 @@
       .features-grid { grid-template-columns: 1fr; }
       .story-steps { grid-template-columns: 1fr; }
       .audience-grid { grid-template-columns: 1fr; }
+      .facts-inner { grid-template-columns: 1fr 1fr; padding: 32px 20px; }
       .final-cta-inner { padding: 44px 24px; }
       .footer-inner { grid-template-columns: 1fr; gap: 24px; }
-      .stats-inner { grid-template-columns: 1fr 1fr; padding: 32px 20px; }
-      .stat .num { font-size: 24px; }
+      .plan-card { padding: 28px 24px; }
+      .wg-medium { width: 100%; max-width: 340px; }
     }
   </style>
 </head>
@@ -600,15 +658,15 @@
     <div class="hero-inner">
       <div>
         <span class="badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          Le CRM nouvelle génération
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          Application iOS · lancement prochainement
         </span>
-        <h1>Ne laissez plus jamais une <em>vente</em> vous échapper.</h1>
-        <p class="lead">FlowNova réunit vos contacts, vos relances et votre pipeline commercial dans une seule application claire et puissante. Ajoutez un prospect, FlowNova s'occupe du reste.</p>
+        <h1>Ne laissez plus jamais une <em>relance</em> filer.</h1>
+        <p class="lead">Contacts, relances programmées, pipeline commercial, cartes de fidélité : FlowNova réunit tout votre suivi client dans une seule application. Vous vendez — FlowNova pense aux relances, à l'heure que vous choisissez.</p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="https://apps.apple.com" rel="noopener">
+          <a class="btn btn-primary" href="#lancement">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83zM13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            Télécharger sur l'App Store
+            Découvrir le lancement iOS
           </a>
           <a class="btn btn-ghost" href="#fonctionnalites">
             Découvrir les fonctionnalités
@@ -616,194 +674,189 @@
           </a>
         </div>
         <div class="hero-proof">
-          <span class="stars">
-            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <span class="proof-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            iPhone · iPad
           </span>
-          <span>Noté <strong>4,8/5</strong> par des centaines de commerçants et indépendants</span>
+          <span class="proof-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Français · Anglais · Espagnol
+          </span>
+          <span class="proof-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Export personnel JSON et gestion du compte
+          </span>
         </div>
       </div>
 
-      <div class="phone-wrap">
-        <div class="phone">
-          <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <div class="phone-status">
-              <span>9:41</span>
-              <span>📶 🔋</span>
-            </div>
-            <p class="phone-greeting">Bonjour, Sophie 👋</p>
-            <p class="phone-title">Votre commerce aujourd'hui</p>
-            <div class="phone-kpi">
-              <div class="phone-kpi-box">
-                <div class="lbl">Chiffre d'affaires</div>
-                <div class="val up">+23%</div>
-              </div>
-              <div class="phone-kpi-box">
-                <div class="lbl">Ventes du mois</div>
-                <div class="val primary">48</div>
-              </div>
-            </div>
-            <div class="phone-kanban">
-              <p class="head">Pipeline commercial</p>
-              <div class="phone-lanes">
-                <div class="phone-lane">
-                  <div class="lane-lbl">Nouveau</div>
-                  <div class="phone-card"><span class="tag a">Nouveau</span><br>Thomas R.</div>
-                  <div class="phone-card"><span class="tag a">Nouveau</span><br>Julie M.</div>
-                </div>
-                <div class="phone-lane">
-                  <div class="lane-lbl">Tenté</div>
-                  <div class="phone-card"><span class="tag b">Relance</span><br>Marc D.</div>
-                </div>
-                <div class="phone-lane">
-                  <div class="lane-lbl">Gagné</div>
-                  <div class="phone-card"><span class="tag c">Gagné</span><br>Sophie L.</div>
-                </div>
-              </div>
-            </div>
-            <div class="phone-reminder">
-              <span class="icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
-              </span>
-              <span class="txt"><strong>Rappel : relancer Marc</strong>Aujourd'hui à 14h — une relance peut tout changer.</span>
-            </div>
-          </div>
-        </div>
+      <div class="hero-app">
+        <img src="app-hero.png" alt="FlowNova — Application CRM sur iPhone et iPad : tableau de bord, relances du jour, pipeline Kanban" />
       </div>
     </div>
   </section>
 
-  <!-- ===== STATS ===== -->
-  <section class="stats-band">
-    <div class="stats-inner">
-      <div class="stat"><div class="num">−2 h</div><div class="lbl">gagnées chaque semaine sur l'administratif</div></div>
-      <div class="stat"><div class="num">0</div><div class="lbl">client oublié grâce aux relances automatiques</div></div>
-      <div class="stat"><div class="num">+31%</div><div class="lbl">de ventes en moyenne après 3 mois d'utilisation</div></div>
-      <div class="stat"><div class="num">100%</div><div class="lbl">de vos données, rien qu'à vous</div></div>
-    </div>
-  </section>
-
-  <!-- ===== PARCOURS UTILISATEUR ===== -->
-  <section class="section" id="parcours">
-    <div class="section-head">
-      <span class="section-eyebrow">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-        Une journée avec FlowNova
-      </span>
-      <h2>Claire ne rate plus une seule vente.</h2>
-      <p>Gérante d'un salon de coiffure, Claire jonglait entre les rendez-vous, les devis et les clients à rappeler. Voici comment FlowNova a transformé sa journée.</p>
-    </div>
-
-    <div class="story">
-      <div class="story-head">
-        <div class="story-person">
-          <div class="story-avatar">C</div>
-          <div>
-            <div class="name">Claire, 34 ans</div>
-            <div class="role">Gérante d'un salon de coiffure — Lyon</div>
-          </div>
+  <!-- ===== FACTS ===== -->
+  <section class="facts-band">
+    <div class="facts-inner">
+      <div class="fact">
+        <div class="fic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
         </div>
-        <span class="story-pill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Résultat : +12 clients fidèles en 2 mois
-        </span>
+        <div class="num">Widget iOS</div>
+        <div class="lbl">Vos relances du jour, sur votre écran d'accueil</div>
       </div>
-      <p class="story-quote">« Avant, tout était dans ma tête. Je notais les relances sur des post-its, et je les perdais. Aujourd'hui, <strong>FlowNova me dit exactement qui appeler</strong> — et mes clients le sentent. »</p>
-      <div class="story-steps">
-        <div class="story-step">
-          <span class="step-num">08:15</span>
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
-          </div>
-          <div class="step-title">Elle scanne sa journée</div>
-          <div class="step-desc">Le tableau de bord affiche clairement le <strong>CA du jour</strong> et les clients à relancer. Plus besoin de fouiller dans ses notes.</div>
+      <div class="fact">
+        <div class="fic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
-        <div class="story-step">
-          <span class="step-num">10:30</span>
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          </div>
-          <div class="step-title">Elle ajoute un client</div>
-          <div class="step-desc">Nouvelle cliente venue tester le lissage. Claire l'ajoute en 10 secondes avec un tag « <strong>à fidéliser</strong> » et une note sur sa préférence.</div>
+        <div class="num">3 langues</div>
+        <div class="lbl">Français, English, Español</div>
+      </div>
+      <div class="fact">
+        <div class="fic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.61 16.95A5 5 0 0 0 18 10h-1.26a8 8 0 0 0-7.05-6M5 5a8 8 0 0 0 4 15h9a5 5 0 0 0 1.7-.3"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
         </div>
-        <div class="story-step">
-          <span class="step-num">14:00</span>
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
-          </div>
-          <div class="step-title">Une relance se déclenche</div>
-          <div class="step-desc">Une <strong>notification automatique</strong> lui rappelle d'envoyer le devis promis ce matin. Aucune vente ne glisse entre les mailles.</div>
+        <div class="num">Hors ligne</div>
+        <div class="lbl">Contacts en cache consultables sans réseau</div>
+      </div>
+      <div class="fact">
+        <div class="fic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <div class="story-step">
-          <span class="step-num">18:00</span>
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          </div>
-          <div class="step-title">Elle lance sa carte de fidélité</div>
-          <div class="step-desc">En 2 minutes, elle crée un programme « <strong>10 visites = 1 soin offert</strong> ». La cliente fidèle revient, encore et encore.</div>
-        </div>
+        <div class="num">Vos données</div>
+        <div class="lbl">Export personnel JSON et suppression du compte</div>
       </div>
     </div>
   </section>
+
+
 
   <!-- ===== FONCTIONNALITÉS ===== -->
   <section class="section" id="fonctionnalites">
     <div class="section-head">
       <span class="section-eyebrow">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12M6 8h12M6 13h12M6 18h12"/><rect x="3" y="3" width="4" height="4" rx="1"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         Tout ce qu'il faut. Rien de superflu.
       </span>
-      <h2>Des outils pensés pour vendre plus, pas pour remplir des cases.</h2>
+      <h2>Un CRM complet, pensé pour votre poche.</h2>
       <p>Chaque fonctionnalité de FlowNova répond à une vraie question : combien de temps vous fait-elle gagner, et combien de ventes vous fait-elle signer ?</p>
     </div>
 
     <div class="features-grid">
       <div class="feature-card">
         <div class="icon icon-primary">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        <h3>Pipeline commercial visuel</h3>
-        <div class="desc">Vos prospects avancent en temps réel, du premier contact jusqu'à la vente signée. Vous savez toujours où en est chaque affaire — et laquelle mérite votre attention.</div>
+        <h3>Contacts enrichis</h3>
+        <div class="desc">Téléphone, email, adresse, entreprise, réseaux sociaux, anniversaire. Avatar et galerie photos, montant du deal, recherche instantanée et détection automatique des doublons.</div>
         <span class="benefit">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Aucune opportunité en suspens
+          Import CSV selon formule · export CSV
         </span>
       </div>
 
       <div class="feature-card">
         <div class="icon icon-success">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
         </div>
-        <h3>Relances automatiques</h3>
-        <div class="desc">FlowNova vous rappelle au bon moment de recontacter un prospect. Plus jamais de « ah, je devais le rappeler… » — c'est l'application qui s'en souvient à votre place.</div>
+        <h3>Relances programmées</h3>
+        <div class="desc">Prochaine relance par contact, avec l'heure exacte que vous choisissez. Notifications push : relance du jour, retards, résumé du soir — et un badge sur l'icône de l'app.</div>
         <span class="benefit">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Plus aucune relance oubliée
+          À l'heure que vous choisissez
         </span>
       </div>
 
       <div class="feature-card">
         <div class="icon icon-amber">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         </div>
-        <h3>Programmes de fidélité</h3>
-        <div class="desc">Créez une carte de fidélité en quelques minutes. Vos meilleurs clients reviennent, se sentent valorisés, et deviennent vos meilleurs ambassadeurs.</div>
+        <h3>Calendrier synchronisé</h3>
+        <div class="desc">Vue mensuelle avec pastilles de relances par jour. Un clic sur un jour affiche les relances, un clic sur une relance ouvre la fiche contact.</div>
         <span class="benefit">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Des clients qui reviennent
+          Relances dans le calendrier de l'appareil
         </span>
       </div>
 
       <div class="feature-card">
         <div class="icon icon-danger">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="5" height="18" rx="1"/><rect x="10" y="3" width="5" height="12" rx="1"/><rect x="17" y="3" width="5" height="15" rx="1"/></svg>
         </div>
-        <h3>Tirages au sort intégrés</h3>
-        <div class="desc">Organisez un jeu-concours en deux clics pour animer votre communauté. Le suspense ramène du monde en boutique — et vos contacts restent à jour.</div>
+        <h3>Pipeline commercial Kanban</h3>
+        <div class="desc">Colonnes personnalisables : nom, couleur, icône. Glissez-déposez vos contacts d'une colonne à l'autre — le statut se met à jour tout seul. Total du pipeline toujours visible.</div>
+        <span class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          Votre pipeline dans votre poche
+        </span>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon icon-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <h3>Statistiques & analyses</h3>
+        <div class="desc">Total contacts, relances du jour, taux de conversion, graphique mensuel créés vs terminés, heatmap des relances. Statistiques avancées avec le plan Pro.</div>
+        <span class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          Des décisions sur données
+        </span>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon icon-success">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+        </div>
+        <h3>Cartes de fidélité digitales</h3>
+        <div class="desc">X achats = une récompense. Progression visible, complétion célébrée, historique des achats et total dépensé par client.</div>
+        <span class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          Des outils pour fidéliser vos clients
+        </span>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon icon-amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        </div>
+        <h3>Notes texte & vocales</h3>
+        <div class="desc">Notes avec modèles pré-remplis, ou enregistrement micro directement dans la fiche — lecture intégrée. Tout l'historique du client, au même endroit.</div>
+        <span class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          Vos notes regroupées par contact
+        </span>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon icon-danger">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3>Tags & organisation</h3>
+        <div class="desc">Créez des tags colorés pour segmenter votre clientèle et filtrez votre liste de contacts en un geste. Vos prospects, clients et fournisseurs restent parfaitement organisés.</div>
+        <span class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          Votre base clients, clarifiée
+        </span>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon icon-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3z"/><path d="M20 14h1v1h-1z"/><path d="M14 20h1v1h-1z"/><path d="M18 18h3v3h-3z"/></svg>
+        </div>
+        <h3>QR codes</h3>
+        <div class="desc">Créez un QR code vers n'importe quelle URL, avec lien court personnalisable. Comptage des visites après scan, partage de l'image et copie du lien en un geste.</div>
+        <span class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          Scannez, partagez, vendez
+        </span>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon icon-success">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+        </div>
+        <h3>Tirages au sort</h3>
+        <div class="desc">Ajoutez les participants (doublons détectés), lancez l'animation, désignez plusieurs gagnants. Le résultat se partage en image — parfait pour animer votre communauté.</div>
         <span class="benefit">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
           De l'animation, sans effort
@@ -811,29 +864,204 @@
       </div>
 
       <div class="feature-card">
-        <div class="icon icon-primary">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+        <div class="icon icon-amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
         </div>
-        <h3>Statistiques qui parlent</h3>
-        <div class="desc">Votre CA, vos ventes, vos meilleurs clients : tout est résumé en chiffres lisibles. Vous prenez vos décisions sur des données, pas sur des impressions.</div>
+        <h3>Gamification</h3>
+        <div class="desc">Série de jours consécutifs avec record personnel, badges à débloquer (contacts créés, relances terminées…) traduits en français, anglais et espagnol.</div>
         <span class="benefit">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Des décisions éclairées
+          Restez motivé, jour après jour
         </span>
       </div>
 
       <div class="feature-card">
-        <div class="icon icon-success">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v6a2 2 0 0 0 2 2h6"/><path d="M14 2v6a2 2 0 0 0 2 2h4"/><path d="M4 4h5v4H4zM4 14h5v6H4zM14 14h6v6h-6z" transform="translate(0 -2)"/></svg>
+        <div class="icon icon-danger">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
         </div>
-        <h3>Export CSV & portabilité</h3>
-        <div class="desc">Vos données vous appartiennent. Exportez vos contacts en un instant ou supprimez votre compte à tout moment. Sans engagement, sans piège.</div>
+        <h3>Widget iOS « Relances du jour »</h3>
+        <div class="desc">Compteur et prochains contacts à relancer, directement sur votre écran d'accueil. Affichage selon les mises à jour du widget — un tap ouvre l'onglet Aujourd'hui.</div>
         <span class="benefit">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          100% maître de vos données
+          Vos relances, en un coup d'œil
         </span>
       </div>
     </div>
+  </section>
+
+  <!-- ===== WIDGET IOS ===== -->
+  <section class="widget-band" id="widget">
+    <div class="widget-inner">
+      <div class="widget-copy">
+        <span class="section-eyebrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          Widget iOS · exemple fictif
+        </span>
+        <h2>Vos relances du jour, sur votre écran d'accueil.</h2>
+        <p>Pas besoin d'ouvrir l'application pour savoir qui appeler aujourd'hui. Le widget FlowNova affiche votre compteur de relances et vos prochains contacts, selon les mises à jour du widget.</p>
+        <ul class="widget-points">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Actualisation à partir des relances, selon le fonctionnement du widget iOS
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Deux formats disponibles : petit et moyen
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Un tap ouvre directement l'onglet Aujourd'hui
+          </li>
+        </ul>
+        <a class="btn btn-primary" href="#lancement">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83zM13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          En savoir plus sur le lancement
+        </a>
+      </div>
+
+      <div class="widget-stage" aria-label="Exemple fictif d’affichage du widget">
+        <div class="wg wg-small">
+          <div class="wg-label">Aujourd'hui</div>
+          <div class="wg-count">6</div>
+          <div class="wg-count-sub">relances prévues</div>
+          <div class="wg-spacer"></div>
+          <div class="wg-mini-row">
+            <span class="wg-avatar av-a">MD</span>
+            <span class="nm">Marc D.</span>
+            <span class="tm">14:00</span>
+          </div>
+        </div>
+        <div class="wg wg-medium">
+          <div class="wg-head">
+            <div>
+              <div class="wg-label">Relances du jour</div>
+              <div class="cnt">6 relances · 2 en retard</div>
+            </div>
+          </div>
+          <div class="wg-row">
+            <span class="wg-avatar av-a">MD</span>
+            <span class="nm">Marc Dubois <span class="why">— devis à envoyer</span></span>
+            <span class="tm">14:00</span>
+          </div>
+          <div class="wg-row">
+            <span class="wg-avatar av-b">JL</span>
+            <span class="nm">Julie Lambert <span class="why">— suivi commande</span></span>
+            <span class="tm">16:30</span>
+          </div>
+          <div class="wg-row">
+            <span class="wg-avatar av-c">TR</span>
+            <span class="nm">Thomas Renard <span class="why">— premier contact</span></span>
+            <span class="tm">18:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PLANS ===== -->
+  <section class="section" id="plans">
+    <div class="section-head">
+      <span class="section-eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Des tarifs simples
+      </span>
+      <h2>Gratuit pour commencer. Illimité quand vous êtes prêt.</h2>
+      <p>Deux formules pour organiser votre suivi client. L'export personnel JSON et la suppression du compte sont décrits dans notre <a href="index.html">Politique de confidentialité</a>, avec leurs limites.</p>
+    </div>
+
+    <div class="plans-grid">
+      <div class="plan-card">
+        <div class="plan-name">Free</div>
+        <div class="plan-price">
+          <span class="amount">0 €</span>
+          <span class="per">pour toujours</span>
+        </div>
+        <p class="plan-desc">Pour découvrir FlowNova et suivre vos premiers clients au quotidien.</p>
+        <ul class="plan-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Jusqu'à 20 contacts
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            10 relances par mois
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            5 notes par contact (texte + vocales)
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            5 tags · 3 cartes de fidélité · 1 QR code
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Historique d'activité : affichage sur 30 jours
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Export CSV inclus
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Widget iOS, calendrier, gamification, mode hors ligne, 3 langues
+          </li>
+        </ul>
+        <a class="btn btn-ghost" href="terms.html#s3" style="justify-content:center;">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83zM13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          Découvrir la formule Free
+        </a>
+      </div>
+
+
+      <div class="plan-card pro">
+        <span class="plan-flag">Le plus complet</span>
+        <div class="plan-name">Pro</div>
+        <div class="plan-price">
+          <span class="amount">Illimité</span>
+        </div>
+        <p class="plan-desc">Pour les commerces et indépendants qui veulent passer à la vitesse supérieure.</p>
+        <ul class="plan-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Contacts, notes, tags et cartes de fidélité illimités
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Relances illimitées
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            QR codes et tirages au sort illimités
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Filtres sauvegardés illimités
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Historique d'activité illimité
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Import CSV · rapports PDF selon les fonctions proposées
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Statistiques avancées
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Rapport hebdomadaire par email lorsqu’activé
+          </li>
+        </ul>
+        <a class="btn btn-primary" href="terms.html#s3" style="justify-content:center;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Consulter les conditions Pro
+        </a>
+      </div>
+    </div>
+    <p class="plan-note">Sur iOS, l'abonnement Pro est géré par Apple et se renouvelle automatiquement jusqu'à annulation. Le prix applicable est celui affiché par l'App Store lors de l'achat ; il peut varier selon le territoire et la devise. Consultez les <a href="terms.html#s3">conditions d'abonnement</a>. La formule Free limite l'affichage de l'historique à 30 jours, sans garantir sa suppression au-delà.</p>
   </section>
 
   <!-- ===== AUDIENCES ===== -->
@@ -844,26 +1072,34 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           Fait pour vous
         </span>
-        <h2>Que vous vendiez des produits, des services ou des idées.</h2>
+        <h2>Pensé pour les indépendants et les petits commerces.</h2>
       </div>
       <div class="audience-grid">
         <div class="audience-card">
-          <div class="emoji">💈</div>
+          <div class="aic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+          </div>
           <div class="title">Salons & beauté</div>
-          <div class="sub">Rendez-vous, fidélité, relances clients</div>
+          <div class="sub">Fidélité, relances, suivi des habitués</div>
         </div>
         <div class="audience-card">
-          <div class="emoji">🏪</div>
+          <div class="aic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </div>
           <div class="title">Commerces de proximité</div>
           <div class="sub">Boutiques, boulangeries, cavistes…</div>
         </div>
         <div class="audience-card">
-          <div class="emoji">🛠️</div>
+          <div class="aic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
           <div class="title">Artisans</div>
           <div class="sub">Devis, chantiers, rappels de travaux</div>
         </div>
         <div class="audience-card">
-          <div class="emoji">💼</div>
+          <div class="aic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
           <div class="title">Indépendants & consultants</div>
           <div class="sub">Prospects, pipeline, suivi d'affaires</div>
         </div>
@@ -872,23 +1108,20 @@
   </section>
 
   <!-- ===== CTA FINAL ===== -->
-  <section class="final-cta">
+  <section class="final-cta" id="lancement">
     <div class="final-cta-inner">
       <span class="final-cta-deco f1"></span>
       <span class="final-cta-deco f2"></span>
-      <h2>Prêt à vendre plus ?</h2>
-      <p>Rejoignez les commerçants et indépendants qui ont repris le contrôle de leur relation client. Téléchargez FlowNova et ajoutez votre premier contact en 10 secondes.</p>
+      <h2>Application iOS — lancement prochainement sur l'App Store</h2>
+      <p>FLOWNOVA n'est pas encore publiquement disponible sur l'App Store. Découvrez les fonctionnalités et les conditions du service en attendant le lancement iOS. Aucun lien de téléchargement public n'est encore proposé.</p>
       <div class="final-cta-btns">
-        <a class="btn btn-primary" href="https://apps.apple.com" rel="noopener">
+        <a class="btn btn-primary" href="terms.html">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83zM13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          Télécharger sur l'App Store
+          Consulter les conditions
         </a>
-        <a class="btn btn-ghost" href="https://play.google.com" rel="noopener" style="background:#fff;border-color:var(--border);color:var(--text);">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.86.94-1.39 1.68-.94l12.05 8.5c.7.49.7 1.39 0 1.88L4.68 21.44c-.74.45-1.68-.08-1.68-.94zM18.24 13.05l1.98 1.4c.77.54.77 1.7 0 2.24l-2.05 1.45-2.32-3.28 2.39-1.81zM14.5 12L5.1 4.37l7.72 5.45-2.32 4.36L5.1 19.63 14.5 12z"/></svg>
-          Disponible sur Android
-        </a>
+        <a class="btn btn-ghost" href="index.html" style="background:#fff;border-color:var(--border);color:var(--text);">Politique de confidentialité</a>
       </div>
-      <p class="final-cta-note">Gratuit pour commencer — Plan Pro déblocable à tout moment.</p>
+      <p class="final-cta-note">Formule Free prévue · Français, anglais et espagnol · Réservé aux 18 ans et plus</p>
     </div>
   </section>
 
@@ -899,8 +1132,8 @@
           <img src="splash-icon.png" alt="FlowNova">
           FlowNova
         </div>
-        <p>L'application de gestion de relation client qui simplifie vos relances, votre pipeline commercial et vos programmes de fidélité.</p>
-        <p><a href="https://crmclient.app">crmclient.app</a></p>
+        <p>Le CRM mobile des indépendants et petits commerces : contacts, relances, pipeline commercial et cartes de fidélité — dans votre poche.</p>
+        <p><a href="https://gesland-benjamin.github.io/FLOWNOVA_LEGAL/">Site FLOWNOVA</a></p>
       </div>
       <div class="footer-col">
         <h4>Légal</h4>
@@ -910,12 +1143,12 @@
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
-        <a href="mailto:contact@crmclient.app">contact@crmclient.app</a>
-        <a href="https://crmclient.app">crmclient.app</a>
-        <a href="https://apps.apple.com" rel="noopener">Disponible sur l'App Store</a>
+        <a href="mailto:flownova.support@gmail.com">flownova.support@gmail.com</a>
+        <a href="https://gesland-benjamin.github.io/FLOWNOVA_LEGAL/">Site FLOWNOVA</a>
+        <a href="#lancement">Lancement iOS prochainement</a>
       </div>
     </div>
-    <div class="footer-bottom">© 2026 FlowNova — Tous droits réservés</div>
+    <div class="footer-bottom">© 2026 FLOWNOVA — Benjamin Gesland — SIRET 84527741700026<br>Service réservé aux 18 ans et plus</div>
   </footer>
 </body>
 </html>
