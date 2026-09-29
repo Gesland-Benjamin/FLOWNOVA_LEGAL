@@ -1,0 +1,25 @@
+/* Android robot asset: https://developer.android.com/distribute/marketing-tools/brand-guidelines */
+.android-badge{display:inline-flex;align-items:center;gap:15px;width:fit-content;max-width:100%;min-height:78px;padding:14px 23px 14px 17px;border:1px solid #34493f;border-radius:18px;background:linear-gradient(125deg,#202b27,#111916);box-shadow:0 7px 18px #10251b18,inset 0 1px 0 #ffffff12;color:#fff;text-decoration:none;text-align:left;vertical-align:middle;transition:transform .2s,box-shadow .2s,border-color .2s}
+.android-badge:hover{transform:translateY(-2px);border-color:#3ddc84;box-shadow:0 10px 24px #10251b25;color:#fff;text-decoration:none}
+.android-badge:focus-visible{outline:3px solid #218951;outline-offset:4px}
+.android-badge img{display:block;width:49px;height:49px;object-fit:contain;flex-shrink:0}
+.android-badge-copy{display:flex;flex-direction:column;gap:3px;min-width:0;line-height:1.25}
+.android-badge-label{color:#b6f5d2;font-size:10px;font-weight:650;letter-spacing:.09em;text-transform:uppercase}
+.android-badge-name{color:#fff;font-size:23px;font-weight:650;letter-spacing:-.035em}
+.android-badge-name sup{font-size:9px;vertical-align:super;margin-left:2px;letter-spacing:0}
+.platform-soon{display:block;width:fit-content;max-width:100%;margin-top:18px;padding:0;border:0;background:none;border-radius:0}
+.platform-soon .platform-caption{display:block;margin:8px 0 0;font-size:11px;color:#5f617b;line-height:1.5;text-align:center}
+.launch .platform-soon{margin:0 auto 24px}
+.footer-links{align-items:center}
+.footer-col a.android-badge,.footer-links a.android-badge{display:inline-flex;gap:10px;min-height:58px;padding:10px 15px;border-radius:13px;margin-top:8px;color:#fff;text-decoration:none}
+.footer-links a.android-badge{margin-top:0}
+.android-badge--compact img{width:33px;height:33px}
+.android-badge--compact .android-badge-name{font-size:17px}
+.android-badge--compact .android-badge-label{font-size:8px;letter-spacing:.07em}
+.android-attribution{max-width:1200px;margin:18px auto 0;padding:0 18px;color:#696979;font-size:10px;line-height:1.6;text-align:center}
+.android-attribution summary{display:list-item;width:fit-content;margin:auto;cursor:pointer;list-style:disclosure-closed;font:inherit;letter-spacing:0;color:inherit}
+.android-attribution[open] summary{list-style:disclosure-open}
+.android-attribution summary:after{content:none}
+.android-attribution p{margin:8px auto 0;max-width:780px;font:inherit;color:inherit}
+.android-attribution a{color:inherit;text-decoration:underline}
+@media(prefers-reduced-motion:reduce){.android-badge{transition:none}.android-badge:hover{transform:none}}

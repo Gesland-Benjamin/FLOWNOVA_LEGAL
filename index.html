@@ -311,17 +311,28 @@
       .footer-inner { grid-template-columns: 1fr; gap: 24px; }
     }
   </style>
+  <link rel="stylesheet" href="assets/android-badges.css">
+  <meta name="description" content="Découvrez comment FlowNova traite vos données personnelles : collecte, conservation, prestataires, sécurité et exercice de vos droits.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="FlowNova">
+  <meta property="og:title" content="Politique de confidentialité — FlowNova">
+  <meta property="og:description" content="Découvrez comment FlowNova traite vos données personnelles : collecte, conservation, prestataires, sécurité et exercice de vos droits.">
+  <link rel="stylesheet" href="assets/site.css">
+  <noscript><style>@media(max-width:600px){.nav-links,.legal-page .nav-links{display:flex;position:static;flex-wrap:wrap;flex-direction:row;flex-basis:100%;border:0;box-shadow:none;padding:8px 0}.menu-toggle,.legal-page .doc-menu-toggle{display:none}.site-header{height:auto;min-height:77px}}</style></noscript>
 </head>
-<body>
+<body class="legal-page" id="haut">
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
   <header class="site-header">
-    <nav class="nav">
+    <nav class="nav" aria-label="Navigation principale">
       <a class="brand" href="home.html">
-        <img src="splash-icon.png" alt="FlowNova">
+        <img src="splash-icon.png" width="30" height="30" alt="">
         FlowNova
       </a>
-      <div class="nav-links">
+      <button class="doc-menu-toggle" type="button" aria-controls="document-navigation" aria-expanded="false" aria-label="Ouvrir le menu">Menu ☰</button>
+      <div class="nav-links" id="document-navigation">
         <a href="home.html">Accueil</a>
-        <a href="index.html" class="active">Confidentialité</a>
+        <a href="index.html" class="active" aria-current="page">Confidentialité</a>
         <a href="terms.html">Conditions</a>
         <a href="delete-account.html">Compte</a>
       </div>
@@ -348,7 +359,23 @@
   </section>
 
   <div class="layout">
-    <aside class="sidebar">
+    <details class="mobile-toc"><summary>Dans cette page</summary><nav aria-label="Sommaire">
+
+      <a href="#s1"><span class="num">01</span> Responsable de traitement</a>
+      <a href="#s2"><span class="num">02</span> Données collectées</a>
+      <a href="#s3"><span class="num">03</span> Finalités</a>
+      <a href="#s4"><span class="num">04</span> Base légale</a>
+      <a href="#s5"><span class="num">05</span> Destinataires</a>
+      <a href="#s6"><span class="num">06</span> Prestataires et destinataires</a>
+      <a href="#s7"><span class="num">07</span> Conservation</a>
+      <a href="#s8"><span class="num">08</span> Vos droits RGPD</a>
+      <a href="#s9"><span class="num">09</span> Sécurité</a>
+      <a href="#s10"><span class="num">10</span> Cookies et journaux</a>
+      <a href="#s11"><span class="num">11</span> Hébergement</a>
+      <a href="#s12"><span class="num">12</span> Contact – Protection des données</a>
+      <a href="#s13"><span class="num">13</span> Modifications</a>
+    </nav></details>
+    <aside class="sidebar" aria-label="Sommaire">
       <p class="sidebar-title">Sommaire</p>
       <a href="#s1"><span class="num">01</span> Responsable de traitement</a>
       <a href="#s2"><span class="num">02</span> Données collectées</a>
@@ -365,7 +392,7 @@
       <a href="#s13"><span class="num">13</span> Modifications</a>
     </aside>
 
-    <main class="content">
+    <main class="content" id="contenu" tabindex="-1">
       <div class="card">
         <p>Cette politique explique comment <strong>FLOWNOVA</strong> traite les données personnelles liées à l'utilisation de son application de gestion de la relation client. Elle distingue vos données de compte, les données de vos clients et prospects, et les données techniques. La section « Cookies, statistiques et journaux » précise également le fonctionnement de cette page web.</p>
       </div>
@@ -544,11 +571,11 @@
     <div class="footer-inner">
       <div>
         <div class="footer-brand">
-          <img src="splash-icon.png" alt="FlowNova">
+          <img src="splash-icon.png" width="30" height="30" alt="">
           FlowNova
         </div>
         <p>L'application de gestion de relation client qui simplifie vos relances, votre pipeline commercial et vos programmes de fidélité.</p>
-        <p><a href="https://flownova-crm.fr/index.html">flownova-crm.fr</a></p>
+        <p><a href="home.html">Découvrir FlowNova</a></p>
       </div>
       <div class="footer-col">
         <h4>Légal</h4>
@@ -559,11 +586,20 @@
       <div class="footer-col">
         <h4>Contact</h4>
         <a href="mailto:flownova.support@gmail.com">flownova.support@gmail.com</a>
-        <a href="https://flownova-crm.fr/index.html">flownova-crm.fr</a>
         <a href="home.html">Présentation de FlowNova</a>
+        <a class="android-badge android-badge--compact" href="home.html#android" aria-label="Android : bientôt disponible, découvrir les informations">
+<img src="assets/android-head.svg" width="49" height="49" alt="">
+<span class="android-badge-copy"><span class="android-badge-label">Bientôt disponible</span><span class="android-badge-name">Android<sup>™</sup></span></span>
+</a>
       </div>
     </div>
     <div class="footer-bottom">© 2026 FLOWNOVA — Benjamin Gesland — SIRET 84527741700026<br>Service réservé aux 18 ans et plus</div>
-  </footer>
+  <details class="android-attribution">
+<summary>Crédits Android</summary>
+<p>Android is a trademark of Google LLC. The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the <a href="https://creativecommons.org/licenses/by/3.0/">Creative Commons 3.0 Attribution License</a>.</p>
+</details>
+<a class="back-top" href="#haut">↑ Retour en haut</a>
+</footer>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

@@ -334,18 +334,29 @@
       .pricing { grid-template-columns: 1fr; }
     }
   </style>
+  <link rel="stylesheet" href="assets/android-badges.css">
+  <meta name="description" content="Consultez les conditions d’utilisation de FlowNova : compte, formules Free et Pro, abonnements, responsabilités et traitement des données.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="FlowNova">
+  <meta property="og:title" content="Conditions d&#x27;utilisation — FlowNova">
+  <meta property="og:description" content="Consultez les conditions d’utilisation de FlowNova : compte, formules Free et Pro, abonnements, responsabilités et traitement des données.">
+  <link rel="stylesheet" href="assets/site.css">
+  <noscript><style>@media(max-width:600px){.nav-links,.legal-page .nav-links{display:flex;position:static;flex-wrap:wrap;flex-direction:row;flex-basis:100%;border:0;box-shadow:none;padding:8px 0}.menu-toggle,.legal-page .doc-menu-toggle{display:none}.site-header{height:auto;min-height:77px}}</style></noscript>
 </head>
-<body>
+<body class="legal-page" id="haut">
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
   <header class="site-header">
-    <nav class="nav">
+    <nav class="nav" aria-label="Navigation principale">
       <a class="brand" href="home.html">
-        <img src="splash-icon.png" alt="FlowNova">
+        <img src="splash-icon.png" width="30" height="30" alt="">
         FlowNova
       </a>
-      <div class="nav-links">
+      <button class="doc-menu-toggle" type="button" aria-controls="document-navigation" aria-expanded="false" aria-label="Ouvrir le menu">Menu ☰</button>
+      <div class="nav-links" id="document-navigation">
         <a href="home.html">Accueil</a>
         <a href="index.html">Confidentialité</a>
-        <a href="terms.html" class="active">Conditions</a>
+        <a href="terms.html" class="active" aria-current="page">Conditions</a>
         <a href="delete-account.html">Compte</a>
       </div>
     </nav>
@@ -361,7 +372,7 @@
     <div class="meta">
       <span class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-        Dernière mise à jour : <strong>16 septembre 2026</strong>
+        Dernière mise à jour : <strong>28 septembre 2026</strong>
       </span>
       <span class="meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -371,7 +382,21 @@
   </section>
 
   <div class="layout">
-    <aside class="sidebar">
+    <details class="mobile-toc"><summary>Dans cette page</summary><nav aria-label="Sommaire">
+
+      <a href="#s1"><span class="num">01</span> Description du service</a>
+      <a href="#s2"><span class="num">02</span> Compte utilisateur</a>
+      <a href="#s3"><span class="num">03</span> Plans d'abonnement</a>
+      <a href="#s4"><span class="num">04</span> Utilisation acceptable</a>
+      <a href="#s5"><span class="num">05</span> Propriété intellectuelle</a>
+      <a href="#s6"><span class="num">06</span> Données utilisateur</a>
+      <a href="#s7"><span class="num">07</span> Limitation de responsabilité</a>
+      <a href="#s8"><span class="num">08</span> Résiliation</a>
+      <a href="#s9"><span class="num">09</span> Modifications</a>
+      <a href="#s10"><span class="num">10</span> Contact</a>
+      <a href="#dpa"><span class="num">11</span> Annexe DPA</a>
+    </nav></details>
+    <aside class="sidebar" aria-label="Sommaire">
       <p class="sidebar-title">Sommaire</p>
       <a href="#s1"><span class="num">01</span> Description du service</a>
       <a href="#s2"><span class="num">02</span> Compte utilisateur</a>
@@ -386,10 +411,10 @@
       <a href="#dpa"><span class="num">11</span> Annexe DPA</a>
     </aside>
 
-    <main class="content">
+    <main class="content" id="contenu" tabindex="-1">
       <div class="card">
         <p>Les présentes Conditions encadrent l'utilisation de <strong>FLOWNOVA</strong>, édité et exploité par <strong>Benjamin Gesland — SIRET 84527741700026</strong>. Contact : <a href="mailto:flownova.support@gmail.com">flownova.support@gmail.com</a>. En utilisant l'application, vous acceptez ces Conditions, y compris l'annexe DPA lorsqu'elle s'applique. Si vous ne les acceptez pas, n'utilisez pas le service.</p>
-        <p>La version iOS est en préparation pour un lancement prochainement sur l'App Store ; elle n'est pas encore publiquement disponible au 16 septembre 2026.</p>
+        <p>Pour connaître la disponibilité des versions iOS et Android, consultez la <a href="home.html#lancement">présentation de FlowNova</a>.</p>
       </div>
 
       <div class="card" id="s1">
@@ -513,11 +538,11 @@
     <div class="footer-inner">
       <div>
         <div class="footer-brand">
-          <img src="splash-icon.png" alt="FlowNova">
+          <img src="splash-icon.png" width="30" height="30" alt="">
           FlowNova
         </div>
         <p>L'application de gestion de relation client qui simplifie vos relances, votre pipeline commercial et vos programmes de fidélité.</p>
-        <p><a href="https://flownova-crm.fr/index.html">flownova-crm.fr</a></p>
+        <p><a href="home.html">Découvrir FlowNova</a></p>
       </div>
       <div class="footer-col">
         <h4>Légal</h4>
@@ -528,11 +553,20 @@
       <div class="footer-col">
         <h4>Contact</h4>
         <a href="mailto:flownova.support@gmail.com">flownova.support@gmail.com</a>
-        <a href="https://flownova-crm.fr/index.html">flownova-crm.fr</a>
-        <a href="home.html#lancement">Lancement iOS prochainement</a>
+        <a href="home.html">Présentation de FlowNova</a>
+        <a class="android-badge android-badge--compact" href="home.html#android" aria-label="Android : bientôt disponible, découvrir les informations">
+<img src="assets/android-head.svg" width="49" height="49" alt="">
+<span class="android-badge-copy"><span class="android-badge-label">Bientôt disponible</span><span class="android-badge-name">Android<sup>™</sup></span></span>
+</a>
       </div>
     </div>
     <div class="footer-bottom">© 2026 FLOWNOVA — Benjamin Gesland — SIRET 84527741700026<br>Service réservé aux 18 ans et plus</div>
-  </footer>
+  <details class="android-attribution">
+<summary>Crédits Android</summary>
+<p>Android is a trademark of Google LLC. The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the <a href="https://creativecommons.org/licenses/by/3.0/">Creative Commons 3.0 Attribution License</a>.</p>
+</details>
+<a class="back-top" href="#haut">↑ Retour en haut</a>
+</footer>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

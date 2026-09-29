@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FlowNova — Vos relations. Votre succès.</title>
-  <meta name="description" content="Contacts, relances, calendrier et fidélité : découvrez FlowNova, le CRM mobile des indépendants et commerçants. Lancement prochainement sur iOS.">
   <meta name="theme-color" content="#6950ff">
   <link rel="icon" type="image/png" href="splash-icon.png">
   <style>
@@ -62,8 +61,8 @@ p{color:var(--muted)}
 .hero-cta small{display:block;margin:11px 0 0 9px;color:var(--muted);font-size:11px}
 .hero-art{height:655px;position:relative;min-width:0}
 .hero-art:before{content:"";position:absolute;width:90%;aspect-ratio:1;border-radius:50%;background:linear-gradient(130deg,#dbeeff88,#e4d8ff77);top:65px;left:25px;filter:blur(18px)}
-.device{background:#111218;padding:7px;border-radius:35px;border:2px solid #8e909b;box-shadow:0 0 0 2px #d9dae0,0 24px 34px -18px #16153677;overflow:hidden;position:relative;isolation:isolate}
-.device img{width:100%;height:auto;border-radius:26px}
+.device{background:#111218;padding:7px;border-radius:35px;border:2px solid #8e909b;box-shadow:0 0 0 2px #d9dae0,0 24px 34px -18px #16153677;overflow:hidden;position:relative}
+.device img{position:relative;z-index:1;width:100%;height:auto;border-radius:26px}
 .hero-phone{position:absolute;width:246px;left:10px;top:97px;z-index:2;transform:rotate(-4deg)}
 .hero-tablet{position:absolute;width:376px;right:-10px;top:17px;border-radius:29px;padding:13px;transform:rotate(5deg)}
 .hero-tablet img{border-radius:17px;aspect-ratio:2048/2732;width:100%;height:auto}
@@ -293,8 +292,17 @@ details[open] summary:after{content:"−"}
 }
 
   </style>
+  <link rel="stylesheet" href="assets/android-badges.css">
+  <meta name="description" content="FlowNova, le CRM mobile des indépendants : contacts, relances, calendrier et fidélité. Disponible sur iPhone et iPad, bientôt sur Android.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="FlowNova">
+  <meta property="og:title" content="FlowNova — Vos relations. Votre succès.">
+  <meta property="og:description" content="FlowNova, le CRM mobile des indépendants : contacts, relances, calendrier et fidélité. Disponible sur iPhone et iPad, bientôt sur Android.">
+  <link rel="stylesheet" href="assets/site.css">
+  <noscript><style>@media(max-width:600px){.nav-links,.legal-page .nav-links{display:flex;position:static;flex-wrap:wrap;flex-direction:row;flex-basis:100%;border:0;box-shadow:none;padding:8px 0}.menu-toggle,.legal-page .doc-menu-toggle{display:none}.site-header{height:auto;min-height:77px}}</style></noscript>
 </head>
-<body>
+<body id="haut">
 <a class="skip" href="#contenu">Aller au contenu</a>
 <header class="site-header">
 <nav class="nav wrap" aria-label="Navigation principale">
@@ -315,7 +323,7 @@ details[open] summary:after{content:"−"}
 </svg>Télécharger sur l’App Store</a>
 </nav>
 </header>
-<main id="contenu">
+<main id="contenu" tabindex="-1">
 <div class="hero-shell">
 <section class="hero wrap" aria-labelledby="hero-title">
 <div class="hero-copy">
@@ -353,6 +361,13 @@ details[open] summary:after{content:"−"}
 </svg>
 </a>
 <small>iPhone et iPad &nbsp;·&nbsp; En français, anglais et espagnol</small>
+<div class="platform-soon">
+<a class="android-badge" href="#android" aria-label="Android : bientôt disponible, découvrir les informations">
+<img src="assets/android-head.svg" width="49" height="49" alt="">
+<span class="android-badge-copy"><span class="android-badge-label">Bientôt disponible</span><span class="android-badge-name">Android<sup>™</sup></span></span>
+</a>
+<span class="platform-caption">Version en cours de développement</span>
+</div>
 </div>
 </div>
 <div class="hero-art">
@@ -372,7 +387,7 @@ details[open] summary:after{content:"−"}
 <svg class="drawn-arrow" viewBox="0 0 50 65">
 <path d="M35 2C2 15 7 45 31 57m-13-2 14 3-2-14"/>
 </svg>Une vue claire<br>pour avancer<br>en toute sérénité.</div>
-<p class="visual-note">Aperçus de l’application · données de démonstration</p>
+<p class="visual-note">Aperçus de la version iOS · données de démonstration</p>
 </div>
 </section>
 </div>
@@ -628,7 +643,7 @@ details[open] summary:after{content:"−"}
 </a>
 </article>
 </div>
-<p class="plan-note">Offres accessibles au lancement de l’application. Sur iOS, le prix applicable est celui affiché par Apple lors de l’achat et peut varier selon le territoire et la devise. L’abonnement Pro se renouvelle automatiquement jusqu’à annulation auprès d’Apple. <a href="terms.html#s3">Conditions d’abonnement</a>.<br>En Free, l’affichage de l’historique est limité à 30 jours.</p>
+<p class="plan-note">Offres présentées pour la version iOS. La version Android est en cours de développement ; ses offres seront précisées à son lancement. Sur iOS, le prix applicable est celui affiché par Apple lors de l’achat et peut varier selon le territoire et la devise. L’abonnement Pro se renouvelle automatiquement jusqu’à annulation auprès d’Apple. <a href="terms.html#s3">Conditions d’abonnement</a>.<br>En Free, l’affichage de l’historique est limité à 30 jours.</p>
 </section>
 <section class="faq-layout" id="faq" aria-labelledby="faq-title">
 <div class="faq-copy">
@@ -649,7 +664,11 @@ details[open] summary:after{content:"−"}
 </details>
 <details>
 <summary>Quand pourrai-je télécharger l’application ?</summary>
-<p>Le lancement de la version iOS est en préparation. FlowNova n’est pas encore publiquement disponible sur l’App Store ; aucun lien de téléchargement public n’est proposé pour le moment.</p>
+<p>Pour iPhone et iPad, retrouvez FlowNova sur <a href="https://apps.apple.com/fr/app/flownova/id6796478817">l’App Store</a>. Sur Android, l’application est en cours de développement : elle sera bientôt disponible.</p>
+</details>
+<details id="android">
+<summary>Quand FlowNova sera-t-elle disponible sur Android ?</summary>
+<p>La version Android est en cours de développement. Aucune date de sortie précise n’est annoncée pour le moment. Le lien de téléchargement sera ajouté ici lors de sa mise à disposition. Les fonctionnalités et les appareils compatibles seront précisés au lancement.</p>
 </details>
 <details>
 <summary>Puis-je utiliser FlowNova sans connexion ?</summary>
@@ -670,14 +689,18 @@ details[open] summary:after{content:"−"}
 <h2 id="launch-title">Moins d’oublis.<br>
 <span class="gradient">Plus de liens.</span>
 </h2>
-<p>FlowNova disponible sur l’App Store.<br>Votre suivi client, pensé pour tenir dans votre poche.</p>
-<a class="btn" href="mailto:flownova.support@gmail.com?subject=Question%20sur%20le%20lancement%20de%20FlowNova">
-<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-<path fill="currentColor" stroke="none" d="M17.1 12.6c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.2-2.7.8-3.4.8-.7 0-1.8-.8-2.9-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.7-.4 6.7 1.1 8.9.8 1.1 1.7 2.3 2.8 2.2 1.1 0 1.6-.7 2.9-.7 1.3 0 1.7.7 2.9.7s2-1.1 2.7-2.2c.9-1.3 1.2-2.5 1.2-2.5-.1 0-2.3-.9-2.3-3.5ZM14.8 6c.6-.8 1.1-1.9 1-3-.9 0-2 .6-2.7 1.4-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.5 2.7-1.3Z"/>
-</svg>Une question sur le lancement ?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-<path d="M5 12h14m-6-6 6 6-6 6"/>
-</svg>
+<p>Retrouvez FlowNova sur iPhone et iPad.<br>Votre suivi client se prépare aussi à vous rejoindre sur Android.</p>
+<div class="launch-actions">
+<a class="btn" href="https://apps.apple.com/fr/app/flownova/id6796478817">Télécharger sur l’App Store <span aria-hidden="true">↗</span></a>
+<div class="platform-soon">
+<a class="android-badge" href="#android" aria-label="Android : bientôt disponible, découvrir les informations">
+<img src="assets/android-head.svg" width="49" height="49" alt="">
+<span class="android-badge-copy"><span class="android-badge-label">Bientôt disponible</span><span class="android-badge-name">Android<sup>™</sup></span></span>
 </a>
+<span class="platform-caption">Version en cours de développement</span>
+</div>
+</div>
+<a class="text-link launch-contact" href="mailto:flownova.support@gmail.com?subject=Question%20sur%20FlowNova">Une question ? Contactez-nous <span aria-hidden="true">→</span></a>
 </section>
 <div class="trust-row">
 <span>
@@ -710,6 +733,10 @@ details[open] summary:after{content:"−"}
 <a href="index.html">Confidentialité</a>
 <a href="terms.html">Conditions d’utilisation</a>
 <a href="delete-account.html">Supprimer mon compte</a>
+<a class="android-badge android-badge--compact" href="#android" aria-label="Android : bientôt disponible, découvrir les informations">
+<img src="assets/android-head.svg" width="49" height="49" alt="">
+<span class="android-badge-copy"><span class="android-badge-label">Bientôt disponible</span><span class="android-badge-name">Android<sup>™</sup></span></span>
+</a>
 <a href="mailto:flownova.support@gmail.com">Contact</a>
 </nav>
 </div>
@@ -719,8 +746,17 @@ details[open] summary:after{content:"−"}
 </span>
 </div>
 </div>
+<details class="android-attribution">
+<summary>Crédits Android</summary>
+<p>Android is a trademark of Google LLC. The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the <a href="https://creativecommons.org/licenses/by/3.0/">Creative Commons 3.0 Attribution License</a>.</p>
+</details>
+<a class="back-top" href="#haut">↑ Retour en haut</a>
 </footer>
 <script>
+function revealAndroid() { if (location.hash === '#android') document.getElementById('android').open = true; }
+window.addEventListener('hashchange', revealAndroid);
+revealAndroid();
+document.querySelectorAll('a[href="#android"]').forEach(link => link.addEventListener('click', () => { document.getElementById('android').open = true; }));
 const toggle = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#navigation');
 function closeMenu() { navigation.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Ouvrir le menu'); }
