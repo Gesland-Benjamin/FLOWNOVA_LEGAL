@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FlowNova — Vos relations. Votre succès.</title>
+  <title>FlowNova — CRM mobile pour indépendants</title>
   <meta name="theme-color" content="#6950ff">
-  <link rel="icon" type="image/png" href="splash-icon.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/optimized/favicon-48.png">
   <style>
 :root{--ink:#10112f;--muted:#5f617b;--violet:#7443ff;--blue:#4d65ff;--line:#e9e8f4;--gradient:linear-gradient(110deg,#853fff,#505bff 65%,#638bff);--max:1200px}
 
@@ -27,7 +27,7 @@ p{color:var(--muted)}
 .wrap{width:min(var(--max),calc(100% - 72px));margin-inline:auto}
 .gradient{color:#684bff;background:var(--gradient);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .eyebrow{display:block;color:#5d4aae;font-size:12px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;margin-bottom:18px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:54px;padding:14px 24px;border-radius:16px;background:var(--gradient);color:white;font-weight:600;font-size:14px;box-shadow:0 9px 25px #6853ff23;transition:transform .2s,box-shadow .2s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:54px;padding:14px 24px;border-radius:16px;background:linear-gradient(110deg,#853fff,#505bff 65%,#4d65df);color:white;font-weight:600;font-size:14px;box-shadow:0 9px 25px #6853ff23;transition:transform .2s,box-shadow .2s}
 .btn:hover{transform:translateY(-3px);box-shadow:0 13px 30px #6853ff36}
 .btn .icon:last-child{width:19px;margin-left:8px}
 .btn .icon:first-child{width:25px}
@@ -82,7 +82,7 @@ p{color:var(--muted)}
 .green{background:#e0faf0;color:#1eaf83}
 .blue{background:#e6f0ff;color:#3776ff}
 .pink{background:#ffe7ef;color:#ed598c}
-.benefits h3{font-size:15px;letter-spacing:-.03em;margin-bottom:9px}
+.benefits h2{font-size:15px;letter-spacing:-.03em;margin-bottom:9px}
 .benefits p{font-size:12px;line-height:1.55;max-width:150px;margin:auto}
 
 .overview{background:radial-gradient(ellipse at 60% 20%,#eaf5ff,transparent 70%),#f7f8ff;border:1px solid #f1f2fb;border-radius:30px;display:grid;grid-template-columns:1fr 1.1fr .64fr;gap:30px;align-items:center;padding:44px 36px 25px;min-height:475px;overflow:hidden}
@@ -203,7 +203,7 @@ details[open] summary:after{content:"−"}
 .hero-cta .btn .icon:last-child{display:none}
 .hero-cta small{font-size:10px;margin-left:0}
 .benefits{gap:14px;padding-top:35px}
-.benefits h3{font-size:13px}
+.benefits h2{font-size:13px}
 .benefits p{font-size:11px}
 .round-icon{width:48px;height:48px}
 .overview h2{font-size:30px}
@@ -297,17 +297,64 @@ details[open] summary:after{content:"−"}
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="FlowNova">
-  <meta property="og:title" content="FlowNova — Vos relations. Votre succès.">
+  <meta property="og:title" content="FlowNova — CRM mobile pour indépendants">
   <meta property="og:description" content="FlowNova, le CRM mobile des indépendants : contacts, relances, calendrier et fidélité. Disponible sur iPhone et iPad, bientôt sur Android.">
   <link rel="stylesheet" href="assets/site.css">
   <noscript><style>@media(max-width:600px){.nav-links,.legal-page .nav-links{display:flex;position:static;flex-wrap:wrap;flex-direction:row;flex-basis:100%;border:0;box-shadow:none;padding:8px 0}.menu-toggle,.legal-page .doc-menu-toggle{display:none}.site-header{height:auto;min-height:77px}}</style></noscript>
+  <link rel="canonical" href="https://flownova-crm.fr/">
+  <meta property="og:url" content="https://flownova-crm.fr/">
+  <meta property="og:image" content="https://flownova-crm.fr/assets/optimized/flownova-social.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Aperçu de FlowNova sur iPhone et iPad : tableau de bord et pipeline commercial">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FlowNova — CRM mobile pour indépendants">
+  <meta name="twitter:description" content="FlowNova, le CRM mobile des indépendants : contacts, relances, calendrier et fidélité. Disponible sur iPhone et iPad, bientôt sur Android.">
+  <meta name="twitter:image" content="https://flownova-crm.fr/assets/optimized/flownova-social.jpg">
+  <meta name="twitter:image:alt" content="Aperçu de FlowNova sur iPhone et iPad : tableau de bord et pipeline commercial">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://flownova-crm.fr/#website",
+      "url": "https://flownova-crm.fr/",
+      "name": "FlowNova",
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://flownova-crm.fr/#application",
+      "name": "FlowNova",
+      "description": "FlowNova, le CRM mobile des indépendants : contacts, relances, calendrier et fidélité.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": [
+        "iOS",
+        "iPadOS"
+      ],
+      "url": "https://flownova-crm.fr/",
+      "image": "https://flownova-crm.fr/assets/optimized/flownova-social.jpg",
+      "downloadUrl": "https://apps.apple.com/fr/app/flownova/id6796478817",
+      "offers": {
+        "@type": "Offer",
+        "name": "FlowNova Free",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "url": "https://flownova-crm.fr/#plans"
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body id="haut">
 <a class="skip" href="#contenu">Aller au contenu</a>
 <header class="site-header">
 <nav class="nav wrap" aria-label="Navigation principale">
-<a class="brand" href="home.html" aria-label="FlowNova, accueil">
-<img src="splash-icon.png" width="42" height="42" alt="">
+<a class="brand" href="/" aria-label="FlowNova, accueil">
+<img src="/assets/optimized/logo-84.png" srcset="/assets/optimized/logo-84.png 2x, /assets/optimized/logo-126.png 3x" width="42" height="42" alt="">
 <span>FlowNova</span>
 </a>
 <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navigation">☰</button>
@@ -376,10 +423,10 @@ details[open] summary:after{content:"−"}
 </svg>
 </div>
 <div class="device hero-tablet">
-<img src="capture/03_Pipeline_iPad_2048x2732.png" width="2048" height="2732" alt="Pipeline FlowNova sur iPad, avec les contacts organisés par statut" fetchpriority="high" decoding="async">
+<img src="/assets/optimized/pipeline-800.webp" srcset="/assets/optimized/pipeline-480.webp 480w, /assets/optimized/pipeline-800.webp 800w" sizes="(max-width: 600px) 260px, 376px" width="2048" height="2732" alt="Pipeline FlowNova sur iPad, avec les contacts organisés par statut" decoding="async">
 </div>
 <div class="device hero-phone">
-<img src="capture/01_Dashboard_iPhone_1290x2796.png" alt="Tableau de bord FlowNova sur iPhone : contacts et relances du jour" width="1290" height="2796" fetchpriority="high" decoding="async">
+<img src="/assets/optimized/dashboard-800.webp" srcset="/assets/optimized/dashboard-480.webp 480w, /assets/optimized/dashboard-800.webp 800w" sizes="(max-width: 600px) 184px, 246px" alt="Tableau de bord FlowNova sur iPhone : contacts et relances du jour" width="1290" height="2796" decoding="async">
 </div>
 <span class="art-dot" aria-hidden="true">
 </span>
@@ -400,7 +447,7 @@ details[open] summary:after{content:"−"}
 <circle cx="9" cy="7" r="4"/>
 </svg>
 </div>
-<h3>Contacts</h3>
+<h2>Contacts</h2>
 <p>Toutes vos relations<br>au même endroit</p>
 </article>
 <article>
@@ -409,7 +456,7 @@ details[open] summary:after{content:"−"}
 <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-11 12h4"/>
 </svg>
 </div>
-<h3>Relances</h3>
+<h2>Relances</h2>
 <p>Gardez le fil de<br>vos opportunités</p>
 </article>
 <article>
@@ -418,7 +465,7 @@ details[open] summary:after{content:"−"}
 <path d="M5 20V11m7 9V4m7 16V8"/>
 </svg>
 </div>
-<h3>Statistiques</h3>
+<h2>Statistiques</h2>
 <p>Suivez votre<br>progression</p>
 </article>
 <article>
@@ -428,7 +475,7 @@ details[open] summary:after{content:"−"}
 <path d="M3 10h18m-13 5h4"/>
 </svg>
 </div>
-<h3>Fidélité</h3>
+<h2>Fidélité</h2>
 <p>Récompensez<br>vos clients</p>
 </article>
 <article>
@@ -437,7 +484,7 @@ details[open] summary:after{content:"−"}
 <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>
 </svg>
 </div>
-<h3>Plus humain</h3>
+<h2>Plus humain</h2>
 <p>Parce que vos clients<br>comptent vraiment</p>
 </article>
 </section>
@@ -454,14 +501,14 @@ details[open] summary:after{content:"−"}
 <div class="mini-devices">
 <figure>
 <div class="device ">
-<img src="capture/02_Contacts_iPhone_1290x2796.png" alt="Liste des contacts FlowNova avec recherche et import/export CSV" width="1290" height="2796" loading="lazy" decoding="async">
+<img src="/assets/optimized/contacts-800.webp" srcset="/assets/optimized/contacts-480.webp 480w, /assets/optimized/contacts-800.webp 800w" sizes="160px" alt="Liste des contacts FlowNova avec recherche et import/export CSV" width="1290" height="2796" loading="lazy" decoding="async">
 </div>
 <figcaption>
 <strong>Vos contacts</strong>Toujours à portée de main</figcaption>
 </figure>
 <figure>
 <div class="device ">
-<img src="capture/06_Calendrier_iPhone_1290x2796.png" alt="Calendrier des relances FlowNova sur iPhone" width="1290" height="2796" loading="lazy" decoding="async">
+<img src="/assets/optimized/calendrier-800.webp" srcset="/assets/optimized/calendrier-480.webp 480w, /assets/optimized/calendrier-800.webp 800w" sizes="160px" alt="Calendrier des relances FlowNova sur iPhone" width="1290" height="2796" loading="lazy" decoding="async">
 </div>
 <figcaption>
 <strong>Un calendrier clair</strong>Pour organiser vos relances</figcaption>
@@ -469,8 +516,8 @@ details[open] summary:after{content:"−"}
 </div>
 <div class="quote">
 <p>« Entretenir ses relations aujourd’hui,<br>c’est construire ses opportunités de demain. »</p>
-<a class="brand" href="home.html" aria-label="FlowNova, accueil">
-<img src="splash-icon.png" width="42" height="42" alt="">
+<a class="brand" href="/" aria-label="FlowNova, accueil">
+<img src="/assets/optimized/logo-84.png" srcset="/assets/optimized/logo-84.png 2x, /assets/optimized/logo-126.png 3x" width="42" height="42" alt="">
 <span>FlowNova</span>
 </a>
 </div>
@@ -725,8 +772,8 @@ details[open] summary:after{content:"−"}
 <footer class="site-footer">
 <div class="wrap">
 <div class="footer-main">
-<a class="brand" href="home.html" aria-label="FlowNova, accueil">
-<img src="splash-icon.png" width="42" height="42" alt="">
+<a class="brand" href="/" aria-label="FlowNova, accueil">
+<img src="/assets/optimized/logo-84.png" srcset="/assets/optimized/logo-84.png 2x, /assets/optimized/logo-126.png 3x" width="42" height="42" alt="">
 <span>FlowNova</span>
 </a>
 <nav class="footer-links" aria-label="Informations légales">

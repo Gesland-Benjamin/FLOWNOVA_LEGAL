@@ -1,1 +1,15 @@
 DirectoryIndex home.html index.html
+
+RewriteEngine On
+# THE_REQUEST is the original browser request, never a DirectoryIndex subrequest.
+# Keep this first so www + /home.html normalize in one redirect.
+RewriteCond %{THE_REQUEST} "\s/+home\.html(?:[?\s])" [NC]
+RewriteRule ^home\.html$ https://flownova-crm.fr/ [R=301,L,NE]
+
+# Hostinger/CDN enforces HTTPS. Only normalize the host here, independently of TLS.
+# Preserve paths and query strings; index.html is the privacy policy.
+RewriteCond %{HTTP_HOST} !^flownova-crm\.fr$ [NC]
+RewriteRule ^ https://flownova-crm.fr%{REQUEST_URI} [R=301,L,NE]
+
+# An internal error document preserves the original HTTP 404 status.
+ErrorDocument 404 /404.html
